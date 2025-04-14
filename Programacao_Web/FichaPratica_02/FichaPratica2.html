@@ -6,11 +6,13 @@
     <title>Francisco Perez</title>
 </head>
 <body>
-
+    <!-- This is a header -->
     <h1>Francisco Perez</h1>
+    <main>
     <p>Nascido e criado no Porto, 30 anos.</p>
-    <p>Experiência em Jornalismo, Marketing, Gestão de Projetos IT </p>
-    <p> Engenheiro de Software em construção</p>
+    <p>Experiência em Jornalismo, Marketing, Gestão de Projetos. </p>
+    <p> Engenheiro de Software em construção.</p>
+    </main>
 
     <img src="Imagens/FP.jpg" alt="FP" width="500"
 
@@ -20,6 +22,68 @@
         <li>Desporto</li>
         <li>Leitura</li>
     </ul>
+
+    <!-- This is a header -->
+    <header>
+    <h2>Experiência Profissional </h2>
+    </header>
+        <table>
+            <thead>
+            <tr>
+            <th>Cargo</th>
+            <th>Empresa</th>
+            <th>Data</th>
+           </tr> 
+            </thead>
+
+            <tbody>
+            <tr>
+                <td>Project Manager</td>
+                <td>PHC Software</td>
+                <td>Outubro 2024 a Março 2025</td>
+            </tr>
+            
+            <tr>
+                <td>Product Manager</td>
+                <td>Natixis in Portugal</td>
+                <td>Junho 2023 a Setembro 2024</td>
+             </tr>
+
+             <tr>
+                <td>Marketing Consultant</td>
+                <td>Squadra: Marketing and Sales Consultants</td>
+                <td>Julho 2022 a Junho 2023</td>
+             </tr>
+            </tbody>
+        </table>
     
+    <!-- This is a header -->
+    <header>
+    <h3>Entra em contacto!</h3>
+    </header>
+
+    <form action="processa.php" method="POST">
+        <label for="name">Nome:</label>
+        <input type="text" id="Nome" name="nome"><br><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email"><br><br>
+
+        <label for="mensagem">Mensagem:</label>
+        <textarea id="mensagem" name="mensagem" rows="4" cols="50"></textarea><br></br>
+
+        <input type="submit" value="Enviar"
+    </form>
+
+    <footer>
+        <p>&copy; Francisco Perez.</p>
+        <p><a href="https://www.yourcompany.com/privacy-policy">Privacy Policy</a> | <a href="https://www.yourcompany.com/terms-of-service">Terms of Service</a></p>
+        <p>Follow us on:
+          <a href="https://www.facebook.com/yourcompany" target="_blank">Facebook</a> |
+          <a href="https://twitter.com/yourcompany" target="_blank">Twitter</a> |
+          <a href="https://www.instagram.com/yourcompany" target="_blank">Instagram</a>
+        </p>
+      </footer>
+      
 </body>
 </html>
