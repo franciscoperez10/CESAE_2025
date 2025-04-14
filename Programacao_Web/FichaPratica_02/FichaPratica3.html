@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Francisco Perez</title>
+    <link rel="stylesheet" href="FichaPratica3style.css">
+</head>
+
+<body>
+    <!-- Main Header -->
+    <header id="main-header">
+    <h1 id="titulo-principal">Francisco Perez</h1>
+    </header>
+    
+<main>
+    <!--Introduction Section-->
+    <section id="introducao">
+    <p>Nascido e criado no Porto, 30 anos.</p>
+    <p>Experiência em Jornalismo, Marketing, Gestão de Projetos. </p>
+    <p> Engenheiro de Software em construção.</p>
+    </section>
+
+    <img src="Imagens/FP.jpg" alt="FP" class="center">
+
+    <!--Interests Section -->
+    <section id="interesses">
+    <h2>Interesses</h2>
+        <ul>
+        <li>Música</li>
+        <li>Culinária</li>
+        <li>Desportos de combate</li>
+        <li>Livros</li>
+    </ul>
+    </section>
+
+<section class="experience-section">
+    <!-- Container para o Título -->
+    <div class="title-container">
+      <h2 class="experience-title">Experiência Profissional</h2>
+    </div>
+    
+    <!-- Container para a tabela -->
+    <div class="table-container">
+      
+      <!-- Cabeçalho da tabela -->
+      <div class="table-header">
+        <div class="table-cell">Cargo</div>
+        <div class="table-cell">Empresa</div>
+        <div class="table-cell">Data</div>
+      </div>
+      
+      <!-- Linha 1 -->
+      <div class="table-row">
+        <div class="table-cell">Project Manager</div>
+        <div class="table-cell">PHC Software</div>
+        <div class="table-cell">Outubro 2024 a Março 2025</div>
+      </div>
+      
+      <!-- Linha 2 -->
+      <div class="table-row">
+        <div class="table-cell">Product Manager</div>
+        <div class="table-cell">Natixis in Portugal</div>
+        <div class="table-cell">Junho 2023 a Setembro 2024</div>
+      </div>
+      
+      <!-- Linha 3 -->
+      <div class="table-row">
+        <div class="table-cell">Marketing Consultant</div>
+        <div class="table-cell">Squadra: Marketing and Sales Consultants</div>
+        <div class="table-cell">Julho 2022 a Junho 2023</div>
+
+    <!-- Fechar o container da div -->
+    </div>
+    </section>
+  
+
+    <br></br>
+    
+    <!-- Contact Section -->
+    <section id="contacto">
+    <h3>Entra em contacto!</h3>
+        <form action="processa.php" method="POST">
+        <label for="name">Nome:</label>
+        <input type="text" id="Nome" name="nome"><br><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email"><br><br>
+
+        <label for="mensagem">Mensagem:</label>
+        <textarea id="mensagem" name="mensagem" rows="4" cols="25"></textarea><br></br>
+
+        <input type="submit" value="Enviar">
+        </form>
+    </section>
+</main>
+
+    <!--Footer Section-->
+    <footer>
+        <p>&copy; Francisco Perez.</p>
+        <p><a href="https://www.yourcompany.com/privacy-policy">Privacy Policy</a> | <a href="https://www.yourcompany.com/terms-of-service">Terms of Service</a></p>
+        <p>Follow me on:
+          <a href="https://www.facebook.com/yourcompany" target="_blank">Facebook</a> |
+          <a href="https://twitter.com/yourcompany" target="_blank">X</a> |
+          <a href="https://www.instagram.com/yourcompany" target="_blank">Instagram</a> |
+          <a href="https://www.instagram.com/yourcompany" target="_blank">LinkedIn</a>
+        </p>
+    </footer>
+      
+</body>
+</html>
