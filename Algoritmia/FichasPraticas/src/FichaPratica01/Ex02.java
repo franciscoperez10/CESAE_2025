@@ -1,12 +1,12 @@
+package FichaPratica01;
+
 import java.util.Scanner;
 
-public class Main
-{
+public class Ex02 {
     public static void main (String[] args) {
 
-        Scanner input = new Scanner (System.in);
+        Scanner input = new Scanner(System.in);
         int numero1, numero2;
-        String nome;
 
         System.out.print("Introduza um número: ");
         numero1 = input.nextInt();
@@ -15,6 +15,8 @@ public class Main
         numero2 = input.nextInt();
 
         System.out.println("Soma: " + (numero1 + numero2));
-
+        System.out.println("Subtração: " + (numero1 - numero2));
+        System.out.println("Multiplicação: " + (numero1 * numero2));
+        System.out.println("Divisão: " + (numero1 / numero2));
     }
 }
