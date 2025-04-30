@@ -10,18 +10,21 @@ public class Ex12 {
         numero = input.nextInt();
 
         while (numero >= 0) {
-            if (numero <= 25) {
-                contador0_25++;
-            } else if (numero <= 50) {
-                contador_26_50++;
-            } else if (numero <= 75) {
-                contador51_75++;
-            } else if (numero <= 100) {
-                contador76_100++;
-            }
 
             System.out.println("Introduza um número - (negativo para terminar o programa): ");
             numero = input.nextInt();
+
+            if (numero <= 25) {
+                contador0_25++;
+            } else if (numero >= 26 && numero <= 50) {
+                contador_26_50++;
+            } else if (numero >= 51 && numero <= 75) {
+                contador51_75++;
+            } else if (numero >= 76 && numero <= 100) {
+                contador76_100++;
+            }
+
+
         }
 
         System.out.println("[0-25]: " + contador0_25);
@@ -29,4 +32,6 @@ public class Ex12 {
         System.out.println("[51-75]: " + contador51_75);
         System.out.println("[76-100]: " + contador76_100);
     }
+
+
 }

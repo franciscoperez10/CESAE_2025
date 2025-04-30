@@ -7,16 +7,17 @@ public class Ex09 {
     public static void main(String[] args) {
 
         Scanner input = new Scanner(System.in);
-        int numero, soma = 0, contador;
+        int numero = 0, soma = 0, contador = 0, media;
 
-        System.out.println("Introuza um número (-1 para terminar o programa): ");
-        numero = input.nextInt();
 
         while (numero != -1) {
+            System.out.println("Introduza um número: ");
+            numero = input.nextInt();
             soma = soma + numero;
-            System.out.println("Introduza outro número: ");
+            contador++;
         }
 
-
+        media = soma / contador;
+        System.out.println("Média: " + media);
     }
 }
