@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Slab:wght@300;400;500;600;700&family=Jura:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="styleindex.css">
+  <title>Homepage</title>
+</head>
+
+<body>
+  <!-- Barra de Navegação -->
+  <nav class="navbar navbar-expand-lg transparent-navbar">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+              aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav"> 
+        <ul class="navbar-nav ms-auto"> 
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="pagina3.html">Acomodação</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="pagina4.html">Locais</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Blog</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="pagina2.html">Contactos</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Secção Hero a ocupar o ecrã completo -->
+  <div class="hero-image">
+    <h1>LIVING AROUND</h1>
+  </div>
+
+  <!-- Primeira secção - info -->
+  <div class="container-fluid beige-section">
+    <div class="container py-5">
+      <div class="row align-items-center">
+        <div class="col-md-6">
+          <p class="tagline">
+            Viva <span class="highlight">livre</span>, trabalhe 
+            de qualquer lugar, 
+            descubra o <span class="highlight">mundo</span>.
+          </p>
+        </div>
+
+  <!--  Primeira secção - coluna "trabalhos remotos"-->
+   <div class="col-md-6">
+      <div class="trabalhos-section">
+          <h2 class="mb-4">Trabalhos Remotos</h2>
+            <div class="job-links">
+              <div class="row">
+                <div class="col-6">
+                  <p>Indeed</p>
+                  <p>LinkedIn</p>
+                  <p>JobRemote</p>
+                  <p>GoogleJobs</p>
+                </div>
+                <div class="col-6">
+                  <p>Indeed</p>
+                  <p>LinkedIn</p>
+                  <p>JobRemote</p>
+                  <p>GoogleJobs</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+   </div>
+
+  <!-- Image1 e Caixa Preta do lado direito -->
+  <div class="container-fluid p-0">
+    <div class="row m-0">
+      <!-- Coluna com Image1 -->
+      <div class="col-md-6 p-0">
+        <img src="Imagens/image1.png" alt="Image1" class="img-fluid h-100 w-100" style="object-fit: cover;">
+      </div>
+
+      <!-- Coluna com a Caixa Preta -->
+      <div class="col-md-6 p-0">
+        <div class="black-box d-flex flex-column align-items-center justify-content-center">
+          <div class="text-center">
+            <h3 class="mb-4">Descubra o seu novo escritório</h3>
+            <a href="pagina3.html" class="btn btn-outline-light rounded-pill px-5 py-2">Descobrir</a>
+          </div>
+
+          <!-- Seta de regresso / https://icons.getbootstrap.com/icons/arrow-up/ -->
+          <div class="position-absolute bottom-0 end-0 p-3">
+            <a href="#" class="back-to-top">
+              <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="white" class="bi bi-arrow-up-circle" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V11.5z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Caixa bege e Image2 -->
+  <div class="container-fluid p-0">
+    <div class="row m-0">
+      <!-- Coluna com caixa bege do lado esquerdo -->
+      <div class="col-md-6 p-0">
+        <div class="beige-box d-flex flex-column align-items-center justify-content-center">
+          <div class="text-center">
+            <h3 class="mb-4">Temos destinos especiais para você</h3>
+            <a href="pagina4.html" class="btn btn-outline-dark rounded-pill px-5 py-2">Explorar</a>
+          </div>
+
+          <!-- Seta de regresso / https://icons.getbootstrap.com/icons/arrow-up/ -->
+          <div class="position-absolute bottom-0 start-0 p-3">
+            <a href="#" class="back-to-top">
+              <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="black" class="bi bi-arrow-up-circle" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V11.5z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <!-- Coluna com Image2 -->
+      <div class="col-md-6 p-0">
+        <img src="Imagens/image2.png" alt="Image2" class="img-fluid h-100 w-100" style="object-fit: cover;">
+      </div>
+    </div>
+  </div>
+
+  <!-- Blog com Image3 -->
+  <div class="container-fluid p-0">
+    <div class="row m-0">
+      <div class="col-12 p-0 position-relative">
+        <img src="Imagens/image3.png" alt="Image3" class="img-fluid w-100" style="object-fit: cover;">
+        <div class="blog-badge position-absolute">
+          <span>BLOG</span>
+        </div>
+
+        <!-- Seta de regresso / https://icons.getbootstrap.com/icons/arrow-up/-->
+        <div class="position-absolute bottom-0 end-0 p-3">
+          <a href="#" class="back-to-top">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="black" class="bi bi-arrow-up-circle" viewBox="0 0 16 16">
+              <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V11.5z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Rodapé -->
+  <footer class="container-fluid footer-bg py-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+          <h5 class="mb-3">LIVING AROUND</h5>
+          <div class="social-icons mb-3">
+            <a href="#" class="mx-2"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="mx-2"><i class="fab fa-instagram"></i></a>
+            <!-- Link do Bootstrap do Twitter / X não funciona nesta página -->
+            <a href="#" class="mx-2"><i class="bi bi-twitter-x"></i></a> 
+          </div>
+          <p class="small mb-0"><a href="https://www.cesaedigital.pt/fldrSite/pages/courseDetail.aspx?id=734749676F4E7A706C4D55366164637879304B454D5379497750577A7A5954392F6738315662513258774338322B395973576C3072623656427A4C656877542F71464B6F333331356453413D&zona=3342534551694C486772715677564434346B6B46574F455650692F3179347130" target="_blank"
+            >Powered by Cesae Digital</a></p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-Yt7cXlFscj3YUsBv3Q/NZ5ddZJ3V1VoZqCn4pz9K4UHmTcZvXjp+JMjB9g9A1L5H" crossorigin="anonymous"></script>
+</body>
+</html>

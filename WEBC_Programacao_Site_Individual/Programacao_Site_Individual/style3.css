@@ -1,0 +1,212 @@
+body {
+    font-family: 'Jura', sans-serif;
+    background-color: #f5e9c9; /* Beige background color */
+}
+
+/* Navigation Bar Styling */
+.navbar {
+    padding: 1rem 0;
+}
+
+.logo {
+    display: inline-block;
+}
+
+.nav-links a {
+    color: #000;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    padding: 0 15px;
+}
+
+.nav-links a:hover {
+    color: #666;
+}
+
+/* Hero Image Section with Fixed Background */
+.image5 {
+    background-image: url("Imagens/image5.png");
+    background-color: #f5b642; /* Fallback color if image fails to load */
+    height: 60vh;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.image5 h1 {
+    font-size: 3.5rem;
+    color: white;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: bold;
+}
+
+/* Row container */
+.row {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* Card Styling */
+.card {
+    background-color: #f8f2e0;
+    border-radius: 15px;
+    border: none;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card-img-top {
+    height: 200px; /* Fixed height for all card images */
+    object-fit: cover;
+}
+
+.card-title {
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.card-text {
+    color: #666;
+    margin-bottom: 0.5rem;
+}
+
+/* Add bullet points to equipment list items */
+.card-body p.card-text:not(:nth-child(2)):not(:nth-child(3)) {
+    margin: 0;
+    padding-left: 15px;
+    position: relative;
+}
+
+.card-body p.card-text:not(:nth-child(2)):not(:nth-child(3))::before {
+    content: "•"; /* Bullet point instead of dash */
+    position: absolute;
+    left: 0;
+}
+
+/* Button styling */
+.btn-link {
+    text-decoration: none;
+    padding: 0.375rem 0.75rem;
+    font-weight: 500;
+    transition: color 0.15s ease-in-out;
+}
+
+.btn-link:hover {
+    color: #666 !important;
+}
+
+/* Footer Styling */
+.footer-bg {
+    background-color: black;
+    color: white;
+    margin-top: 2rem;
+}
+
+footer h5 {
+    letter-spacing: 2px;
+    font-weight: bold;
+}
+
+.social-icons a {
+    color: white;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: #f5b642;
+}
+
+/* Modal Styling */
+.modal-content {
+    background-color: #f8f2e0;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.modal-dialog {
+    max-width: 700px;
+}
+
+.btn-success {
+    background-color: #8B8455;
+    border-color: #8B8455;
+    font-weight: 500;
+    border-radius: 8px;
+}
+
+.btn-success:hover {
+    background-color: #74703E;
+    border-color: #74703E;
+}
+
+/* For the list inside the modal */
+.modal-body ul {
+    padding-left: 20px;
+}
+
+.modal-body ul li {
+    margin-bottom: 0.5rem;
+}
+
+/* For the checkmark items */
+.modal-body p:has(✓) {
+    margin-bottom: 0.5rem;
+}
+
+footer .small a {
+    color: white;
+    text-decoration: none;
+}
+
+footer .small a:hover {
+    text-decoration: underline;
+}
+
+/* Hide the test modal button */
+.btn-primary[data-bs-toggle="modal"] {
+    display: none;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .image5 h1 {
+        font-size: 2.5rem;
+    }
+    
+    .nav-links a {
+        padding: 0 10px;
+    }
+}
+
+@media (max-width: 576px) {
+    .image5 {
+        height: 40vh;
+    }
+    
+    .image5 h1 {
+        font-size: 2rem;
+    }
+    
+    .card-img-top {
+        height: 160px;
+    }
+}
