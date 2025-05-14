@@ -18,7 +18,7 @@ public class Ex08 {
         System.out.println("Matriz inserida:");
         for (int i = 0; i < 3; i++) {
             for (int a = 0; a < 3; a++) {
-                System.out.print(matriz[i][a]);
+                System.out.print(matriz[i][a] + "\t");
             }
             System.out.println();
 

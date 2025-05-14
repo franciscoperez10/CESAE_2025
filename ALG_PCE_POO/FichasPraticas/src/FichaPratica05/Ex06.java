@@ -15,7 +15,7 @@ public class Ex06 {
         }
 
         // Verificação se o vetor está em ordem crescente
-        for (int i = 0; i < vetor.length - 1; i++) {
+        for (int i = 1; i < vetor.length - 1; i++) {
             if (vetor[i] > vetor[i + 1]) {
                 crescente = false;
                 break;
