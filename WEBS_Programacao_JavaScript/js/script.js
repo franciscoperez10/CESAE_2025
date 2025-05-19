@@ -1,81 +1,69 @@
-/* let myFirstVar = "Olá Mundo!";
-let jsIsCool = true;
+// let myFirstVar = "Olá Mundo!";
+// let jsIsCool = true;
 
-console.log(jsIsCool);
-jsIsCool= "aborreci-me dele";
-console.log(jsIsCool);
-jsIsCool= "12";
-console.log(jsIsCool+1); */
+// console.log(jsIsCool);
+// jsIsCool= "aborreci-me dele";
+// console.log(jsIsCool);
+// jsIsCool= "12";
+// console.log(jsIsCool+1);
 
-/* let day1 = "segunda-feira";
-let day2 = "terça-feira";
-let day3 = "quarta-feira";
+// //código que lança uma caixa de texto ao user a questionar e coloca a resposta dentro de uma variável
+// // let millionDolarQuestion =  prompt('que tal a semana com feriado e apagão?');
+// // console.log(millionDolarQuestion);
+// let day1 = 'segunda';
+// let day2 = 'terça';
+// let day3 = 'quarta';
 
-let weekDays = ['segunda-feira', 'terça-feira', 'quarta-feira'];
-console.log(weekDays[0]);
+// //console.log('a segunda posição é ' +day3[2]);
 
-let shoppingList = ['banana', 'maçã', 'laranja'];
-let item = prompt("Qual o item que quer adicionar à lista?");
-newShoppingList.push(item);
-console.log(shoppingList); */
+// //arrays
+// let weekDays = ['segunda', 'terça', 'quarta'];
+// // let studentNotes = [18, 19, 20, 17];
 
-/* let planets = ['Mercúrio', 'Vénus', 'Terra', 'Mart', 'Júpiter', 'Saturno', 'Urano', 'Neptuno', 'Plutão'];
-planets [3] = planets[3].replace('Mart', 'Marte');
-console.log(planets[3]);
+// // let ourSuperArr = ['segunda', true, 'Joana', 17];
 
-planets.pop();
-console.log(planets);
+// console.log('o array na posição 1 tem ' + weekDays[1][4].toUpperCase());
 
-planets.unshift('Galaxy');
-console.log(planets); */
+//ambos têm dentro o A
+//weekDays[1][4]
+//let myDay = weekDays[1];
+//console.log(myDay[4])
 
+//métodos de arrays
+function myShoppingList(){
+    let shoppingList = ['batatas', 'feijão', 'bananas', 'uvas'];
+    let item = prompt('Qual é o item a adicionar');
 
-/* for (let i = 1; i < 7; i++) {
-    console.log("Da ba dee da ba da");
-}
+    shoppingList.push(item)
 
-for (let i = 25; i>= 5; i -= 5) {
-    console.log(i);
-} */
+    console.log(shoppingList)
+    console.log(shoppingList[0]);
+    console.log(shoppingList[1]);
 
-/* const people = ["Scooby", "Velma", "Daphne", "Shaggy", "Fred"];
-const uppercasedPeople = [];
-for (let i = 0; i < people.length; i++) {
-    uppercasedPeople.push(people[i].toUpperCase());
-}
-console.log(uppercasedPeople); */
+    for(let i = 0; i<shoppingList.length; i++){
+        console.log('compra ' +shoppingList[i]);
+    }
 
-/*EXERCÍCIO 1
-
-const shoppingList = [];
-let adicionarItem = true;
-
-while (adicionarItem) {
-    const item = prompt("Qual o item que quer adicionar à lista? (Digite 'fim' para terminar)");
-    if (item && item.toLowerCase() === "fim") {
-        adicionarItem = false; // Termina o ciclo se o utilizador digitar "fim"
-    } else if (item) {
-        shoppingList.push(item); // Adiciona o item à lista se for válido
-    } else {
-        alert("Por favor, insira um item válido."); // Alerta para entradas inválidas
+    for(let key of shoppingList ){
+        console.log(key)
     }
 }
 
-console.log("Lista de compras:", shoppingList); */
+function modelObj(){
+    let modules = [
+        ['arrays', 'funçoes'], 
+        'js', 
+        'programação de servidor'];
 
-/*EXERCÍCIO 2*/
+    console.log(modules[0][1][2])
 
-const shoppingList = [];
-let adicionarItem = true;
-while (adicionarItem) {
-    const item = prompt("Qual o item que quer adicionar à lista? (Digite 'fim' para terminar)");
-    if (item && item.toLowerCase() === "fim") {
-        adicionarItem = false; 
-    } else if (item) {
-        shoppingList.push(item); 
-    } else {
-        alert("Por favor, insira um item válido."); 
+    let courseStructure = {
+        courseName: 'Software Developer',
+        hours : 1000,
+        modules: ['js', 'algoritimia', 'mysql']
     }
+
+    courseStructure.courseName = 'AWS';
 }
 
-console.log("Lista de compras:", shoppingList);
+

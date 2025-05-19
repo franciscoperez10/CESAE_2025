@@ -7,17 +7,26 @@
     <link rel="stylesheet" href="assets/bootstrap/bootstrap.css" />
     <link rel="stylesheet" href="css/style.css" />
 
-    <!-- <script src="js/script.js" defer></script> -->
     <script src="js/script.js" defer></script>
+    <script src="js/exs.js" defer></script>
+    <script src="js/exs.functions.js" defer></script>
+    <script src="js/scriptAfterFunctions.js" defer></script>
   </head>
   <body>
     <button class="btn btn-info">Olá</button>
     <h4>Olá Turma SD</h4>
+
+    <button onclick="myShoppingList()">Lista de Compras</button>
+
+    <button class="btn btn-danger" onclick="printHeart()">Heart</button>
+    <button class="btn btn-success" onclick="rant(message)">Função Rant</button>
+    <button class="btn btn-warning" onclick="tellMeWhatYouHate()">Ódio</button>
 
     <form action="">
       <label for="">Password</label>
       <input type="password" required />
       <button type="submit">Enviar</button>
     </form>
+
   </body>
 </html>
