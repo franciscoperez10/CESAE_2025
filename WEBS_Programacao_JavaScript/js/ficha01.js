@@ -1,7 +1,9 @@
+// EXERCÍCIO 1 //
 function multiply(num1, num2) {
     return num1 * num2;
 }
 
+// EXERCÍCIO 2 //
 function isShortsWeather(temperature) {
     if (temperature > 25) {
         return true;
@@ -10,6 +12,7 @@ function isShortsWeather(temperature) {
     }
 }
 
+// EXERCÍCIO 3 //
 function lastElement(array) {
     if (array.length == 0) {
         return null;
@@ -18,6 +21,7 @@ function lastElement(array) {
     }
 }
 
+// EXERCÍCIO 4 //
 function sumArray(array) {
     let sum = 0;
     for (let i = 0; i < array.length; i++) {
@@ -26,6 +30,7 @@ function sumArray(array) {
     return sum;
 }
 
+// EXERCÍCIO 5 //
 function returnDay (day) {
     switch (day) {
         case 1:
