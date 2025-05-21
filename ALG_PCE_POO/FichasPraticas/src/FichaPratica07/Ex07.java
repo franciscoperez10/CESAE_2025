@@ -6,29 +6,37 @@ import java.util.Scanner;
 
 public class Ex07 {
 
-    public static void somaDosElementos(String caminhoFicheiro) throws FileNotFoundException {
+    public static int contarLinhas(String caminho) throws FileNotFoundException {
 
-        File ficheiro = new File(caminhoFicheiro);
+        File ficheiro = new File(caminho);
         Scanner sc = new Scanner(ficheiro);
-        int linhas = 0; int palavras = 0;
+
+        int contagemLinhas = 0;
+
+        while (sc.hasNextLine()) {
+            sc.nextLine();
+            contagemLinhas++;
+        }
+
+        return contagemLinhas;
+
+    }
+
+    public static int contarPalavras(String caminho) throws FileNotFoundException {
+
+        File ficheiro = new File(caminho);
+        Scanner sc = new Scanner(ficheiro);
+
+        int contagemPalavras = 0;
 
         while (sc.hasNextLine()) {
             String linha = sc.nextLine();
-            linhas++;
-            String [] itensDalinha = linha.split(" ");
-            palavras += itensDalinha.length;
-            System.out.println(linha);
+            String[] linhaSeparada = linha.split(" ");
+
+            contagemPalavras += linhaSeparada.length;
         }
 
-        sc.close();
-        System.out.println("O número de linhas é: " + linhas);
-        System.out.println("O número de palavras é: " + palavras);
-    }
-
-    public static void main(String[] args) throws FileNotFoundException {
-
-        somaDosElementos("FichasPraticas/Ficheiros/exercicio_07.txt");
-
+        return contagemPalavras;
 
     }
 
