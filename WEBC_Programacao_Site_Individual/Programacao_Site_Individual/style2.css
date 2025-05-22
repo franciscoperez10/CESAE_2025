@@ -1,0 +1,184 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Jura', sans-serif;
+}
+
+body {
+  background-color: #0e1a24;
+  color: white;
+}
+
+.container {
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 5%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+}
+
+.logo {
+  font-size: 2rem;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  height: 40px;
+  margin-right: 10px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 30px;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.hero {
+  width: 100%;
+  height: 100vh;
+  background-image: url('Imagens/image4.png');
+  background-size: cover;
+  background-position: center;
+  filter: brightness(0.3);
+  display: flex;
+  align-items: center;
+}
+
+.form-container {
+  width: 380px;
+  margin-left: 5%;
+  background-color: rgba(0, 0, 0, 0.85);
+  padding: 30px;
+  border-radius: 15px;
+  backdrop-filter: blur(5px);
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 1rem;
+}
+
+.form-group input,.form-group textarea {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  background-color: white;
+  font-size: 1rem;
+}
+
+.form-group textarea {
+  height: 120px;
+  resize: none;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 15px;
+  border: 2px solid white;
+  border-radius: 50px;
+  background-color: transparent;
+  color: white;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+  background-color: white;
+  color: black;
+}
+
+.bg-image {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 60%;
+  height: 100%;
+  z-index: -1;
+  background-image: url('sunset-camping.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+@media (max-width: 768px) {
+
+  .navbar {
+    flex-direction: column;
+      padding: 15px 5%;
+  }
+
+  .form-container {
+      width: 90%;
+      margin: 0 auto;
+  }
+  
+  .bg-image {
+      width: 100%;
+  }
+  
+  .navbar {
+      flex-direction: column;
+      gap: 20px;
+  }
+  
+  .nav-links {
+      width: 100%;
+      justify-content: space-around;
+  }
+}
+
+   .quote-container {
+      position: absolute;
+      top: 50%;
+      right: 10%;
+      transform: translateY(-50%);
+      padding: 20px;
+      text-align: center;
+      color: white;
+      font-size: 1.2rem;
+      font-style: italic;
+      max-width: 400px;
+      z-index: 5;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+   }
+
+   .blockquote {
+      margin-bottom: 10px;
+      font-size: 1.5rem;
+      font-style: italic; 
+    }
+
+    .blockquote-footer {
+      color:rgba(255, 255, 255, 0.8);
+      text-align: right
+      font-size: 1rem;
+    }

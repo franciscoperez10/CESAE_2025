@@ -1,0 +1,197 @@
+body {
+  font-family: 'Jura', serif;
+  overflow-x: hidden;
+}
+
+.transparent-navbar {
+  background-color: transparent !important;
+  position: absolute;
+  width: 100%;
+  z-index: 1000;
+}
+
+.navbar-nav .nav-link {
+  color: white !important;
+  font-weight: 500;
+  margin-left: 1.5rem;
+}
+
+
+.hero-image {
+  background-image: url("Imagens/Hero.png");
+  background-color: #cccccc;
+  height: 100vh;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.hero-image h1 {
+  color: white;
+  font-size: 4rem;
+  text-align: center;
+  font-weight: bold;
+  letter-spacing: 0.2rem;
+}
+
+/* Beige Section */
+.beige-section {
+  background-color: #f5f1dd;
+  padding: 3rem 0;
+}
+
+.tagline {
+  font-size: 2.5rem;
+  line-height: 1.2;
+  font-weight: 300;
+}
+
+.highlight {
+  color: #867e45;
+  font-weight: 500;
+}
+
+.trabalhos-section {
+  position: relative;
+  padding: 20px;
+}
+
+/* Cruzetas à volta da caixa do lado direito */
+.trabalhos-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 30px;
+  height: 30px;
+  border-top: 3px solid #000;
+  border-left: 3px solid #000;
+  }
+
+.trabalhos-section::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 30px;
+  height: 30px;
+  border-bottom: 3px solid #000;
+  border-right: 3px solid #000;
+}
+
+.trabalhos-section h2 {
+  font-weight: bold;
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+}
+
+.job-links {
+  position: relative;
+  padding: 1rem;
+}
+
+.job-links p {
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+
+/* Black Box Section */
+.black-box {
+  background-color: #000;
+  color: white;
+  height: 100%;
+  padding: 4rem;
+  position: relative;
+}
+
+.black-box h3 {
+  font-size: 2rem;
+  font-weight: 400;
+}
+
+/* Beige Box Section */
+.beige-box {
+  background-color: #f5f1dd;
+  color: #333;
+  height: 100%;
+  padding: 4rem;
+  position: relative;
+}
+
+.beige-box h3 {
+  font-size: 2rem;
+  font-weight: 400;
+}
+
+/* Button Styles */
+.btn-outline-light, .btn-outline-dark {
+  border-width: 2px;
+  font-weight: 400;
+  min-width: 150px;
+}
+
+/* Blog Badge */
+.blog-badge {
+  bottom: 50%;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  background-color: #000;
+  color: white;
+  padding: 0.5rem 2rem;
+  border-radius: 50px;
+  font-weight: 500;
+}
+
+/* Back to top button */
+.back-to-top {
+  color: inherit;
+  transition: transform 0.3s ease;
+}
+
+.back-to-top:hover {
+  transform: translateY(-5px);
+}
+
+/* Footer */
+.footer-bg {
+  background-color: black;
+  color: white;
+}
+
+.social-icons a {
+  color: white;
+  font-size: 1.2rem;
+}
+
+.social-icons a:hover {
+  color: #555;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .hero-image {
+    height: 70vh;
+  }
+  
+  .hero-image h1 {
+    font-size: 3rem;
+  }
+  
+  .tagline {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+  }
+  
+  .black-box, .beige-box {
+    padding: 2rem;
+  }
+  
+  .blog-badge {
+    padding: 0.3rem 1.5rem;
+  }
+}
