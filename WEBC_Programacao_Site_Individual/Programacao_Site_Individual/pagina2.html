@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contatos</title>
+    <link rel="stylesheet" href="style2.css">
+    <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Slab:wght@300;400;500;600;700&family=Jura:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<!-- Navbar -->
+<body>
+    <div class="container">
+        <nav class="navbar">
+            <!-- Copiado como SVG, do Figma -->
+            <a href="index.html" class="logo">                
+                <svg width="59" height="70" viewBox="0 0 59 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g clip-path="url(#logo-clip-path)">
+                    <path d="M29.2469 3.76308C30.1073 1.4662 28.7092 -1.00841 26.1433 -1.77403C23.5774 -2.53966 20.781 -1.29552 19.9206 0.987688L0.253946 53.4877C-0.606471 55.7846 0.791706 58.2592 3.35759 59.0248C5.92348 59.7904 8.71983 58.5463 9.58025 56.2631L29.2469 3.76308ZM40.1404 -1.93809C37.467 -2.33458 34.9318 -0.721296 34.4862 1.65761L24.6529 54.1576C24.2073 56.5365 26.0204 58.7924 28.6938 59.1889C31.3672 59.5853 33.9024 57.9721 34.348 55.5932L44.1813 3.09316C44.6269 0.71425 42.8138 -1.54161 40.1404 -1.93809ZM54.0761 -1.99278C51.3566 -1.99278 49.1594 -0.037703 49.1594 2.38222V54.8822C49.1594 57.3021 51.3566 59.2572 54.0761 59.2572C56.7956 59.2572 58.9927 57.3021 58.9927 54.8822V2.38222C58.9927 -0.037703 56.7956 -1.99278 54.0761 -1.99278Z" fill="white" fill-opacity="0.4"/>
+                    </g>
+                    <defs>
+                    <clipPath id="logo-clip-path">
+                    <rect width="59" height="70" fill="white"/>
+                    </clipPath>
+                    </defs>
+                    </svg>                    
+            </a>
+            <div class="nav-links">
+                <a href="pagina3.html">Acomodação</a>
+                <a href="pagina4.html">Locais</a>
+                <a href="index.html">Blog</a>
+                <a href="#">Contatos</a>
+            </div>
+        </nav>
+
+        <!-- Quote que está no design Figma -->
+        <figure class="quote-container">
+            <blockquote class="blockquote">
+              <p>"Viajar é descobrir que todos estão errados sobre outros países".</p>
+                    <figcaption class="blockquote-footer">
+              <cite title="Source Title">Aldous Huxley</cite>
+               </blockquote>
+            </figcaption>
+          </figure>
+
+        <!-- Formulário de contacto -->
+        <div class="hero">
+            <div class="form-container">
+                <form id="contact-form" action="#" method="post">
+                    <div class="form-group">
+                        <label for="nome">Nome:</label>
+                        <input type="text" id="nome" name="nome" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="mensagem">Mensagem:</label>
+                        <textarea id="mensagem" name="mensagem" required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">Enviar</button>
+                </form>
+        </div>
+    </div>
+
+   <!-- Bootstrap link -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu1OCUj5zNLiq" crossorigin="anonymous"></script>
+</body>
+</html>
