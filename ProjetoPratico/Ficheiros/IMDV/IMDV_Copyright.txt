@@ -2,7 +2,7 @@
 (__   ____________________________________________   __)
    | |                                            | |
    | |             Desenvolvido por:              | |
-   | |               Vitor Santos                 | |
+   | |               Francisco Perez              | |
    | |                                            | |
    | |        Front-End Developer - CESAE         | |
    | |                                            | |
