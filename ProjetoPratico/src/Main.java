@@ -5,39 +5,39 @@ import java.util.Scanner;
 public class Main {
 
     public static int contarLinhas(String caminho) throws FileNotFoundException {
-
         File ficheiro = new File(caminho);
         Scanner sc = new Scanner(ficheiro);
-
         int contagemLinhas = 0;
 
         while (sc.hasNextLine()) {
             sc.nextLine();
             contagemLinhas++;
         }
+        sc.close();
         return contagemLinhas;
     }
 
     public static String[][] ficheiroParaMatriz(String caminho) throws FileNotFoundException {
-
         int numeroFilmes = contarLinhas(caminho) - 1;
-
         String[][] matrizCompleta = new String[numeroFilmes][8];
 
         File ficheiro = new File(caminho);
         Scanner sc = new Scanner(ficheiro);
         sc.nextLine();
 
-        int numFilmeAtual = 0;
+        int numeroFilmeAtual = 0;
 
         while (sc.hasNextLine()) {
             String linha = sc.nextLine();
             String[] linhaSeparada = linha.split(";");
 
-            System.arraycopy(linhaSeparada, 0, matrizCompleta[numFilmeAtual], 0, matrizCompleta[0].length);
-
-            numFilmeAtual++;
+            // Fixed the incomplete for loop
+            for (int i = 0; i < linhaSeparada.length && i < 8; i++) {
+                matrizCompleta[numeroFilmeAtual][i] = linhaSeparada[i];
+            }
+            numeroFilmeAtual++;
         }
+        sc.close();
         return matrizCompleta;
     }
 
@@ -45,8 +45,8 @@ public class Main {
         System.out.println("\n_*_*_* Filmes de " + tituloPesquisa + "_*_*_*");
 
         for (int linha = 0; linha < matriz.length; linha++) {
-            if (matriz[linha][3].equalsIgnoreCase(tituloPesquisa)) {
-                System.out.println(matriz[linha][0] + " | " + matriz[linha][2]);
+            if (matriz[linha][1].equalsIgnoreCase(tituloPesquisa)) {
+                System.out.println(matriz[linha][0] + " | " + matriz[linha][1]);
             }
         }
     }
@@ -55,7 +55,7 @@ public class Main {
         System.out.println("\n_*_*_* Filmes de " + ratingPesquisa + "_*_*_*");
 
         for (int linha = 0; linha < matriz.length; linha++) {
-            if (matriz[linha][3].equalsIgnoreCase(ratingPesquisa)) {
+            if (matriz[linha][2].equalsIgnoreCase(ratingPesquisa)) {
                 System.out.println(matriz[linha][0] + " | " + matriz[linha][2]);
             }
         }
@@ -65,7 +65,7 @@ public class Main {
         System.out.println("\n_*_*_* Filmes de " + duracaoPesquisa + "_*_*_*");
 
         for (int linha = 0; linha < matriz.length; linha++) {
-            if (matriz[linha][4].equalsIgnoreCase(duracaoPesquisa)) {
+            if (matriz[linha][3].equalsIgnoreCase(duracaoPesquisa)) {
                 System.out.println(matriz[linha][0] + " | " + matriz[linha][3]);
             }
         }
@@ -75,7 +75,7 @@ public class Main {
         System.out.println("\n_*_*_* Filmes de " + anoPesquisa + "_*_*_*");
 
         for (int linha = 0; linha < matriz.length; linha++) {
-            if (matriz[linha][5].equalsIgnoreCase(anoPesquisa)) {
+            if (matriz[linha][4].equalsIgnoreCase(anoPesquisa)) {
                 System.out.println(matriz[linha][0] + " | " + matriz[linha][4]);
             }
         }
@@ -85,7 +85,7 @@ public class Main {
         System.out.println("\n_*_*_* Filmes de " + estudioPesquisa + "_*_*_*");
 
         for (int linha = 0; linha < matriz.length; linha++) {
-            if (matriz[linha][6].equalsIgnoreCase(estudioPesquisa)) {
+            if (matriz[linha][5].equalsIgnoreCase(estudioPesquisa)) {
                 System.out.println(matriz[linha][0] + " | " + matriz[linha][5]);
             }
         }
@@ -95,7 +95,7 @@ public class Main {
         System.out.println("\n_*_*_* Filmes de " + realizadorPesquisa + "_*_*_*");
 
         for (int linha = 0; linha < matriz.length; linha++) {
-            if (matriz[linha][7].equalsIgnoreCase(realizadorPesquisa)) {
+            if (matriz[linha][6].equalsIgnoreCase(realizadorPesquisa)) {
                 System.out.println(matriz[linha][0] + " | " + matriz[linha][6]);
             }
         }
@@ -105,55 +105,45 @@ public class Main {
         System.out.println("\n_*_*_* Filmes de " + generoPesquisa + "_*_*_*");
 
         for (int linha = 0; linha < matriz.length; linha++) {
-            if (matriz[linha][8].equalsIgnoreCase(generoPesquisa)) {
-                System.out.println(matriz[linha][0] + " | " + matriz[linha][7]);
+            if (matriz[linha][7].equalsIgnoreCase(generoPesquisa)) {
+                System.out.println(matriz[linha][0] + " | " + matriz[linha][1]);
             }
         }
     }
 
-
-// FUNÇÃO MENU PRINCIPAL // //REVER //
-
-    public static void menuPrincipal(String[][] dadosLogin) {
-
-
+    public static void menuPrincipal() throws FileNotFoundException {
         Scanner input = new Scanner(System.in);
-
         int tipoDeUtilizador;
 
         do {
-
             System.out.println("Selecione o seu tipo de utilizador: ");
             System.out.println("1. Administrador");
             System.out.println("2. Cliente");
             System.out.println("0. Sair");
+            System.out.print("Opção: ");
             tipoDeUtilizador = input.nextInt();
 
-            System.out.println();
 
             switch (tipoDeUtilizador) {
                 case 1:
-                    System.out.println("Administrador");
-                    menuAdministrador();
+                    System.out.println("Área de Administrador");
+                    login();
                     break;
-
                 case 2:
-                    System.out.println("Cliente");
+                    System.out.println("Área de Cliente");
                     menuCliente();
                     break;
-
                 case 0:
                     System.out.println("A sair do programa...");
+                    imprimirCopyright();
                     break;
-
                 default:
                     System.out.println("Opção inválida, tente novamente");
                     break;
             }
         } while (tipoDeUtilizador != 0);
+        input.close();
     }
-
-// ---------------------------- MENU ADMIN  --------------------------------- //
 
     public static void menuAdministrador() throws FileNotFoundException {
         Scanner input = new Scanner(System.in);
@@ -167,8 +157,9 @@ public class Main {
             System.out.println("0. Sair do Menu");
             System.out.print("Escolha uma opção: ");
             opcao = input.nextInt();
+            input.nextLine();
 
-            switch (opcao) { // Colocar funções específicas
+            switch (opcao) {
                 case 1:
                     consultaDeFicheiros();
                     break;
@@ -176,7 +167,8 @@ public class Main {
                     totalDeRatings();
                     break;
                 case 3:
-                    imprimirTodosOsEstudios();
+                    String[][] dados = ficheiroParaMatriz("Ficheiros/IMDV/IMDV.csv");
+                    imprimirTodosOsEstudios(dados);
                     break;
                 case 0:
                     System.out.println("A sair do menu....");
@@ -185,38 +177,11 @@ public class Main {
                     System.out.println("Opção inválida, tente novamente");
             }
         } while (opcao != 0);
+        input.close();
     }
 
-    //REVER //
-    public static void menuLogin(String[][] dadosLogin) {
 
-        Scanner input = new Scanner(System.in);
-
-        if (validarLogin(dadosLogin)) {;
-        } else {
-            System.out.println("Login inválido");
-            System.out.println("1.Tente novamente");
-            System.out.println("2. Regresse ao menu principal");
-
-            int opcao = input.nextInt();
-            input.nextLine();
-
-            switch (opcao) {
-                case 1:
-                    System.out.println("1.Tente novamente");
-                    break;
-                case 2:
-                    System.out.println("2. Regresse ao menu principal");
-                    break;
-                default:
-                    System.out.println("Opção inválida");
-            }
-        }
-
-    }
-
-        //REVER //
-        public static boolean validarLogin(String caminho, String user, String pass) throws FileNotFoundException {
+    public static boolean validarLogin(String caminho, String username, String password) throws FileNotFoundException {
         File ficheiro = new File(caminho);
         Scanner sc = new Scanner(ficheiro);
         boolean access = false;
@@ -225,89 +190,100 @@ public class Main {
             String linha = sc.nextLine();
             String[] itensDaLista = linha.split(";");
 
-            if (user.equals(itensDaLista[0]) && pass.equals(itensDaLista[1])) {
-                System.out.println("Welcome");
-                menuAdministrador(ficheiroParaMatriz(caminho));
+            if (username.equals(itensDaLista[0]) && password.equals(itensDaLista[1])) {
+                System.out.println("Login efetuado com sucesso!");
                 access = true;
                 break;
             }
         }
 
         if (!access) {
-            System.out.println("Login inválido! Try again.");
+            System.out.println("Login inválido! Tente novamente.");
         }
 
         sc.close();
         return access;
     }
 
-    //REVER //
-    public static void login(String caminho) throws FileNotFoundException {
+    public static void login() throws FileNotFoundException {
         Scanner input = new Scanner(System.in);
-        boolean access;
+        boolean access = false;
 
         do {
             System.out.print("Username: ");
-            String user = input.next();
-            input.nextLine();
+            String username = input.nextLine();
 
             System.out.print("Password: ");
-            String pass = input.next();
+            String password = input.nextLine();
 
-            access = validarLogin(caminho, user, pass);
+
+            access = validarLogin("Ficheiros/IMDV/IMDV_AdminLogin.csv", username, password);
+
+            if (access) {
+                menuAdministrador();
+            }
         } while (!access);
     }
+
+    public static void consultaDeFicheiros() throws FileNotFoundException {
+        Scanner in = new Scanner(new File("Ficheiros/IMDV/IMDV.csv"));
+
+        System.out.println("***** Consulta de Ficheiros *****");
+
+        while (in.hasNextLine()) {
+            String linha = in.nextLine();
+            System.out.println(linha);
+        }
+        in.close();
+
+        System.out.println("Pressione no Enter para continuar");
+        Scanner input = new Scanner(System.in);
+        input.nextLine();
+
     }
-        // TERMINAR //
-        public static void consultaDeFicheiros() throws FileNotFoundException {
-            Scanner in = new Scanner(new File("Ficheiros/IMDV/IMDV.csv"));
 
-            System.out.println("Consulta de Ficheiros)";
+    public static void totalDeRatings() throws FileNotFoundException {
+        int totalDeFilmes = contarLinhas("Ficheiros/IMDV/IMDV.csv");
 
-            int contador = 0;
+        System.out.println("Total de Ratings");
+        System.out.println("Total de ratings atribuídos: " + totalDeFilmes);
+        System.out.println("\nPressione Enter para continuar");
+        Scanner input = new Scanner(System.in);
 
-            while (in.hasNextLine()) {
-                String linha = in.nextLine();
-                String[] campos = linha.split(";");
-
-                System.out.println();
+    }
 
 
+    public static void imprimirTodosOsEstudios(String[][] matriz) {
+        String[] estudiosUnicos = new String[matriz.length];
+        int numeroDeEstudiosTotais = 0;
+
+        for (int i = 0; i < matriz.length; i++) {
+            String estudio = matriz[i][5];
+            boolean verificarSeExiste = false;
 
 
-
+            for (int k = 0; k < numeroDeEstudiosTotais; k++) {
+                if (estudiosUnicos[k].equals(estudio)) {
+                    verificarSeExiste = true;
+                    break;
                 }
             }
 
+            if (!verificarSeExiste) {
+                estudiosUnicos[numeroDeEstudiosTotais] = estudio;
+                numeroDeEstudiosTotais++;
+            }
         }
 
-
+        System.out.println("***** Todos os Estúdios *****");
+        for (int i = 0; i < numeroDeEstudiosTotais; i++) {
+            System.out.println(estudiosUnicos[i]);
+        }
+        System.out.println("\nPressione Enter para continuar");
+        Scanner input = new Scanner(System.in);
     }
 
-    // TERMINAR //
-    public static void totalDeRatings() throws FileNotFoundException {
-        Scanner in = new Scanner(new File("Ficheiros/IMDV/IMDV.csv"));
-
-        System.out.println("Total de Ratings");
-
-    }
-    // TERMINAR //
-    public static void imprimirTodosOsEstudios() {
-       System.out.println("Estúdios");
-
-       String [] estudiosUnicos = new String [filmes.length];
-       int [] contadorFilmes = new int [filmes.length];
-       int numeroDeEstudiosTotais = 0;
-
-       for (int i = 0; i < filmes.length; i++) {
-           String estudio = filmes[i][5];
-
-    }
-
-    // MENU CLIENTE // VALIDAR //
-
-    public static void menuCliente() {
-
+    public static void menuCliente() throws FileNotFoundException {
         Scanner input = new Scanner(System.in);
         int opcao;
 
@@ -324,34 +300,35 @@ public class Main {
             System.out.println("0. Regresse ao Menu Principal");
             System.out.print("Escolha uma opção: ");
             opcao = input.nextInt();
+            input.nextLine();
 
             switch (opcao) {
                 case 1:
-                    System.out.println("Registar utilizador");
+                    registoNovoUtilizador();
                     break;
                 case 2:
-                    System.out.println("Imprimir catálogo");
+                    imprimirCatalogo();
                     break;
                 case 3:
-                    System.out.println("Imprimir cátalogos gráficos");
+                    imprimirCatalogoGrafico();
                     break;
                 case 4:
-                    System.out.println("Imprimir Melhor Estúdio");
+                    imprimirMelhorEstudio();
                     break;
                 case 5:
-                    System.out.println("Imprimir Pior Estúdio");
+                    imprimirPiorEstudio();
                     break;
                 case 6:
-                    System.out.println("Imprimir Crítica Mais Recente");
+                    imprimirCriticaMaisRecente();
                     break;
                 case 7:
-                    System.out.println("Participe no nosso Quiz!");
+                    menuQuiz();
                     break;
                 case 8:
-                    System.out.println("Imprimir Catálogo Estúdio");
+                    imprimirCatalogoEstudio();
                     break;
                 case 9:
-                    System.out.println("Imprimir Catálogo Categoria");
+                    imprimirCatalogoCategoria();
                     break;
                 case 0:
                     System.out.println("Regresse ao Menu Principal");
@@ -361,97 +338,194 @@ public class Main {
                     break;
             }
         } while (opcao != 0);
+        input.close();
     }
 
-    public static void novoRegisto() {
+    public static void registoNovoUtilizador() {
+        Scanner input = new Scanner(System.in);
 
-            Scanner input = new Scanner(System.in);
+        System.out.println("***** Registo de novo utilizador *****");
+        System.out.print("Insira o Seu Nome: ");
+        String nome = input.nextLine();
 
-            System.out.println("\n===== Registo de novo utilizador =====");
+        System.out.print("Insira o Seu Contacto: ");
+        String contacto = input.nextLine();
 
-            System.out.print("Nome: ");
-            String nome = input.nextLine();
+        System.out.print("Insira o seu Email: ");
+        String email = input.nextLine();
 
-            System.out.print("Contacto: ");
-            String contacto = input.nextLine();
+        System.out.println("Nome: " + nome);
+        System.out.println("Contacto: " + contacto);
+        System.out.println("Email: " + email);
+        System.out.println("Utilizador Inserido com sucesso: " + nome + "| " + contacto + "| " + email);
+        System.out.println("\nPressione Enter para continuar");
+        input.nextLine();
+    }
 
-            System.out.print("Email: ");
-            String email = input.nextLine();
+    public static void imprimirCatalogo() throws FileNotFoundException {
+        String[][] dadosFilmes = ficheiroParaMatriz("Ficheiros/IMDV/IMDV.csv");
 
-            System.out.println("--- Registo efetuado com sucesso! ---");
-            System.out.println("Nome: " + nome);
-            System.out.println("Contacto: " + contacto);
-            System.out.println("Email: " + email);
+        System.out.println("***** Catálogo de Filmes *****");
+        System.out.println("Título | Rating | Duração | Ano | Estúdio | Realizador | Género");
+        System.out.println("******");
 
-            System.out.println("\nPressione Enter para continuar...");
-            input.nextLine();
+        for (int i = 0; i < dadosFilmes.length; i++) {
+            System.out.println("Título: " + dadosFilmes[i][1]);
+            System.out.println("Rating: " + dadosFilmes[i][2]);
+            System.out.println("Duração: " + dadosFilmes[i][3] + " min");
+            System.out.println("Ano: " + dadosFilmes[i][4]);
+            System.out.println("Estúdio: " + dadosFilmes[i][5]);
+            System.out.println("Realizador: " + dadosFilmes[i][6]);
+            System.out.println("Género: " + dadosFilmes[i][7]);
+            System.out.println("*****");
         }
 
 
+        System.out.println("*****");
+        System.out.println("Total de filmes: " + dadosFilmes.length);
+
+        Scanner input = new Scanner(System.in);
+        System.out.println("Pressione Enter para continuar...");
+        input.nextLine();
+        input.close();
+    }
+
+    public static void imprimirCopyright() throws FileNotFoundException {
+        Scanner sc = new Scanner(new File("Ficheiros/IMDV/IMDV_Copyright.txt"));
+        while (sc.hasNextLine()) {
+            System.out.println(sc.nextLine());
+        }
+        sc.close();
+    }
+
+    public static void imprimirCatalogoGrafico() throws FileNotFoundException {
+        System.out.println("Funcionalidade em desenvolvimento...");
+    }
+
+    public static void imprimirMelhorEstudio() throws FileNotFoundException {
+        System.out.println("Funcionalidade em desenvolvimento...");
 
     }
 
-    // REVER E TERMINAR //
-
-    public static void imprimirCatalogo() throws FileNotFoundException {
-    String[][] dadosFilmes = ficheiroParaMatriz("Ficheiros/IMDV/IMDV.csv");
-
-    System.out.println("\n============= Catálogo de Filmes =============");
-    System.out.println("ID | Título | Rating | Duração | Ano | Estúdio | Realizador | Género");
-    System.out.println("===============================================================================");
-
-    for (int i = 0; i < dadosFilmes.length; i++) {
-        System.out.println(dadosFilmes[i][0] + " | " + dadosFilmes[i][1] + " | " + dadosFilmes[i][2] +
-                " | " + dadosFilmes[i][3] + " min | " + dadosFilmes[i][4] + " | " +
-                dadosFilmes[i][5] + " | " + dadosFilmes[i][6] + " | " + dadosFilmes[i][7]);
+    public static void imprimirPiorEstudio() throws FileNotFoundException {
+        System.out.println("Funcionalidade em desenvolvimento...");
     }
 
-    System.out.println("===============================================================================");
-    System.out.println("Total de filmes: " + dadosFilmes.length);
+    public static void imprimirCriticaMaisRecente() throws FileNotFoundException{
+        String [][] filmes = ficheiroParaMatriz("Ficheiros/IMDV/IMDV.csv");
 
-    Scanner input = new Scanner(System.in);
-    System.out.println("\nPressione Enter para continuar...");
-    input.nextLine();
-}
-    // TERMINAR //
-    public static void imprimirMelhorEstudio() {
-        System.out.println("Melhor Estúdio");
-        String [] estudios = new String[estudios.length];
-        double [] somaRatings = new double[];
-        int [] contadorFilmes = new int [];
-        int [] numEstudios = new int [];
+        int anoMaisRecente = Integer.parseInt(filmes[0][4]);
+        int posicaoMaisRecente = 0;
+
+        for (int i = 1; i < filmes.length; i++) {
+            int ano = Integer.parseInt(filmes[i][4]);
+            if (ano > anoMaisRecente) {
+                anoMaisRecente = ano;
+                posicaoMaisRecente = i;
+            }
+        }
+
+        System.out.println("***** Crítica Mais Recente *****");
+        System.out.println("Filme: " + filmes[posicaoMaisRecente][1]);
+        System.out.println("Rating: " + filmes[posicaoMaisRecente][2]);
+        System.out.println("Duração: " + filmes[posicaoMaisRecente][3] + " minutos");
+        System.out.println("Ano: " + filmes[posicaoMaisRecente][4]);
+        System.out.println("Estúdio: " + filmes[posicaoMaisRecente][5]);
+        System.out.println("Realizador: " + filmes[posicaoMaisRecente][6]);
+        System.out.println("Pressione Enter para continuar");
     }
 
-    // TERMINAR //
-    public static void imprimirPiorEstudio() {
-        System.out.println("Pior Estúdio");
-        String[] estudios = new String[];
-        double[] somaRatings = new double[];
-        int[] contadorFilmes = new int[];
-        int numEstudios = 0;
+    public static void menuQuiz() throws FileNotFoundException {
+        Scanner ficheiro = new Scanner(new File("Ficheiros/IMDV/Quiz.csv"));
+        Scanner input = new Scanner(System.in);
+        int pontuacao = 0,numeroDePerguntas = 0;
+
+        if (ficheiro.hasNextLine()) ficheiro.nextLine();
+
+        while (ficheiro.hasNextLine()) {
+            String linha = ficheiro.nextLine();
+            String [] elementosDasPerguntas = linha.split(";");
+
+            if (elementosDasPerguntas.length == 6) {
+                String perguntas = elementosDasPerguntas[0];
+                String resposta1 = elementosDasPerguntas[1];
+                String resposta2 = elementosDasPerguntas[2];
+                String resposta3 = elementosDasPerguntas[3];
+                String resposta4 = elementosDasPerguntas[4];
+                String respostaCerta = elementosDasPerguntas [5];
+
+                System.out.println("\n" + perguntas);
+                System.out.println("1) " + resposta1);
+                System.out.println("2) " + resposta2);
+                System.out.println("3) " + resposta3);
+                System.out.println("4) " + resposta4);
+                System.out.println("Resposta (1-4): ");
+                String resposta = input.nextLine();
+
+                if (resposta.equals(respostaCerta)) {
+                    System.out.println("Correto");
+                    pontuacao++;
+                } else {
+                    System.out.println("Errado! A resposta correta é a: " + respostaCerta);
+                }
+                numeroDePerguntas++;
+            }
+        }
+        ficheiro.close();
+
+        System.out.println("\nPontuação Total: " + pontuacao + " em " + numeroDePerguntas);
+        System.out.println("Pressione Enter para continuar");
+        input.nextLine();
     }
 
-    // FAZER //
-    public static void imprimirCriticaMaisRecente() {
+    public static void imprimirCatalogoEstudio() throws FileNotFoundException {
+       String [][] filmes = ficheiroParaMatriz("Ficheiros/IMDV/IMDV.csv");
+       Scanner input = new Scanner(System.in);
+
+        System.out.println("Nome do Estúdio: ");
+        String estudioAPesquisar = input.nextLine();
+        System.out.println("\n***** Catálogo do Estudio *****");
+
+        boolean catalogoDeEstudio = false;
+        for (int i = 0; i < filmes.length; i++) {
+            if (filmes[i][5].equals(estudioAPesquisar)) {
+                System.out.println("Título: " + filmes[i][1]);
+                System.out.println("Rating: " + filmes[i][2]);
+                System.out.println("Duração: " + filmes[i][3]);
+                System.out.println("Ano: " + filmes[i][4]);
+                System.out.println("Realizador: " + filmes[i][6]);
+                System.out.println("Género: " + filmes[i][7]);
+
+            }
+        }
 
     }
 
-    // FAZER //
-    public static void menuQuiz() {
+    public static void imprimirCatalogoCategoria() throws FileNotFoundException {
+        String [][] filmes = ficheiroParaMatriz("Ficheiros/IMDV/IMDV.csv");
+        Scanner input = new Scanner(System.in);
+
+        System.out.println("Insira o nome da categoria: ");
+        String categoriaAPesquisar = input.nextLine();
+        System.out.println("\nFilmes da Categoria " + categoriaAPesquisar + ":");
+
+        boolean categoriaDeFilme = false;
+        for (int i = 0; i < filmes.length; i++) {
+            if (filmes[i][7].equalsIgnoreCase(categoriaAPesquisar)) {
+                System.out.println(filmes[i][0] + " | " + filmes[i][1] + " | " + filmes[i][5]);
+                categoriaDeFilme = true;
+            }
+        }
+        if (!categoriaDeFilme) {
+            System.out.println("Não existem filmes nesta categoria");
+        }
+        System.out.println("Pressione Enter para continuar");
+        input.nextLine();
+
 
     }
 
-    // FAZER //
-    public static void imprimirCatalogoEstudio() {
-
-    }
-    // FAZER //
-    public static void imprimirCatalogoCategoria() {
-
-    }
-
-    // FAZER //
     public static void main(String[] args) throws FileNotFoundException {
-        menuPrincipal("Ficheiros/IMDV/IMDV.csv"));
+        menuPrincipal();
     }
 }
