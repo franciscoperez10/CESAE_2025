@@ -296,7 +296,7 @@ public class Main {
 
             // Verifica se o estúdio está no vetor de estúdios únicos //
             for (int k = 0; k < numeroDeEstudiosTotais; k++) {
-                if (estudiosUnicos[k].equals(estudio)) {
+                if (estudiosUnicos[k].equalsIgnoreCase(estudio)) {
                     verificarSeExiste = true;
                     break;
                 }
@@ -392,7 +392,8 @@ public class Main {
         String nome = input.nextLine();
 
         System.out.print("Insira o Seu Contacto: ");
-        String contacto = input.nextLine();
+        int contacto = input.nextInt();
+        input.nextLine();
 
         System.out.print("Insira o seu Email: ");
         String email = input.nextLine();
@@ -450,28 +451,120 @@ public class Main {
     }
 
     /**
-     * Função não desenvolvida em tempo útil, como mencionado acima
+     * Função para imprimir na consola, para depois ir buscar o catálogo gráfico
+     * @param caminho
+     * @throws FileNotFoundException
+     */
+    public static void imprimirNaConsola (String caminho) throws FileNotFoundException {
+
+        File ficheiro  = new File (caminho);
+        Scanner sc = new Scanner(ficheiro);
+
+        while (sc.hasNextLine()) {
+            String linha = sc.nextLine();
+            System.out.println(sc.nextLine());
+        }
+
+    }
+
+    /**
+     * Função que imprime os desenhos gráficos dos filmes pedidos
      * @throws FileNotFoundException
      */
     public static void imprimirCatalogoGrafico() throws FileNotFoundException {
-        System.out.println("\nNão desenvolvido em tempo útil");
+
+        Scanner input  = new Scanner(System.in);
+
+        int opcao;
+
+        do {
+            System.out.println("Escolha o catálogo que quer imprimir");
+            System.out.println("1.Catálogo do Harry Potter");
+            System.out.println("2.Catálogo do Interstellar");
+            System.out.println("3.Catálogo do Lord of the Rings");
+            System.out.println("4.Catálogo do Star Wars");
+            System.out.println("0.Regresse ao Menu Principal");
+
+            opcao = input.nextInt();
+            switch (opcao) {
+
+                case 1:
+                    imprimirNaConsola("Ficheiros/IMDV/CatalogoGrafico/HarryPotter.txt");
+                    break;
+                case 2:
+                    imprimirNaConsola("Ficheiros/IMDV/CatalogoGrafico/Interstellar.txt");
+                    break;
+                case 3:
+                    imprimirNaConsola("Ficheiros/IMDV/CatalogoGrafico/LordOfTheRings.txt");
+                    break;
+                case 4:
+                   imprimirNaConsola("Ficheiros/IMDV/CatalogoGrafico/StarWars.txt");
+                    break;
+                case 0:
+                    System.out.println("Regressar ao Menu Principal");
+
+            }
+        } while (opcao != 0);
     }
 
-    /**
-     * Função não desenvolvida em tempo útil, como mencionado acima
-     * @throws FileNotFoundException
-     */
     public static void imprimirMelhorEstudio() throws FileNotFoundException {
-        System.out.println("\nNão desenvolvido em tempo útil");
+        String matriz [][]; matriz = ficheiroParaMatriz("Ficheiros/IMDV/IMDV.csv");
+        String melhorEstudio = matriz[1][5];
+        double melhorMedia = 0;
+
+        for (int i = 1; i < matriz.length; i++) {
+            String estudioAtual = matriz[i][5];
+
+            double somaReviews = 0;
+            int somaFilmes = 0;
+
+
+            for (int k = 1; k < matriz.length; k++) {
+                if (matriz[k][5].equals(estudioAtual)) {
+                    somaReviews += Double.parseDouble(matriz[k][2]);
+                    somaFilmes++;
+                }
+            }
+
+            double mediaAtual = somaReviews / somaFilmes;
+
+            if (mediaAtual > melhorMedia) {
+                melhorMedia = mediaAtual;
+                melhorEstudio = estudioAtual;
+            }
+        }
+        System.out.println(melhorEstudio + " média: " + melhorMedia);
+
 
     }
 
-    /**
-     * Função não desenvolvida em tempo útil, como mencionado acima
-     * @throws FileNotFoundException
-     */
     public static void imprimirPiorEstudio() throws FileNotFoundException {
-        System.out.println("\nNão desenvolvido em tempo útil");
+        String matriz [][]; matriz = ficheiroParaMatriz("Ficheiros/IMDV/IMDV.csv");
+        String piorEstudio = matriz[1][5];
+        double piorMedia = 0;
+
+        for (int i = 1; i < matriz.length; i++) {
+            String estudioAtual = matriz[i][5];
+
+            double somaReviews = 0;
+            int somaFilmes = 0;
+
+
+            for (int k = 1; k < matriz.length; k++) {
+                if (matriz[k][5].equals(estudioAtual)) {
+                    somaReviews += Double.parseDouble(matriz[k][2]);
+                    somaFilmes++;
+                }
+            }
+
+            double mediaAtual = somaReviews / somaFilmes;
+
+            if (mediaAtual < piorMedia) {
+                piorMedia = mediaAtual;
+                piorEstudio = estudioAtual;
+            }
+        }
+        System.out.println(piorEstudio + " média: " + piorMedia);
     }
 
     /**

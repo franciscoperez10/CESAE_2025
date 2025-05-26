@@ -112,3 +112,22 @@
 // product.price = 2.55
 
 // console.log('o produto custa '+product.price +product.moeda+' e a cor é '+product.colors[2])
+
+const fullNames = [
+    {first: 'Albus', last: 'Dumbledore'}, 
+    {first: 'Harry', last: 'Potter'}, 
+    {first: 'Herminone', last: 'Granger'}, 
+    {first: 'Ron', last: 'Weasley'}, 
+    {first: 'Rubeus', last: 'Hagrid'}, 
+    {first: 'Minerva', last: 'McGonagall'}, 
+    {first: 'Severus', last: 'Snape'}];
+
+// const firstNames = fullNames.map(function(name) { //
+
+/* fullNames.forEach(function(name) {
+    console.log(`O nome completo da personagem é: ${name.first} ${name.last}`);
+}); */
+
+const greetNames = fullNames.map(function(name) {
+    return `Hey, ${name.first}`;
+});
