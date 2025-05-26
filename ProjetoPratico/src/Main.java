@@ -168,7 +168,6 @@ public class Main {
         int opcao;
         // Lê os dados do ficheiro, e depois guarda numa matriz de Strings //
         String dados[][] = ficheiroParaMatriz("Ficheiros/IMDV/IMDV.csv");
-
         do {
             System.out.println("***** Menu Administrador *****");
             System.out.println("1. Consultar Ficheiros");
@@ -196,7 +195,6 @@ public class Main {
                     System.out.println("Opção inválida, tente novamente");
             }
         } while (opcao != 0);
-        input.close();
     }
 
     /**
@@ -341,7 +339,6 @@ public class Main {
     public static void menuCliente() throws FileNotFoundException {
         Scanner input = new Scanner(System.in);
         int opcao;
-
         do {
             System.out.println("1. Registar utilizador");
             System.out.println("2. Imprimir catálogo");
@@ -393,7 +390,6 @@ public class Main {
                     break;
             }
         } while (opcao != 0);
-        input.close();
     }
 
     /**
@@ -483,7 +479,7 @@ public class Main {
 
         while (sc.hasNextLine()) {
             String linha = sc.nextLine();
-            System.out.println(sc.nextLine());
+            System.out.println(linha);
         }
 
     }
@@ -524,6 +520,7 @@ public class Main {
                     break;
                 case 0:
                     System.out.println("Regressar ao Menu Principal");
+                    break;
                 default:
                     System.out.println("Opção inválida, tente novamente.");
                     break;
@@ -579,7 +576,8 @@ public class Main {
         String matriz[][];
         matriz = ficheiroParaMatriz("Ficheiros/IMDV/IMDV.csv");
         String piorEstudio = matriz[1][5];
-        double piorMedia = 0;
+        // O valor é 10 porque é o valor máximo //
+        double piorMedia = 10;
 
         for (int i = 1; i < matriz.length; i++) {
             String estudioAtual = matriz[i][5];
