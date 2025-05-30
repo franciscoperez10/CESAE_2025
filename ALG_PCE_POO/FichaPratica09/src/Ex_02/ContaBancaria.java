@@ -9,7 +9,7 @@ public class ContaBancaria {
     private double saldo = 0;
     private int anoDeAbertura = 2025;
     private double margemDeEmprestimo = 0.5;
-    private int valorEmDivida = 0;
+    private double valorEmDivida = 0;
 
     /**
      * Método construtor para <b>Conta Bancária</b>
@@ -17,7 +17,7 @@ public class ContaBancaria {
      * @param iban    IBAN - Identificador da <b>Conta Bancária</b>
      * @param titular Nome do Titular
      */
-    public ContaBancaria(String iban, String titular) {
+    public ContaBancaria(iban, titular) {
         this.iban = iban;
         this.titular = titular;
         this.saldo = 0;
