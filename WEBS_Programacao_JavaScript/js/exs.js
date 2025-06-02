@@ -113,7 +113,7 @@
 
 // console.log('o produto custa '+product.price +product.moeda+' e a cor é '+product.colors[2])
 
-const fullNames = [
+/* const fullNames = [
     {first: 'Albus', last: 'Dumbledore'}, 
     {first: 'Harry', last: 'Potter'}, 
     {first: 'Herminone', last: 'Granger'}, 
@@ -124,10 +124,25 @@ const fullNames = [
 
 // const firstNames = fullNames.map(function(name) { //
 
-/* fullNames.forEach(function(name) {
+fullNames.forEach(function(name) {
     console.log(`O nome completo da personagem é: ${name.first} ${name.last}`);
-}); */
+});
 
 const greetNames = fullNames.map(function(name) {
     return `Hey, ${name.first}`;
-});
+}); */
+
+
+/* validUserNames(['mark', 'staceysmom1978', 'q23342342334234234234', 'carie98', 'MoanaFan']);
+
+function validUserNames(usernames) {
+    return usernames.filter(username => username.length < 10);
+}
+
+
+console.log(validUserNames(['mark', 'staceysmom1978', 'q23342342334234234234', 'carie98', 'MoanaFan'])); */
+
+numbers = [2, 4, 6, 8, 10, 11];
+function allEvens(numbers) {
+    return numbers.every(number => number % 2 === 0);
+}
