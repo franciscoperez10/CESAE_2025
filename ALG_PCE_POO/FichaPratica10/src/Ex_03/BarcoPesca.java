@@ -86,7 +86,7 @@ public class BarcoPesca {
 
     public double salarioTripulacao() {
 
-        double salario = (calcularTotal() * 0.6) / tripulacao;
+        double salario = (this.calcularTotal() * 0.6) / this.tripulacao;
         System.out.println("O salário da tripulação é de: " + salario + "€");
 
     }

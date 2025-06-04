@@ -12,7 +12,7 @@ public class Main {
         Marisco marisco3 = new Marisco("lagosta", 15, 1.5);
         Marisco marisco4 = new Marisco("caranguejo-verde", 12.5, 6.5);
 
-        BarcoPesca barcoPesca1 = new BarcoPesca("Pérola Negra", "preto", 2005, 50, 500, "QUICKSILVER");
+        BarcoPesca barcoPesca1 = new BarcoPesca("Pérola Negra", "preto", 2005, 50, 500, Marca.QUICKSILVER);
 
 
         barcoPesca1.pescarPeixe(peixe1);
