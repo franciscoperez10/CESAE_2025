@@ -5,7 +5,7 @@ import Itens.Consumivel;
 
 import java.util.ArrayList;
 
-public class Jedi extends Heroi {
+public abstract class Jedi extends Heroi {
 
     protected int danoForca;
     protected int danoSabre;
@@ -19,8 +19,7 @@ public class Jedi extends Heroi {
     }
 
     @Override
-    public void atacar(Inimigo inimigo) {
-        super.atacar();
+    public abstract void atacar(Inimigo inimigo);
     }
 
     public void usarPoderForca() {
