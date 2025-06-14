@@ -17,6 +17,54 @@ public abstract class Personagem {
         this.defesa = defesa;
     }
 
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public int getVidaMax() {
+        return vidaMax;
+    }
+
+    public void setVidaMax(int vidaMax) {
+        this.vidaMax = vidaMax;
+    }
+
+    public int getVidaAtual() {
+        return vidaAtual;
+    }
+
+    public void setVidaAtual(int vidaAtual) {
+        this.vidaAtual = vidaAtual;
+    }
+
+    public int getForca() {
+        return forca;
+    }
+
+    public void setForca(int forca) {
+        this.forca = forca;
+    }
+
+    public int getNivel() {
+        return nivel;
+    }
+
+    public void setNivel(int nivel) {
+        this.nivel = nivel;
+    }
+
+    public int getDefesa() {
+        return defesa;
+    }
+
+    public void setDefesa(int defesa) {
+        this.defesa = defesa;
+    }
+
     public void receberDano(int dano) {
         vidaAtual -= dano;
         if (vidaAtual < 0) {

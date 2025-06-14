@@ -25,7 +25,63 @@ public abstract class Heroi extends Personagem {
         this.experiencia = experiencia;
     }
 
-    public abstract void atacar(Inimigo inimigo);
+    @Override
+    public int getNivel() {
+        return nivel;
+    }
+
+    @Override
+    public void setNivel(int nivel) {
+        this.nivel = nivel;
+    }
+
+    public int getOuro() {
+        return ouro;
+    }
+
+    public void setOuro(int ouro) {
+        this.ouro = ouro;
+    }
+
+    public ArmaPrincipal getArmaPrincipal() {
+        return armaPrincipal;
+    }
+
+    public void setArmaPrincipal(ArmaPrincipal armaPrincipal) {
+        this.armaPrincipal = armaPrincipal;
+    }
+
+    public ArrayList<Consumivel> getInventario() {
+        return inventario;
+    }
+
+    public void setInventario(ArrayList<Consumivel> inventario) {
+        this.inventario = inventario;
+    }
+
+    public String getHabilidadeEspecial() {
+        return habilidadeEspecial;
+    }
+
+    public void setHabilidadeEspecial(String habilidadeEspecial) {
+        this.habilidadeEspecial = habilidadeEspecial;
+    }
+
+    public int getExperiencia() {
+        return experiencia;
+    }
+
+    public void setExperiencia(int experiencia) {
+        this.experiencia = experiencia;
+    }
+
+    public boolean atacar(Inimigo inimigo) {
+        if (this.getVidaAtual() > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
     public abstract void defender();
 
@@ -58,7 +114,24 @@ public abstract class Heroi extends Personagem {
 
     public abstract void usarItem(ItemHeroi item);
 
-    public abstract void mostrarDetalhes();
+    @Override
+    public void mostrarDetalhes() {
+        System.out.print("Herói: " + nome +
+                " | Nível: " + nivel +
+                " | Vida: " + vidaAtual + "/" + vidaMax +
+                " | Força: " + forca +
+                " | Defesa: " + defesa +
+                " | Ouro: " + ouro +
+                " | Experiência: " + experiencia);
+
+        System.out.print(" | Arma Principal: ");
+        if (armaPrincipal != null) {
+            System.out.print(armaPrincipal.getNome());
+        } else {
+            System.out.print("Nenhuma");
+        }
+        System.out.println();
+    }
 
 
 }
