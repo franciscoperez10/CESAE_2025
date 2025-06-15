@@ -31,7 +31,6 @@ public abstract class Inimigo extends Personagem {
 
     @Override
     public void mostrarDetalhes() {
-        System.out.println("Inimigo: " + nome + " | Vida: " + vidaAtual + "/" + vidaMax +
-                " | Força: " + forca + " | Ouro: " + ouro);
+        System.out.println("Inimigo: " + nome + " | Vida: " + vidaAtual + "/" + vidaMax + " | Força: " + forca + " | Ouro: " + ouro);
     }
 }

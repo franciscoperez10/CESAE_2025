@@ -1,15 +1,15 @@
 package Itens;
 
-import Entidades.ClassesPermitidas;
+import Entidades.HeroisPermitidos;
 
 import java.util.ArrayList;
 
 public abstract class ItemHeroi {
     protected String nome;
     protected int precoMoedasOuro;
-    protected ArrayList<ClassesPermitidas> classesPermitidas;
+    protected ArrayList<HeroisPermitidos> classesPermitidas;
 
-    public ItemHeroi(String nome, int precoMoedasOuro, ArrayList<ClassesPermitidas> classesPermitidas) {
+    public ItemHeroi(String nome, int precoMoedasOuro, ArrayList<HeroisPermitidos> classesPermitidas) {
         this.nome = nome;
         this.precoMoedasOuro = precoMoedasOuro;
         this.classesPermitidas = classesPermitidas;
@@ -31,18 +31,18 @@ public abstract class ItemHeroi {
         this.precoMoedasOuro = precoMoedasOuro;
     }
 
-    public ArrayList<ClassesPermitidas> getClassesPermitidas() {
+    public ArrayList<HeroisPermitidos> getClassesPermitidas() {
         return classesPermitidas;
     }
 
-    public void setClassesPermitidas(ArrayList<ClassesPermitidas> classesPermitidas) {
+    public void setClassesPermitidas(ArrayList<HeroisPermitidos> classesPermitidas) {
         this.classesPermitidas = classesPermitidas;
     }
 
     public void mostrarDetalhes() {
         System.out.print("Nome: " + nome + " | Preço: " + precoMoedasOuro + " | Classes permitidas: ");
-        for (ClassesPermitidas classesPermitidas1 : classesPermitidas) {
-            System.out.print(classesPermitidas1 + " ");
+        for (HeroisPermitidos heroisPermitidos1 : classesPermitidas) {
+            System.out.print(heroisPermitidos1 + " ");
         }
         System.out.println();
     }

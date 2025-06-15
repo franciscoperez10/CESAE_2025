@@ -42,8 +42,8 @@ public class Vendedor {
         }
 
         boolean permitido = false;
-        for (Entidades.ClassesPermitidas c : item.getClassesPermitidas()) {
-            if (c.name().equalsIgnoreCase(heroi.getClass().getSimpleName())) {
+        for (HeroisPermitidos classesPermitidas : item.getClassesPermitidas()) {
+            if (classesPermitidas.name().equalsIgnoreCase(heroi.getClass().getSimpleName())) {
                 permitido = true;
                 break;
             }

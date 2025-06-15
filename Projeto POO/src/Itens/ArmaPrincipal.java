@@ -1,7 +1,7 @@
 package Itens;
 
 
-import Entidades.ClassesPermitidas;
+import Entidades.HeroisPermitidos;
 
 import java.util.ArrayList;
 
@@ -9,7 +9,7 @@ public class ArmaPrincipal extends ItemHeroi {
     protected int ataque;
     protected int ataqueEspecial;
 
-    public ArmaPrincipal(String nome, int precoMoedasOuro, ArrayList<ClassesPermitidas> classesPermitidas, int ataque, int ataqueEspecial) {
+    public ArmaPrincipal(String nome, int precoMoedasOuro, ArrayList<HeroisPermitidos> classesPermitidas, int ataque, int ataqueEspecial) {
         super(nome, precoMoedasOuro, classesPermitidas);
         this.ataque = ataque;
         this.ataqueEspecial = ataqueEspecial;
@@ -29,8 +29,8 @@ public class ArmaPrincipal extends ItemHeroi {
                 " | Ataque: " + ataque +
                 " | Ataque Especial: " + ataqueEspecial +
                 " | Classes permitidas: ");
-        for (ClassesPermitidas classesPermitidas1 : classesPermitidas) {
-            System.out.print(classesPermitidas1 + " ");
+        for (HeroisPermitidos heroisPermitidos1 : classesPermitidas) {
+            System.out.print(heroisPermitidos1 + " ");
         }
         System.out.println();
     }

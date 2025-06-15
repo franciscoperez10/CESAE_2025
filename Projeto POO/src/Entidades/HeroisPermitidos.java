@@ -1,5 +1,5 @@
 package Entidades;
 
-public enum ClassesPermitidas {
+public enum HeroisPermitidos {
     JEDI, REBEL, MANDALORIAN
 }

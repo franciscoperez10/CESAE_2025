@@ -20,7 +20,7 @@ public class Rebel extends Heroi {
     @Override
     public boolean atacar(Inimigo inimigo) {
         while (this.getVidaAtual() > 0 && inimigo.getVidaAtual() > 0) {
-            // Herói ataca primeiro
+
             int danoHeroi = this.forca;
             if (this.armaPrincipal != null) {
                 danoHeroi += this.armaPrincipal.getAtaque();
@@ -33,7 +33,7 @@ public class Rebel extends Heroi {
                 return true;
             }
 
-            // Inimigo ataca
+
             int danoInimigo = inimigo.getForca();
             System.out.println(inimigo.getNome() + " ataca! Dano: " + danoInimigo);
             this.receberDano(danoInimigo);

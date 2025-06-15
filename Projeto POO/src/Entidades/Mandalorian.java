@@ -22,7 +22,7 @@ public class Mandalorian extends Heroi {
     @Override
     public boolean atacar(Inimigo inimigo) {
         while (this.getVidaAtual() > 0 && inimigo.getVidaAtual() > 0) {
-            // Herói ataca primeiro (sempre ataque normal)
+
             int danoHeroi = this.forca;
             if (this.armaPrincipal != null) {
                 danoHeroi = danoHeroi + this.armaPrincipal.getAtaque();
@@ -40,7 +40,7 @@ public class Mandalorian extends Heroi {
                 return true;
             }
 
-            // Inimigo ataca (+10% de dano)
+
             int danoInimigo = inimigo.getForca();
             int bonus = (int) (danoInimigo * 0.1);
             danoInimigo = danoInimigo + bonus;
@@ -101,9 +101,6 @@ public class Mandalorian extends Heroi {
 
     @Override
     public void mostrarDetalhes() {
-        System.out.println("Mandalorian: " + nome + " | Nível: " + nivel + " | Vida: " + vidaAtual + "/" + vidaMax +
-                " | Força: " + forca + " | Defesa: " + defesa + " | Ouro: " + ouro +
-                " | Experiência: " + experiencia + " | Combustível JetPack: " + combustivelJetPack +
-                " | Durabilidade Armadura: " + durabilidadeArmadura + " | Slugthrowers: " + slugthrowers);
+        System.out.println("Mandalorian: " + nome + " | Nível: " + nivel + " | Vida: " + vidaAtual + "/" + vidaMax + " | Força: " + forca + " | Defesa: " + defesa + " | Ouro: " + ouro + " | Experiência: " + experiencia + " | Combustível JetPack: " + combustivelJetPack + " | Durabilidade Armadura: " + durabilidadeArmadura + " | Slugthrowers: " + slugthrowers);
     }
 }

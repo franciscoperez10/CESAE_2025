@@ -26,7 +26,7 @@ public class Stormtrooper extends Inimigo {
     public void dispararBlaster(Heroi heroi) {
         Random rand = new Random();
         int chance = rand.nextInt(100); // 0 a 99
-        if (chance < 80) { // 80% de acertar
+        if (chance < 80) {
             int dano = this.ataque + this.forca;
             System.out.println(nome + " dispara o blaster e acerta! Dano: " + dano);
             heroi.receberDano(dano);
@@ -37,7 +37,7 @@ public class Stormtrooper extends Inimigo {
 
     @Override
     public void usarHabilidadeEspecial(Heroi heroi) {
-        // Exemplo de habilidade especial
+
         int danoEspecial = this.ataque * 2 + this.forca;
         System.out.println(nome + " usa ataque especial de blaster! Dano especial: " + danoEspecial);
         heroi.receberDano(danoEspecial);
@@ -45,9 +45,9 @@ public class Stormtrooper extends Inimigo {
 
 
     public boolean fugir() {
-        Random rand = new Random();
-        int chance = rand.nextInt(100); // 0 a 99
-        if (chance < 30) { // 30% de sucesso
+        Random random = new Random();
+        int chance = random.nextInt(100); // 0 a 99
+        if (chance < 30) {
             System.out.println(nome + " foge do combate com sucesso!");
             return true;
         } else {

@@ -1,6 +1,6 @@
 package Itens;
 
-import Entidades.ClassesPermitidas;
+import Entidades.HeroisPermitidos;
 import Entidades.Heroi;
 import java.util.ArrayList;
 
@@ -9,7 +9,7 @@ public class Pocao extends Consumivel {
     protected int vidaACurar;
     protected int aumentoDeForca;
 
-    public Pocao(String nome, int precoMoedasOuro, ArrayList<ClassesPermitidas> heroisPermitidos,
+    public Pocao(String nome, int precoMoedasOuro, ArrayList<HeroisPermitidos> heroisPermitidos,
                  String descricao, int quantidade, int vidaACurar, int aumentoDeForca) {
         super(nome, precoMoedasOuro, heroisPermitidos, descricao, quantidade);
         this.vidaACurar = vidaACurar;
@@ -32,11 +32,6 @@ public class Pocao extends Consumivel {
 
     @Override
     public void mostrarDetalhes() {
-        System.out.println("Poção: " + nome +
-                " | Preço: " + precoMoedasOuro +
-                " | Vida a curar: " + vidaACurar +
-                " | Aumento de força: " + aumentoDeForca +
-                " | Quantidade: " + quantidade +
-                " | Descrição: " + descricao);
+        System.out.println("Poção: " + nome + " | Preço: " + precoMoedasOuro + " | Vida a curar: " + vidaACurar + " | Aumento de força: " + aumentoDeForca + " | Quantidade: " + quantidade + " | Descrição: " + descricao);
     }
 }

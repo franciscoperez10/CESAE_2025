@@ -21,9 +21,9 @@ public class Jedi extends Heroi {
 
     @Override
     public boolean atacar(Inimigo inimigo) {
-        // Exemplo: O inimigo ataca primeiro (regra do enunciado para "Cavaleiro"/Jedi)
+
         while (this.getVidaAtual() > 0 && inimigo.getVidaAtual() > 0) {
-            // Inimigo ataca (com 80% da força, segundo o enunciado)
+
             int danoInimigo = (int) (inimigo.getForca() * 0.8);
             System.out.println(inimigo.getNome() + " ataca! Dano: " + danoInimigo);
             this.receberDano(danoInimigo);
@@ -33,7 +33,7 @@ public class Jedi extends Heroi {
                 return false;
             }
 
-            // Herói ataca
+
             int danoHeroi = this.forca;
             if (this.armaPrincipal != null) {
                 danoHeroi += this.armaPrincipal.getAtaque();
@@ -46,7 +46,7 @@ public class Jedi extends Heroi {
                 return true;
             }
         }
-        // Nunca chega aqui, mas é obrigatório para o compilador
+
         return false;
     }
 
