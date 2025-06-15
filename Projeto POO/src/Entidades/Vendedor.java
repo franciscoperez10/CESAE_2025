@@ -1,7 +1,8 @@
 package Entidades;
 
 import Itens.ItemHeroi;
-
+import Itens.ArmaPrincipal;
+import Itens.Consumivel;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -15,35 +16,44 @@ public class Vendedor {
         this.nome = nome;
     }
 
-    public void imprimirLoja() {
-        System.out.println("Itens que estão disponíveis na loja:");
-        int maximoItensLoja = Math.min(10, loja.size());
-        ArrayList<ItemHeroi> novo = new ArrayList<>(loja);
+    /**
+     * Mostra até 10 itens aleatórios da loja e devolve a lista dos itens visíveis.
+     */
+    public ArrayList<ItemHeroi> imprimirLoja() {
+        ArrayList<ItemHeroi> itensVisiveis = new ArrayList<>();
         Random random = new Random();
+        ArrayList<Integer> indicesUsados = new ArrayList<>();
 
-        for (int i = 0; i < maximoItensLoja; i++) {
-            int posicao = random.nextInt(novo.size());
-            System.out.println((i + 1) + " - ");
-            novo.get(posicao).mostrarDetalhes();
-            novo.remove(posicao);
+        int max = Math.min(10, loja.size());
+        while (itensVisiveis.size() < max) {
+            int indiceAleatorio = random.nextInt(loja.size());
+            if (!indicesUsados.contains(indiceAleatorio)) {
+                itensVisiveis.add(loja.get(indiceAleatorio));
+                indicesUsados.add(indiceAleatorio);
+            }
         }
+
+
+        System.out.println("\n***** Itens Disponíveis na Loja: *****");
+
+        for (int i = 0; i < itensVisiveis.size(); i++) {
+            ItemHeroi item = itensVisiveis.get(i);
+            System.out.println((i + 1) + " - " + item.getNome() + " (Preço: " + item.getPrecoMoedasOuro() + " ouro)");
+        }
+        return itensVisiveis;
     }
 
-    public void vender(Heroi heroi, int indiceItem) {
-        if (indiceItem < 0 || indiceItem >= loja.size()) {
-            System.out.println("Item inválido.");
-            return;
-        }
-        ItemHeroi item = loja.get(indiceItem);
-
+    /**
+     * Realiza a venda do item selecionado ao herói, se possível.
+     */
+    public void vender(Heroi heroi, ItemHeroi item) {
         if (heroi.getOuro() < item.getPrecoMoedasOuro()) {
             System.out.println("Ouro insuficiente para comprar este item.");
             return;
         }
-
         boolean permitido = false;
-        for (HeroisPermitidos classesPermitidas : item.getClassesPermitidas()) {
-            if (classesPermitidas.name().equalsIgnoreCase(heroi.getClass().getSimpleName())) {
+        for (HeroisPermitidos classePermitida : item.getClassesPermitidas()) {
+            if (classePermitida.name().equalsIgnoreCase(heroi.getClass().getSimpleName())) {
                 permitido = true;
                 break;
             }
@@ -52,18 +62,14 @@ public class Vendedor {
             System.out.println("Este item não pode ser usado pelo seu tipo de herói.");
             return;
         }
-
         heroi.setOuro(heroi.getOuro() - item.getPrecoMoedasOuro());
-        if (item instanceof Itens.ArmaPrincipal) {
-            heroi.setArmaPrincipal((Itens.ArmaPrincipal) item);
+        if (item instanceof ArmaPrincipal) {
+            heroi.setArmaPrincipal((ArmaPrincipal) item);
             System.out.println("Arma principal trocada com sucesso!");
-        } else if (item instanceof Itens.Consumivel) {
-            heroi.getInventario().add((Itens.Consumivel) item);
+        } else if (item instanceof Consumivel) {
+            heroi.getInventario().add((Consumivel) item);
             System.out.println("Item adicionado ao inventário!");
         }
-
-
+        System.out.println("Ouro disponível após a compra: " + heroi.getOuro());
     }
-
-
 }

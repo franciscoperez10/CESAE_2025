@@ -111,6 +111,22 @@ public abstract class Heroi extends Personagem {
         System.out.println(nome + " subiu para o nível " + nivel + "!");
     }
 
+    public void mostrarResumoHeroi() {
+        System.out.print(
+                getClass().getSimpleName() + ": " + nome +
+                        " | Nível: " + nivel +
+                        " | Vida: " + vidaAtual + "/" + vidaMax +
+                        " | Força: " + forca +
+                        " | Defesa: " + defesa +
+                        " | Ouro: " + ouro +
+                        " | Experiência: " + experiencia
+        );
+        // Se tiveres atributos como danoForca ou danoSabre, acrescenta-os:
+        // System.out.print(" | Dano Força: " + danoForca + " | Dano Sabre: " + danoSabre);
+        System.out.println();
+    }
+
+
 
     public abstract void usarItem(ItemHeroi item);
 

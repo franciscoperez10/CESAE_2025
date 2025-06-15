@@ -2,6 +2,7 @@ package Jogo;
 
 import Entidades.*;
 import Itens.*;
+import AudioFiles.Audio;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -141,21 +142,25 @@ public class Jogo {
         System.out.println("\nHá muito tempo, numa galáxia muito, muito distante, iniciou-se uma guerra entre duas classes de guerreiros: os membros da Ordem Jedi, e os sombrios Sith.");
         System.out.println("\nO teu objetivo é, através de um dos membros aliados: Jedi, Rebel ou Mandalorian, enfrentar os teus inimigos, percorrendo um perigoso labirinto.");
 
-
         ArrayList<ItemHeroi> stock = instanciarItens();
         Vendedor vendedor = new Vendedor(stock, "Merchant");
-        vendedor.imprimirLoja();
+
+        // PRIMEIRA LOJA
         boolean comprar = true;
+        ArrayList<ItemHeroi> itensVisiveis = vendedor.imprimirLoja(); // Gera a lista uma vez!
         while (comprar) {
-            System.out.println("\nEscolhe o item que desejas comprar, ou pressiona '0' para avançar sem comprar:");
+            System.out.println("\nEscolhe o número do item que desejas comprar, ou pressiona '0' para avançar sem comprar:");
             int escolherItem = sc.nextInt();
+            sc.nextLine();
             if (escolherItem == 0) {
                 comprar = false;
+            } else if (escolherItem < 1 || escolherItem > itensVisiveis.size()) {
+                System.out.println("Item inválido.");
             } else {
-                vendedor.vender(heroi, escolherItem - 1);
+                ItemHeroi itemSelecionado = itensVisiveis.get(escolherItem - 1);
+                vendedor.vender(heroi, itemSelecionado);
             }
         }
-
 
         ArrayList<Inimigo> inimigos = instanciarInimigos();
         ArrayList<String> salas = instanciarSalas();
@@ -168,30 +173,32 @@ public class Jogo {
             int evento = random.nextInt(100);
 
             if (evento < 40) {
-
                 Inimigo inimigo = inimigos.get(random.nextInt(inimigos.size()));
                 System.out.println("Apareceu um inimigo! Um " + inimigo.getNome());
                 boolean ganhar = heroi.atacar(inimigo);
                 if (!ganhar) {
-                    System.out.println("\nPerdeste! Queres jogar novamente?");
+                    System.out.println("\nPerdeste!");
                     return;
                 }
             } else if (evento < 60) {
-
                 System.out.println("\nRegressaste ao vendedor!");
-                vendedor.imprimirLoja();
+                heroi.mostrarResumoHeroi();
                 boolean comprarSala = true;
+                ArrayList<ItemHeroi> itensVisiveisSala = vendedor.imprimirLoja(); // Gera a lista uma vez!
                 while (comprarSala) {
-                    System.out.println("Escolhe o item que desejas comprar, ou pressiona '0' para avançar:");
+                    System.out.println("Escolhe o número do item que desejas comprar, ou pressiona '0' para avançar:");
                     int escolherItemSala = sc.nextInt();
+                    sc.nextLine();
                     if (escolherItemSala == 0) {
                         comprarSala = false;
+                    } else if (escolherItemSala < 1 || escolherItemSala > itensVisiveisSala.size()) {
+                        System.out.println("Item inválido.");
                     } else {
-                        vendedor.vender(heroi, escolherItemSala - 1);
+                        ItemHeroi itemSelecionado = itensVisiveisSala.get(escolherItemSala - 1);
+                        vendedor.vender(heroi, itemSelecionado);
                     }
                 }
             } else if (evento < 80) {
-
                 int dano = random.nextInt(30) + 1;
                 heroi.setVidaAtual(heroi.getVidaAtual() - dano);
                 System.out.println("Caíste numa armadilha! Perdeste " + dano + " pontos de vida.");
@@ -200,14 +207,19 @@ public class Jogo {
                     return;
                 }
             } else {
-
                 System.out.println("Encontraste uma poção de vida!");
                 heroi.getInventario().add(new Pocao("Poção Encontrada", 0, null, "Cura 15 HP", 1, 15, 0));
             }
 
-
-            heroi.usarPocao();
-
+            if (heroi.getInventario().size() > 0) {
+                System.out.println("Queres usar uma poção? (1=Sim, 0=Não)");
+                int usar = sc.nextInt();
+                sc.nextLine();
+                if (usar == 1) {
+                    heroi.usarPocao();
+                }
+            }
+            heroi.mostrarResumoHeroi();
 
             if (salaAtual < salas.size() - 1) {
                 System.out.println("\nQueres avançar para a próxima sala? (1=Sim, 0=Não)");
@@ -290,6 +302,7 @@ public class Jogo {
     }
 
     public static void main(String[] args) {
+        Audio.playMusic("src/AudioFiles/Star Wars Main Theme.wav");
         Scanner sc = new Scanner(System.in);
         boolean jogar = true;
 
@@ -299,7 +312,7 @@ public class Jogo {
             Heroi heroi = criarPersonagem();
             guerraDasGalaxias(heroi);
 
-            System.out.println("Queres jogar novamente?");
+            System.out.println("\nQueres jogar novamente?");
             System.out.println("1 - Jogar com nova personagem");
             System.out.println("2 - Sair");
             int escolha = sc.nextInt();
