@@ -11,12 +11,12 @@ import java.util.Scanner;
 public class Jogo {
 
     public static void mostrarIntroducao() {
-        System.out.println("===================================================");
+        System.out.println("***************************************************");
         System.out.println("              BEM-VINDO À GUERRA DAS ESTRELAS      ");
-        System.out.println("===================================================");
+        System.out.println("***************************************************");
         System.out.println("Neste RPG, assumes o papel de um herói numa galáxia em guerra.");
-        System.out.println("O teu objetivo é atravessar um labirinto perigoso, derrotar inimigos,");
-        System.out.println("fazer escolhas estratégicas e chegar ao fim da aventura com vida.");
+        System.out.println("O teu objetivo é atravessar um labirinto perigoso e derrotar inimigos.");
+        System.out.println("Tens de fazer escolhas estratégicas e chegar ao fim da aventura com vida.");
         System.out.println();
         System.out.println("***** COMO JOGAR *****");
         System.out.println("- Escolhe o tipo de herói: Jedi, Rebel ou Mandalorian.");
@@ -37,7 +37,7 @@ public class Jogo {
         System.out.println("6. Podes tentar jogar novamente ou criar nova personagem após perder.");
         System.out.println();
         System.out.println("Boa sorte, herói! Que a Força esteja contigo.");
-        System.out.println("===================================================");
+        System.out.println("***************************************************");
         System.out.println();
     }
 
@@ -141,13 +141,14 @@ public class Jogo {
         System.out.println("\nBem-vindo à Guerra das Estrelas!");
         System.out.println("\nHá muito tempo, numa galáxia muito, muito distante, iniciou-se uma guerra entre duas classes de guerreiros: os membros da Ordem Jedi, e os sombrios Sith.");
         System.out.println("\nO teu objetivo é, através de um dos membros aliados: Jedi, Rebel ou Mandalorian, enfrentar os teus inimigos, percorrendo um perigoso labirinto.");
+        System.out.println("\n Quando te sentires perdido, lembra-te do mantra Mandaloriano: This is the Way!");
 
         ArrayList<ItemHeroi> stock = instanciarItens();
         Vendedor vendedor = new Vendedor(stock, "Merchant");
 
         // PRIMEIRA LOJA
         boolean comprar = true;
-        ArrayList<ItemHeroi> itensVisiveis = vendedor.imprimirLoja(); // Gera a lista uma vez!
+        ArrayList<ItemHeroi> itensVisiveis = vendedor.imprimirLoja();
         while (comprar) {
             System.out.println("\nEscolhe o número do item que desejas comprar, ou pressiona '0' para avançar sem comprar:");
             int escolherItem = sc.nextInt();
@@ -177,14 +178,17 @@ public class Jogo {
                 System.out.println("Apareceu um inimigo! Um " + inimigo.getNome());
                 boolean ganhar = heroi.atacar(inimigo);
                 if (!ganhar) {
-                    System.out.println("\nPerdeste!");
+                    System.out.println("\nPerdeste! Queres jogar novamente?");
                     return;
+                } else {
+                    // Aqui tens acesso à lista 'inimigos'
+                    inimigos.remove(inimigo); // REMOVE O INIMIGO DERROTADO DA LISTA
                 }
             } else if (evento < 60) {
                 System.out.println("\nRegressaste ao vendedor!");
                 heroi.mostrarResumoHeroi();
                 boolean comprarSala = true;
-                ArrayList<ItemHeroi> itensVisiveisSala = vendedor.imprimirLoja(); // Gera a lista uma vez!
+                ArrayList<ItemHeroi> itensVisiveisSala = vendedor.imprimirLoja();
                 while (comprarSala) {
                     System.out.println("Escolhe o número do item que desejas comprar, ou pressiona '0' para avançar:");
                     int escolherItemSala = sc.nextInt();
@@ -202,8 +206,10 @@ public class Jogo {
                 int dano = random.nextInt(30) + 1;
                 heroi.setVidaAtual(heroi.getVidaAtual() - dano);
                 System.out.println("Caíste numa armadilha! Perdeste " + dano + " pontos de vida.");
+                System.out.println("Vida atual: " + heroi.getVidaAtual() + "/" + heroi.getVidaMax());
+
                 if (heroi.getVidaAtual() <= 0) {
-                    System.out.println("Foste derrotado por uma armadilha! Queres jogar novamente?");
+                    System.out.println("Foste derrotado nesta aventura. Tenta novamente para alcançar a vitória!?");
                     return;
                 }
             } else {
@@ -227,7 +233,7 @@ public class Jogo {
                 if (avancar == 1) {
                     salaAtual++;
                 } else {
-                    System.out.println("\nA aventura termina aqui.");
+                    System.out.println("\nDecidiste não avançar. A tua jornada termina aqui, mas podes tentar novamente sempre que quiseres.");
                     break;
                 }
             } else {
@@ -260,7 +266,7 @@ public class Jogo {
         // Consumíveis de combate
         stock.add(new ConsumivelCombate("Granada Térmica", 8, permitidos, "Dano explosivo", 1, 25));
         stock.add(new ConsumivelCombate("Explosivo", 12, permitidos, "Grande dano instantâneo", 1, 35));
-        stock.add(new ConsumivelCombate("Bomba de Fumo", 6, permitidos, "Dano moderado", 1, 15));
+        stock.add(new ConsumivelCombate("Bomba de Fotões", 6, permitidos, "Dano moderado", 1, 15));
         stock.add(new ConsumivelCombate("Detonador", 10, permitidos, "Dano médio", 1, 20));
 
         // Itens adicionais

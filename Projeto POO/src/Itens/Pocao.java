@@ -9,11 +9,26 @@ public class Pocao extends Consumivel {
     protected int vidaACurar;
     protected int aumentoDeForca;
 
-    public Pocao(String nome, int precoMoedasOuro, ArrayList<HeroisPermitidos> heroisPermitidos,
-                 String descricao, int quantidade, int vidaACurar, int aumentoDeForca) {
+    public Pocao(String nome, int precoMoedasOuro, ArrayList<HeroisPermitidos> heroisPermitidos, String descricao, int quantidade, int vidaACurar, int aumentoDeForca) {
         super(nome, precoMoedasOuro, heroisPermitidos, descricao, quantidade);
         this.vidaACurar = vidaACurar;
         this.aumentoDeForca = aumentoDeForca;
+    }
+
+    public int getAumentoDeForca() {
+        return aumentoDeForca;
+    }
+
+    public void setAumentoDeForca(int aumentoDeForca) {
+        this.aumentoDeForca = aumentoDeForca;
+    }
+
+    public int getVidaACurar() {
+        return vidaACurar;
+    }
+
+    public void setVidaACurar(int vidaACurar) {
+        this.vidaACurar = vidaACurar;
     }
 
     @Override

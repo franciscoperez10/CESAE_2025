@@ -91,7 +91,7 @@ public abstract class Heroi extends Personagem {
 
     public void ganharXP(int xp) {
         this.experiencia += xp;
-        System.out.println(nome + " ganhou" + xp + " pontos de experiência. Tem agora um total de " + experiencia + ".");
+        System.out.println(nome + " ganhou " + xp + " pontos de experiência. Tem agora um total de  " + experiencia + ".");
         if (this.experiencia >= experienciaParaProximoNivel()) {
             subirNivel();
         }
@@ -113,32 +113,17 @@ public abstract class Heroi extends Personagem {
 
     public void mostrarResumoHeroi() {
         System.out.print(
-                getClass().getSimpleName() + ": " + nome +
-                        " | Nível: " + nivel +
-                        " | Vida: " + vidaAtual + "/" + vidaMax +
-                        " | Força: " + forca +
-                        " | Defesa: " + defesa +
-                        " | Ouro: " + ouro +
-                        " | Experiência: " + experiencia
+                getClass().getSimpleName() + ": " + nome + " | Nível: " + nivel + " | Vida: " + vidaAtual + "/" + vidaMax + " | Força: " + forca + " | Defesa: " + defesa + " | Ouro: " + ouro + " | Experiência: " + experiencia
         );
-        // Se tiveres atributos como danoForca ou danoSabre, acrescenta-os:
-        // System.out.print(" | Dano Força: " + danoForca + " | Dano Sabre: " + danoSabre);
         System.out.println();
     }
-
 
 
     public abstract void usarItem(ItemHeroi item);
 
     @Override
     public void mostrarDetalhes() {
-        System.out.print("Herói: " + nome +
-                " | Nível: " + nivel +
-                " | Vida: " + vidaAtual + "/" + vidaMax +
-                " | Força: " + forca +
-                " | Defesa: " + defesa +
-                " | Ouro: " + ouro +
-                " | Experiência: " + experiencia);
+        System.out.print("Herói: " + nome + " | Nível: " + nivel + " | Vida: " + vidaAtual + "/" + vidaMax + " | Força: " + forca + " | Defesa: " + defesa + " | Ouro: " + ouro + " | Experiência: " + experiencia);
 
         System.out.print(" | Arma Principal: ");
         if (armaPrincipal != null) {

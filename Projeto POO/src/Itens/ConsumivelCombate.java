@@ -2,14 +2,14 @@ package Itens;
 
 import Entidades.HeroisPermitidos;
 import Entidades.Heroi;
+
 import java.util.ArrayList;
 
 public class ConsumivelCombate extends Consumivel {
 
     private int ataqueInstantaneo;
 
-    public ConsumivelCombate(String nome, int precoMoedasOuro, ArrayList<HeroisPermitidos> heroisPermitidos,
-                             String descricao, int quantidade, int ataqueInstantaneo) {
+    public ConsumivelCombate(String nome, int precoMoedasOuro, ArrayList<HeroisPermitidos> heroisPermitidos, String descricao, int quantidade, int ataqueInstantaneo) {
         super(nome, precoMoedasOuro, heroisPermitidos, descricao, quantidade);
         this.ataqueInstantaneo = ataqueInstantaneo;
     }

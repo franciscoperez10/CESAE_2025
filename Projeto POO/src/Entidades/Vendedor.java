@@ -3,6 +3,7 @@ package Entidades;
 import Itens.ItemHeroi;
 import Itens.ArmaPrincipal;
 import Itens.Consumivel;
+
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -16,16 +17,16 @@ public class Vendedor {
         this.nome = nome;
     }
 
-    /**
-     * Mostra até 10 itens aleatórios da loja e devolve a lista dos itens visíveis.
-     */
     public ArrayList<ItemHeroi> imprimirLoja() {
         ArrayList<ItemHeroi> itensVisiveis = new ArrayList<>();
         Random random = new Random();
         ArrayList<Integer> indicesUsados = new ArrayList<>();
 
-        int max = Math.min(10, loja.size());
-        while (itensVisiveis.size() < max) {
+        int maximoItens = 10;
+        if (loja.size() < 10) {
+            maximoItens = loja.size();
+        }
+        while (itensVisiveis.size() < maximoItens) {
             int indiceAleatorio = random.nextInt(loja.size());
             if (!indicesUsados.contains(indiceAleatorio)) {
                 itensVisiveis.add(loja.get(indiceAleatorio));
@@ -43,9 +44,7 @@ public class Vendedor {
         return itensVisiveis;
     }
 
-    /**
-     * Realiza a venda do item selecionado ao herói, se possível.
-     */
+
     public void vender(Heroi heroi, ItemHeroi item) {
         if (heroi.getOuro() < item.getPrecoMoedasOuro()) {
             System.out.println("Ouro insuficiente para comprar este item.");

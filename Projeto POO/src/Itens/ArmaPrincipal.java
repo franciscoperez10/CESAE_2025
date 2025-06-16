@@ -23,15 +23,13 @@ public class ArmaPrincipal extends ItemHeroi {
         return ataqueEspecial;
     }
 
+    @Override
     public void mostrarDetalhes() {
-        System.out.println("Arma: " + nome +
-                " | Preço: " + precoMoedasOuro +
-                " | Ataque: " + ataque +
-                " | Ataque Especial: " + ataqueEspecial +
-                " | Classes permitidas: ");
-        for (HeroisPermitidos heroisPermitidos1 : classesPermitidas) {
-            System.out.print(heroisPermitidos1 + " ");
+        System.out.print("Arma: " + nome + " | Preço: " + precoMoedasOuro + " | Ataque: " + ataque + " | Ataque Especial: " + ataqueEspecial + " | Classes permitidas: ");
+        for (HeroisPermitidos heroi : classesPermitidas) {
+            System.out.print(heroi + " ");
         }
         System.out.println();
     }
+
 }

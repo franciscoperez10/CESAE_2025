@@ -18,7 +18,7 @@ public class Sith extends Inimigo {
     @Override
     public void atacar(Heroi heroi) {
         int dano = this.forca + this.ataque;
-        System.out.println(nome + " ataca com sabre de luz! Fez um dano de " + dano);
+        System.out.println(nome + " ataca com o Sabre de Luz negro! Fez um dano de " + dano);
         heroi.receberDano(dano);
     }
 
@@ -31,7 +31,7 @@ public class Sith extends Inimigo {
 
     public void usarSabreNegro(Heroi heroi) {
         int dano = this.danoSabreNegro + this.forca;
-        System.out.println(nome + " ataca com o Sabre Negro! Dano: " + dano);
+        System.out.println(nome + " ataca com o Sabre de Luz Negro! Dano: " + dano);
         heroi.receberDano(dano);
     }
 

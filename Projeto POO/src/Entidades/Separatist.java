@@ -32,7 +32,6 @@ public class Separatist extends Inimigo {
 
     @Override
     public void mostrarDetalhes() {
-        System.out.println("Separatist: " + nome +
-                " | Vida: " + vidaAtual + "/" + vidaMax + " | Força: " + forca + " | Nível: " + nivel + " | Defesa: " + defesa + " | Ouro: " + ouro + " | Ataque: " + ataque + " | Poder de Fogo: " + poderFogo + " | Escudo: " + escudo);
+        System.out.println("Separatist: " + nome + " | Vida: " + vidaAtual + "/" + vidaMax + " | Força: " + forca + " | Nível: " + nivel + " | Defesa: " + defesa + " | Ouro: " + ouro + " | Ataque: " + ataque + " | Poder de Fogo: " + poderFogo + " | Escudo: " + escudo);
     }
 }
