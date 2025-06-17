@@ -7,6 +7,10 @@ import Itens.ItemHeroi;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * Classe que representa um herói Jedi no jogo.
+ * Herda de Herói e adiciona atributos específicos como combustivelJetPack, durabilidadeArmadura e slugthrowers.
+ */
 public class Mandalorian extends Heroi {
     // Atributos específicos do Mandalorian
     protected int combustivelJetPack;
@@ -15,6 +19,7 @@ public class Mandalorian extends Heroi {
 
     /**
      * Construtor do Mandalorian
+     *
      * @param nome
      * @param vidaMax
      * @param vidaAtual
@@ -30,7 +35,6 @@ public class Mandalorian extends Heroi {
      * @param durabilidadeArmadura
      * @param slugthrowers
      */
-
     public Mandalorian(String nome, int vidaMax, int vidaAtual, int forca, int nivel, int defesa, int ouro, ArmaPrincipal armaPrincipal, ArrayList<Consumivel> inventario, String habilidadeEspecial, int experiencia, int combustivelJetPack, int durabilidadeArmadura, int slugthrowers) {
         super(nome, vidaMax, vidaAtual, forca, nivel, defesa, ouro, armaPrincipal, inventario, habilidadeEspecial, experiencia);
         this.combustivelJetPack = combustivelJetPack;
@@ -42,10 +46,10 @@ public class Mandalorian extends Heroi {
      * Método de ataque ao Inimigo, pelo Mandalorian
      * O Mandalorian ataca primeiro
      * Depois o inimigo ataca com 10% de dano extra.
+     *
      * @param inimigo
      * @return true se o Mandalorian ganhar, caso contrário, false
      */
-
     @Override
     public boolean atacar(Inimigo inimigo) {
         Scanner sc = new Scanner(System.in);
@@ -153,7 +157,7 @@ public class Mandalorian extends Heroi {
 
 
     /**
-     * Método que faz com que o Mandalorian reforce a sua defesa
+     * Método que faz com que o Mandalorian reforce a sua defesa. Não usado no resultado final.
      */
     @Override
     public void defender() {
@@ -164,7 +168,6 @@ public class Mandalorian extends Heroi {
     /**
      * Método que permite usar uma poção, do inventário
      */
-
     @Override
     public void usarPocao() {
         Scanner sc = new Scanner(System.in);
@@ -212,16 +215,27 @@ public class Mandalorian extends Heroi {
         this.inventario.remove(pocao);
     }
 
+    /**
+     * Método que permite ao Mandalorian usar a sua habilidade especial. Não usado no resultado final.
+     */
     @Override
     public void usarHabilidadeEspecial() {
         System.out.println(nome + " usa " + habilidadeEspecial + "!");
     }
 
+    /**
+     * Método que permite ao Mandalorian usar um item concreto.
+     *
+     * @param item
+     */
     @Override
     public void usarItem(ItemHeroi item) {
         System.out.println(nome + " usa o item: " + item.getNome());
     }
 
+    /**
+     * Método que permite ao Mandalorian usar um Jet Pack para fugir do combate. Não usado no resultado final.
+     */
     public void usarJetPack() {
         if (combustivelJetPack > 0) {
             System.out.println(nome + " voa com o jetpack! Combustível restante: " + (--combustivelJetPack));
@@ -230,22 +244,31 @@ public class Mandalorian extends Heroi {
         }
     }
 
+    /**
+     * Método que permite ao Mandalorian usar uma arma de combate exclusiva. Não usado durante o resultado final.
+     */
     public void usarSlugthrowers() {
         System.out.println(nome + " usa slugthrowers para disparar!");
 
     }
 
+    /**
+     * Método que permite ao Mandalorian mudar de arma durante o combate. Não usado durante o resultado final.
+     */
     public void mudarArma() {
         System.out.println(nome + " troca de arma!");
     }
 
+    /**
+     * Método que permite ao Mandalorian reforçar a armadura. Não usado durante o resultado final.
+     */
     public void reforcarArmadura() {
         durabilidadeArmadura += 10;
         System.out.println(nome + " reforça a armadura! A durabilidade atual é de: " + durabilidadeArmadura);
     }
 
     /**
-     * Método que imprime os Detalhes do Mandalorian, após cada jogada
+     * Método que imprime os Detalhes do Mandalorian, após cada jogada.
      */
     @Override
     public void mostrarDetalhes() {

@@ -14,6 +14,7 @@ public class Rebel extends Heroi {
 
     /**
      * Construtor do Rebel
+     *
      * @param nome
      * @param vidaMax
      * @param vidaAtual
@@ -27,7 +28,6 @@ public class Rebel extends Heroi {
      * @param experiencia
      * @param ataque
      */
-
     public Rebel(String nome, int vidaMax, int vidaAtual, int forca, int nivel, int defesa, int ouro, ArmaPrincipal armaPrincipal, ArrayList<Consumivel> inventario, String habilidadeEspecial, int experiencia, int ataque) {
         super(nome, vidaMax, vidaAtual, forca, nivel, defesa, ouro, armaPrincipal, inventario, habilidadeEspecial, experiencia);
         this.ataque = ataque;
@@ -37,6 +37,7 @@ public class Rebel extends Heroi {
     /**
      * Método de ataque ao Inimigo, pelo Rebel
      * O Rebel ataca primeiro
+     *
      * @param inimigo que se vai enfrentar
      * @return true se o Rebel ganhar, caso contrário, false
      */
@@ -148,7 +149,7 @@ public class Rebel extends Heroi {
 
 
     /**
-     * Método de Defesa do Rebel
+     * Método de Defesa do Rebel. Não usado no resultado final.
      */
     @Override
     public void defender() {
@@ -157,6 +158,9 @@ public class Rebel extends Heroi {
         this.defesa += 20;
     }
 
+    /**
+     * Método que permite ao Rebel consumir uma poção.
+     */
     @Override
     public void usarPocao() {
         Scanner sc = new Scanner(System.in);
@@ -204,24 +208,41 @@ public class Rebel extends Heroi {
         this.inventario.remove(pocao);
     }
 
+    /**
+     * Método que permite ao Rebel usar a sua habilidade especial. Não usado no resultado final.
+     */
     @Override
     public void usarHabilidadeEspecial() {
         System.out.println(nome + " usa " + habilidadeEspecial + "!");
     }
 
+    /**
+     * Método que permite ao Rebel usar um item concreto.
+     *
+     * @param item
+     */
     @Override
     public void usarItem(ItemHeroi item) {
         System.out.println(nome + " usa o item: " + item.getNome());
     }
 
+    /**
+     * Método que permite ao Rebel mudar de arma durante o combate. Não usado durante o resultado final.
+     */
     public void mudarArma() {
         System.out.println(nome + " troca de arma!");
     }
 
+    /**
+     * Método que permite ao Rebel reforçar a sua defesa. Não usado durante o resultado final.
+     */
     public void reforcarDefesa() {
         System.out.println(nome + " reforça a sua posição defensiva!");
     }
 
+    /**
+     * Método que permite ao Rebel usar granadas. Não usado durante o resultado final.
+     */
     public void usarGranada() {
         System.out.println(nome + " atira uma granada!");
     }

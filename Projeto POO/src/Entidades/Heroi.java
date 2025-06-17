@@ -36,7 +36,6 @@ public abstract class Heroi extends Personagem {
      * @param habilidadeEspecial
      * @param experiencia
      */
-
     public Heroi(String nome, int vidaMax, int vidaAtual, int forca, int nivel, int defesa, int ouro, ArmaPrincipal armaPrincipal, ArrayList<Consumivel> inventario, String habilidadeEspecial, int experiencia) {
         super(nome, vidaMax, vidaAtual, forca, nivel, defesa);
         this.nivel = nivel;
@@ -53,7 +52,7 @@ public abstract class Heroi extends Personagem {
         return nivel;
     }
 
-    // Getter para o nível do Herói
+    // Setter para o nível do Herói
     @Override
     public void setNivel(int nivel) {
         this.nivel = nivel;
@@ -107,8 +106,6 @@ public abstract class Heroi extends Personagem {
      * @param inimigo que se vai enfrentar
      * @return true se o heróir vencer, caso contrário, false
      */
-
-
     public boolean atacar(Inimigo inimigo) {
         if (this.getVidaAtual() > 0) {
             return true;
@@ -117,21 +114,28 @@ public abstract class Heroi extends Personagem {
         }
     }
 
+    /**
+     * Método abstrato que permite defesa. Não usado no resultado final.
+     */
     public abstract void defender();
 
     /**
      * Método que permite a utilização de poções
      */
-
     public abstract void usarPocao();
 
+
+    /**
+     * Método abstrato para usar a habilidade especial do herói.
+     */
     public abstract void usarHabilidadeEspecial();
 
     /**
-     * Método para ganhar Pontos de Experiência a cada jogada (XP)
+     * Método para ganhar atualizar a experiência do Herói
+     * Verifica se sobe de nível, através de Pontos de Experiência a cada jogada (XP)
+     *
      * @param xp Pontos de Experiência ganhos
      */
-
     public void ganharXP(int xp) {
         this.experiencia += xp;
         System.out.println(nome + " ganhou " + xp + " pontos de experiência. Tem agora um total de  " + experiencia + ".");
@@ -148,13 +152,13 @@ public abstract class Heroi extends Personagem {
     }
 
     /**
-     * Método para subir de nível
+     * Método para subir de nível.
+     * Método para aumentar atributos. Cura, mas só na vida máxima, não totalmente.
      */
     public void subirNivel() {
         this.nivel++;
         this.experiencia = 0;
         this.vidaMax += 10;
-        // this.vidaAtual = this.vidaMax; //
         this.forca += 1;
         this.defesa += 1;
         System.out.println(nome + " subiu para o nível " + nivel + "!");
@@ -170,7 +174,11 @@ public abstract class Heroi extends Personagem {
         System.out.println();
     }
 
-
+    /**
+     * Método abstrato para usar um item do inventário. Não usado no resultado final
+     *
+     * @param item
+     */
     public abstract void usarItem(ItemHeroi item);
 
     /**
@@ -179,7 +187,6 @@ public abstract class Heroi extends Personagem {
     @Override
     public void mostrarDetalhes() {
         System.out.print("Herói: " + nome + " | Nível: " + nivel + " | Vida: " + vidaAtual + "/" + vidaMax + " | Força: " + forca + " | Defesa: " + defesa + " | Ouro: " + ouro + " | Experiência: " + experiencia);
-
         System.out.print(" | Arma Principal: ");
         if (armaPrincipal != null) {
             System.out.print(armaPrincipal.getNome());

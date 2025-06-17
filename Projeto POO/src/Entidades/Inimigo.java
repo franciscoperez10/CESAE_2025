@@ -1,5 +1,9 @@
 package Entidades;
 
+/**
+ * Classe abstrata que representa um Inimigo
+ * Herda da Personagem o ouro
+ */
 public abstract class Inimigo extends Personagem {
 
     protected int ouro;
@@ -7,6 +11,7 @@ public abstract class Inimigo extends Personagem {
     /**
      * Construtor que permite instanciar um Inimigo
      * Herda os atributos de Personagem
+     *
      * @param nome
      * @param vidaMax
      * @param vidaAtual
@@ -15,7 +20,6 @@ public abstract class Inimigo extends Personagem {
      * @param defesa
      * @param ouro
      */
-
     public Inimigo(String nome, int vidaMax, int vidaAtual, int forca, int nivel, int defesa, int ouro) {
         super(nome, vidaMax, vidaAtual, forca, nivel, defesa);
         this.ouro = ouro;
@@ -24,6 +28,7 @@ public abstract class Inimigo extends Personagem {
     /**
      * Método abstrato que faz com os Inimigos também ataquem durante o jogo
      * Método que entra em ação depois do ataque do Herói
+     *
      * @param heroi
      */
     public abstract void atacar(Heroi heroi);
@@ -39,6 +44,7 @@ public abstract class Inimigo extends Personagem {
 
     /**
      * Método que faz com os Inimigos recebam danos
+     *
      * @param dano
      */
     public void receberDano(int dano) {
@@ -47,7 +53,11 @@ public abstract class Inimigo extends Personagem {
         System.out.println(nome + " recebeu " + dano + " de dano! Vida restante: " + vidaAtual);
     }
 
-
+    /**
+     * Método abstrato para executar a habilidade especial do inimigo.Não usado no resultado final.
+     *
+     * @param heroi
+     */
     public abstract void usarHabilidadeEspecial(Heroi heroi);
 
     /**

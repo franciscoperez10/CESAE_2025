@@ -7,6 +7,10 @@ import Itens.ItemHeroi;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * Classe que representa um herói Jedi no jogo.
+ * Herda de Herói e adiciona atributos específicos como danoForca, danoSabre e pontosForca.
+ */
 public class Jedi extends Heroi {
     // Atributos específicos do Jedi
     protected int danoForca;
@@ -45,7 +49,6 @@ public class Jedi extends Heroi {
      * @param inimigo
      * @return true se o Jedi ganhar, caso contrário, false
      */
-
     @Override
     public boolean atacar(Inimigo inimigo) {
         Scanner sc = new Scanner(System.in);
@@ -155,9 +158,8 @@ public class Jedi extends Heroi {
     }
 
     /**
-     * Método de Defesa do Jedi, que usa o Poder da Força
+     * Método de Defesa do Jedi, que usa o Poder da Força. Não usado no resultado final
      */
-
     @Override
     public void defender() {
         System.out.println(nome + " usa o poder da Força para defender!");
@@ -211,7 +213,9 @@ public class Jedi extends Heroi {
         this.inventario.remove(pocao);
     }
 
-
+    /**
+     * Método para o Jedi usar o seu ataque especial.
+     */
     @Override
     public void usarHabilidadeEspecial() {
 
@@ -221,6 +225,7 @@ public class Jedi extends Heroi {
 
     /**
      * Método para usar um item presente no Inventário do vendedor
+     *
      * @param item
      */
     @Override
@@ -238,9 +243,8 @@ public class Jedi extends Heroi {
     }
 
     /**
-     * Método para o Jedi atacar com o Sabre de Luz
+     * Método para o Jedi atacar com o Sabre de Luz. Não usado para o resultado final.
      */
-
     public void usarSabreLuz() {
         if (this.armaPrincipal != null) {
             System.out.println(this.nome + " ataca com sabre de luz: " + this.armaPrincipal.getAtaque() + " de dano!");
@@ -251,6 +255,9 @@ public class Jedi extends Heroi {
 
     }
 
+    /**
+     * Método de defesa, para o Jedi bloquear ataques inimigos. Não usado para o resultado final.
+     */
     public void bloquearTiros() {
 
         System.out.println(nome + " bloqueia tiros com o sabre de luz!");
@@ -260,7 +267,6 @@ public class Jedi extends Heroi {
     /**
      * Método para mostrar os Detalhes do Jedi na consola
      */
-
     public void mostrarDetalhes() {
         System.out.println("Jedi: " + nome + " | Nível: " + nivel + " | Vida: " + vidaAtual + "/" + vidaMax + " | Força: " + forca + " | Defesa: " + defesa + " | Ouro: " + ouro + " | Experiência: " + experiencia + " | Dano Força: " + danoForca + " | Dano Sabre: " + danoSabre);
     }

@@ -1,7 +1,12 @@
 package Entidades;
 
+
 import java.util.Random;
 
+/**
+ * Classe que representa um inimigo Stormtrooper no jogo.
+ * Herda de Inimigo e adiciona atributos específicos como ataque, defesa e armadura.
+ */
 public class Stormtrooper extends Inimigo {
     // Atributos específicos do Stormtrooper
     protected int ataque;
@@ -10,6 +15,7 @@ public class Stormtrooper extends Inimigo {
 
     /**
      * Construtor do Stormtrooper
+     *
      * @param nome
      * @param vidaMax
      * @param vidaAtual
@@ -29,7 +35,8 @@ public class Stormtrooper extends Inimigo {
     }
 
 
-    /** Método de ataque pelo Stormtrooper, para o Herói
+    /**
+     * Método de ataque pelo Stormtrooper, para o Herói
      *
      * @param heroi
      * @return true se o Stormtrooper ganhar, caso contrário, false
@@ -42,7 +49,8 @@ public class Stormtrooper extends Inimigo {
     }
 
     /**
-     * Método que permite o Stormtrooper use um ataque específico
+     * Método que permite o Stormtrooper use um ataque específico. Não usado no resultado final.
+     *
      * @param heroi
      */
     public void dispararBlaster(Heroi heroi) {
@@ -57,6 +65,11 @@ public class Stormtrooper extends Inimigo {
         }
     }
 
+    /**
+     * Método que executa a habilidade especial do Stormtrooper. Não usado no resultado final.
+     *
+     * @param heroi Herói a ser atacado
+     */
     @Override
     public void usarHabilidadeEspecial(Heroi heroi) {
 
@@ -66,7 +79,8 @@ public class Stormtrooper extends Inimigo {
     }
 
     /**
-     * Método que permite o Stormtrooper abandonar o combate
+     * Método que permite o Stormtrooper abandonar o combate. Não usado no resultado final.
+     *
      * @return true se conseguir fugir, false se não conseguir escapar
      */
     public boolean fugir() {

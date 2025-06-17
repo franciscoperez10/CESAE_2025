@@ -9,11 +9,13 @@ import java.util.Random;
 import java.util.Scanner;
 
 /**
- * Classe Principal da Guerra das Estrelas. Cria o Herói, define o fluxo do jogo, as salas e as interações com o utilizador
+ * Classe Principal da Guerra das Estrelas.
+ * Cria o Herói, define o fluxo do jogo, as salas e as interações com o utilizador
  */
 public class Jogo {
     /**
      * Introdução e formas de jogar
+     * Regras do jogo
      */
     public static void mostrarIntroducao() {
         System.out.println("***************************************************");
@@ -25,21 +27,21 @@ public class Jogo {
         System.out.println();
         System.out.println("***** COMO JOGAR *****");
         System.out.println("- Escolhe o tipo de herói: Jedi, Rebel ou Mandalorian.");
-        System.out.println("- Escolhe a dificuldade: Fácil (300 pontos, 20 ouro) ou Difícil (220 pontos, 15 ouro).");
+        System.out.println("- Escolhe a dificuldade: Fácil (300 pontos, 20 moedas de ouro) ou Difícil (220 pontos, 15 moedas de ouro).");
         System.out.println("- Distribui os pontos de criação entre VIDA (1 ponto = 1 vida) e FORÇA (5 pontos = 1 força).");
         System.out.println("- Compra armas, poções e consumíveis na loja do Vendedor, se quiseres e se tiveres ouro para tal.");
         System.out.println("- Avança pelas salas do labirinto, enfrenta inimigos, armadilhas e toma decisões.");
-        System.out.println("- Usa poções para recuperar vida ou aumentar força após cada sala.");
+        System.out.println("- Usa poções para recuperar vida ou aumentar a força após cada sala.");
         System.out.println("- O combate é por turnos e cada classe tem regras especiais de ataque.");
         System.out.println("- Podes ganhar o jogo,chegando ao fim do labirinto, ou perder se a tua vida chegar a zero.");
         System.out.println();
         System.out.println("***** REGRAS *****");
         System.out.println("1. Cada combate termina quando um dos lados fica sem vida.");
-        System.out.println("2. Só podes usar o ataque especial uma vez por combate.");
-        System.out.println("3. O vendedor só mostra 10 itens aleatórios de cada vez.");
+        System.out.println("2. Só podes usar o ataque especial uma vez por cada combate.");
+        System.out.println("3. O vendedor só te mostra 10 itens aleatórios de cada vez.");
         System.out.println("4. Se tentares comprar alguma coisa, e não tiveres ouro suficiente, ou um item que não seja permitido na tua classe, a compra falha.");
         System.out.println("5. Se usares uma poção de vida que excede o teu máximo, a poção só funciona até ao máximo de vida (100HP) e és avisado de tal.");
-        System.out.println("6. Podes tentar jogar novamente ou criar nova personagem após perder.");
+        System.out.println("6. Podes jogar novamente ou criar uma nova personagem se/após perderes.");
         System.out.println();
         System.out.println("Boa sorte, herói! Que a Força esteja contigo.");
         System.out.println("***************************************************");
@@ -49,13 +51,15 @@ public class Jogo {
     /**
      * Permite a criação do Herói
      * Permite a escolha da Dificuldade
+     *
      * @return Herói
      */
     public static Heroi criarPersonagem() {
         Scanner sc = new Scanner(System.in);
 
         int escolhaHeroi = -1;
-        while (escolhaHeroi < 1 || escolhaHeroi > 3) { // Garantir que o utilizador insere um número entre 1 e 3
+        // Garantir que o utilizador insere um número entre 1 e 3
+        while (escolhaHeroi < 1 || escolhaHeroi > 3) {
             System.out.println("Escolhe o herói com que vais explorar a galáxia: ");
             System.out.println("1 - Jedi");
             System.out.println("2 - Rebel");
@@ -69,7 +73,8 @@ public class Jogo {
         sc.nextLine();
 
         int escolhaDificuldade = -1;
-        while (escolhaDificuldade < 1 || escolhaDificuldade > 2) { // Raciocínio similar à lógica de cima
+        // Raciocínio similar à lógica de cima, ou seja, escolher 1 ou 2
+        while (escolhaDificuldade < 1 || escolhaDificuldade > 2) {
             System.out.println("\nEscolhe a dificuldade:");
             System.out.println("1 - Fácil (300 pontos de criação, 20 ouro)");
             System.out.println("2 - Difícil (220 pontos de criação, 15 ouro)");
@@ -105,7 +110,8 @@ public class Jogo {
             System.out.println("Quantos pontos queres atribuir a FORÇA? (5 pontos de criação = 1 força)");
             int pontosForca = sc.nextInt();
 
-            if (pontosVida < 0 || pontosForca < 0) { // Protecção em caso de valores negativos
+            // Protecção em caso de valores negativos
+            if (pontosVida < 0 || pontosForca < 0) {
                 System.out.println("Erro. Não podes atribuir valores negativos. Tenta novamente.");
             } else {
                 int preco = pontosVida + (pontosForca * 5);
@@ -147,6 +153,8 @@ public class Jogo {
 
     /**
      * Método principal responsável por "correr" o jogo
+     * Permite gerar eventos aleatórios em cada sala do jogo
+     *
      * @param heroi
      */
     public static void guerraDasEstrelas(Heroi heroi) {
@@ -157,8 +165,9 @@ public class Jogo {
         System.out.println("\nO teu objetivo é, através de um dos membros aliados: Jedi, Rebel ou Mandalorian, enfrentar os teus inimigos, percorrendo um perigoso labirinto.");
         System.out.println("\nQuando te sentires perdido, lembra-te do mantra Mandaloriano: This is the Way!");
 
+        // Instancia e devolve a lista de itens que estão disponíveis na loja do vendedor
         ArrayList<ItemHeroi> stock = instanciarItens();
-        Vendedor vendedor = new Vendedor(stock, "Merchant");
+        Vendedor vendedor = new Vendedor(stock, "Watoo");
 
         // Loja do Vendedor
         boolean comprar = true;
@@ -176,11 +185,12 @@ public class Jogo {
                 vendedor.vender(heroi, itemSelecionado);
             }
         }
-        // ArrayLists para serem criados os métodos de instanciar inimigos e salas
+
         ArrayList<Inimigo> inimigos = instanciarInimigos();
         ArrayList<String> salas = instanciarSalas();
 
-        // A ideia é que a sala seja sempre aleatória, ou seja, o jogador não saber o que lhe espera
+        // A ideia deste jogo é que a sala seja sempre aleatória, ou seja, o jogador não sabe o que lhe espera
+        // O jogador nunca sabe se vai enfrentar um inimigo, regressar ao vendedor, descobrir uma poção ou cair numa armadilha
         int salaAtual = 0;
         Random random = new Random();
         while (salaAtual < salas.size()) {
@@ -189,14 +199,13 @@ public class Jogo {
 
             int evento = random.nextInt(100);
 
-        // Cada uma das salas, ou vendedor, é definida probabilísticamente
-
+            // Cada uma das salas, vendedor,armadilha ou poção é definida probabilísticamente
             if (evento < 40) {
                 Inimigo inimigo = inimigos.get(random.nextInt(inimigos.size()));
                 System.out.println("Apareceu um inimigo! Um " + inimigo.getNome());
                 boolean ganhar = heroi.atacar(inimigo);
                 if (!ganhar) {
-                    System.out.println("\nPerdeste! O Lado Negro da Força foi mais poderoso");
+                    System.out.println("\nPerdeste! O Lado Negro da Força foi mais poderoso!");
                     return;
                 } else {
                     inimigos.remove(inimigo);
@@ -261,6 +270,11 @@ public class Jogo {
         sc.close();
     }
 
+    /**
+     * Instancia e devolve a lista de itens que estão disponíveis na loja do vendedor
+     *
+     * @return ArrayList <ItemHeroi> com os itens disponíveis
+     */
     public static ArrayList<ItemHeroi> instanciarItens() {
         ArrayList<ItemHeroi> stock = new ArrayList<>();
         ArrayList<HeroisPermitidos> permitidos = new ArrayList<>();
@@ -274,6 +288,7 @@ public class Jogo {
         stock.add(new ArmaPrincipal("Rifle de Precisão", 20, permitidos, 15, 28));
         stock.add(new ArmaPrincipal("Vibroblade", 18, permitidos, 14, 25));
         stock.add(new ArmaPrincipal("DDC Defebder", 35, permitidos, 20, 30));
+        stock.add(new ArmaPrincipal("Sabre Duplo", 30, permitidos, 25, 40));
 
         // Poções
         stock.add(new Pocao("Poção de Vida", 10, permitidos, "Aumenta a vida em 25 HP", 1, 25, 0));
@@ -281,21 +296,24 @@ public class Jogo {
         stock.add(new Pocao("Poção de Força", 12, permitidos, "Aumenta a força em 5", 1, 0, 5));
         stock.add(new Pocao("Super Poção", 20, permitidos, "Cura 50 HP e aumenta força", 1, 50, 3));
         stock.add(new Pocao("Elixir da Vida", 15, permitidos, "Cura 35 HP", 1, 35, 0));
+        stock.add(new Pocao("Poção Bakta", 25, permitidos, "Cura completa", 1, 100, 0));
 
         // Consumíveis de combate
-        stock.add(new ConsumivelCombate("Lança-chamas", 10, permitidos, "Permite desferir um golpe usando fogo", 1, 10));
+        stock.add(new ConsumivelCombate("Lança-Chamas", 10, permitidos, "Permite desferir um golpe usando fogo", 1, 10));
         stock.add(new ConsumivelCombate("Granada Térmica", 8, permitidos, "Dano explosivo", 1, 25));
         stock.add(new ConsumivelCombate("Explosivo", 12, permitidos, "Grande dano instantâneo", 1, 35));
         stock.add(new ConsumivelCombate("Bomba de Fotões", 6, permitidos, "Dano moderado", 1, 15));
         stock.add(new ConsumivelCombate("Detonador", 10, permitidos, "Dano médio", 1, 20));
 
-        // Itens adicionais
-        stock.add(new ArmaPrincipal("Sabre Duplo", 30, permitidos, 25, 40));
-        stock.add(new Pocao("Poção Bakta", 25, permitidos, "Cura completa", 1, 100, 0));
 
         return stock;
     }
 
+    /**
+     * * Instancia e devolve a lista de inimigos do jogo.
+     *
+     * @return ArrayList<Inimigo> com todos os inimigos possíveis
+     */
     public static ArrayList<Inimigo> instanciarInimigos() {
         ArrayList<Inimigo> inimigos = new ArrayList<>();
 
@@ -305,9 +323,9 @@ public class Jogo {
         inimigos.add(new Sith("Darth Vader", 250, 250, 30, 5, 20, 40, 25, 30, 50));
 
         // Inimigos Stormtroopers
-        inimigos.add(new Stormtrooper("Captain Phasma", 70, 70, 12, 1, 8, 10, 10, 8));
-        inimigos.add(new Stormtrooper("FN-2199", 90, 90, 14, 2, 10, 12, 12, 10));
-        inimigos.add(new Stormtrooper("Dark Trooper", 95, 95, 20, 4, 20, 12, 15, 10));
+        inimigos.add(new Stormtrooper("Captain Phasma", 80, 80, 12, 1, 8, 10, 10, 8));
+        inimigos.add(new Stormtrooper("FN-2199", 100, 1000, 14, 2, 10, 12, 12, 10));
+        inimigos.add(new Stormtrooper("Dark Trooper", 115, 115, 20, 4, 20, 12, 15, 10));
 
         // Inimigos Separatists
         inimigos.add(new Separatist("Lok Durd", 105, 105, 12, 1, 15, 20, 12, 11, 7));
@@ -317,6 +335,11 @@ public class Jogo {
         return inimigos;
     }
 
+    /**
+     * Instancia e devolve a lista de salas do labirinto criadas para o jogador
+     *
+     * @return ArrayList <String> com o nome de cada uma salas criadas
+     */
     public static ArrayList<String> instanciarSalas() {
         ArrayList<String> salas = new ArrayList<>();
         salas.add("Entrada do Labirinto");
@@ -331,6 +354,10 @@ public class Jogo {
     }
 
     /**
+     * Main do programa
+     * Começa com a música da Guerra das Estrelas, mostra a introdução.
+     * Apresenta a criação da Personagem
+     * Executa e termina o programa
      *
      * @param args
      */
@@ -343,7 +370,6 @@ public class Jogo {
         mostrarIntroducao();
 
         // Ciclo while para que o jogo comece efetivamente, criando a personagem e correndo a Guerra das Estrelas
-
         while (jogar) {
             Heroi heroi = criarPersonagem();
             guerraDasEstrelas(heroi);

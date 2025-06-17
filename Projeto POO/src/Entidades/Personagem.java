@@ -4,7 +4,6 @@ package Entidades;
  * Classe abstrata, que serve como "base" para os Heróis e os Inimigos
  * Super classe de Heróis e Inimigos
  * Definie atributos comuns às personagens
- *
  */
 
 public abstract class Personagem {
@@ -17,6 +16,7 @@ public abstract class Personagem {
 
     /**
      * Construtor para instanciar as personagens
+     *
      * @param nome
      * @param vidaMax
      * @param vidaAtual
@@ -83,6 +83,7 @@ public abstract class Personagem {
 
     /**
      * Método que faz com que a personagem (seja Herói ou Inimigo) receba danos
+     *
      * @param dano
      */
     public void receberDano(int dano) {
@@ -92,6 +93,13 @@ public abstract class Personagem {
         }
     }
 
+    /**
+     * Método que permite recuperar pontos de vida até ao valor máximo
+     * Adiociona os pontos indicados à vida da Personagem no momento
+     *
+     * @param quantidade
+     */
+
     public void curar(int quantidade) {
         vidaAtual += quantidade;
         if (vidaAtual > vidaMax) {
@@ -99,6 +107,11 @@ public abstract class Personagem {
         }
     }
 
+    /**
+     * Método para avaliar se a Personagem tem, ou não, vida.
+     *
+     * @return true se a vida for maior que 0
+     */
     public boolean temVida() {
         return vidaAtual > 0;
     }

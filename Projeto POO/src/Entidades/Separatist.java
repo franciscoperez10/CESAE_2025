@@ -1,5 +1,10 @@
 package Entidades;
 
+/**
+ * Classe que representa um inimigo Separatist no jogo.
+ * Herda de Inimigo e adiciona atributos específicos como ataque, poder de fogo e escudo.
+ */
+
 public class Separatist extends Inimigo {
     // Atributos específicos do Separatist
     protected int ataque;
@@ -8,7 +13,8 @@ public class Separatist extends Inimigo {
     protected int escudo;
 
     /**
-     * Construtor do Separatist
+     * Construtor dos Separatist
+     *
      * @param nome
      * @param vidaMax
      * @param vidaAtual
@@ -31,8 +37,9 @@ public class Separatist extends Inimigo {
 
     /**
      * Método de ataque pelo Separatist, para o Herói
+     *
      * @param heroi
-     * return true se o Separatist ganhar, caso contrário, false
+     * @return true se o Separatist ganhar, caso contrário, false
      */
     @Override
     public void atacar(Heroi heroi) {
@@ -40,6 +47,12 @@ public class Separatist extends Inimigo {
         System.out.println(nome + " dispara com poder de fogo máximo! Dano: " + dano);
         heroi.receberDano(dano);
     }
+
+    /**
+     * Método para a habilidade especial dos Separatist. Não usado no resultado final.
+     *
+     * @param heroi
+     */
 
     @Override
     public void usarHabilidadeEspecial(Heroi heroi) {
