@@ -6,6 +6,12 @@ import Itens.ItemHeroi;
 
 import java.util.ArrayList;
 
+/**
+ * Classe abstrata, que representa um Herói jogável
+ * Herda de Personagem
+ * As subclasses de Herói vão implementar o método atacar()
+ * As subclasses de Herói vão ter métodos específicos
+ */
 public abstract class Heroi extends Personagem {
 
     protected int nivel;
@@ -14,6 +20,22 @@ public abstract class Heroi extends Personagem {
     protected ArrayList<Consumivel> inventario;
     protected String habilidadeEspecial;
     protected int experiencia;
+
+    /**
+     * Construtor que permite instanciar um Herói
+     *
+     * @param nome
+     * @param vidaMax
+     * @param vidaAtual
+     * @param forca
+     * @param nivel
+     * @param defesa
+     * @param ouro
+     * @param armaPrincipal
+     * @param inventario         inicial dos itens consumíveis
+     * @param habilidadeEspecial
+     * @param experiencia
+     */
 
     public Heroi(String nome, int vidaMax, int vidaAtual, int forca, int nivel, int defesa, int ouro, ArmaPrincipal armaPrincipal, ArrayList<Consumivel> inventario, String habilidadeEspecial, int experiencia) {
         super(nome, vidaMax, vidaAtual, forca, nivel, defesa);
@@ -25,15 +47,19 @@ public abstract class Heroi extends Personagem {
         this.experiencia = experiencia;
     }
 
+    // Getter para o nível do Herói
     @Override
     public int getNivel() {
         return nivel;
     }
 
+    // Getter para o nível do Herói
     @Override
     public void setNivel(int nivel) {
         this.nivel = nivel;
     }
+
+    // Getter e Setter para a quantidade de Ouro que vai ser usada no jogo
 
     public int getOuro() {
         return ouro;
@@ -75,6 +101,14 @@ public abstract class Heroi extends Personagem {
         this.experiencia = experiencia;
     }
 
+    /**
+     * Método abstrato que faz com que os Heróis ataquem durante o jogo
+     *
+     * @param inimigo que se vai enfrentar
+     * @return true se o heróir vencer, caso contrário, false
+     */
+
+
     public boolean atacar(Inimigo inimigo) {
         if (this.getVidaAtual() > 0) {
             return true;
@@ -85,9 +119,18 @@ public abstract class Heroi extends Personagem {
 
     public abstract void defender();
 
+    /**
+     * Método que permite a utilização de poções
+     */
+
     public abstract void usarPocao();
 
     public abstract void usarHabilidadeEspecial();
+
+    /**
+     * Método para ganhar Pontos de Experiência a cada jogada (XP)
+     * @param xp Pontos de Experiência ganhos
+     */
 
     public void ganharXP(int xp) {
         this.experiencia += xp;
@@ -97,20 +140,29 @@ public abstract class Heroi extends Personagem {
         }
     }
 
+    /**
+     * Método para ganhar Pontos de Experiência a cada jogada (XP)
+     */
     public int experienciaParaProximoNivel() {
         return this.nivel * 10;
     }
 
+    /**
+     * Método para subir de nível
+     */
     public void subirNivel() {
         this.nivel++;
         this.experiencia = 0;
         this.vidaMax += 10;
-        this.vidaAtual = this.vidaMax;
-        this.forca += 2;
+        // this.vidaAtual = this.vidaMax; //
+        this.forca += 1;
         this.defesa += 1;
         System.out.println(nome + " subiu para o nível " + nivel + "!");
     }
 
+    /**
+     * Método que imprime o "estado" do Herói no final de cada jogada
+     */
     public void mostrarResumoHeroi() {
         System.out.print(
                 getClass().getSimpleName() + ": " + nome + " | Nível: " + nivel + " | Vida: " + vidaAtual + "/" + vidaMax + " | Força: " + forca + " | Defesa: " + defesa + " | Ouro: " + ouro + " | Experiência: " + experiencia
@@ -121,6 +173,9 @@ public abstract class Heroi extends Personagem {
 
     public abstract void usarItem(ItemHeroi item);
 
+    /**
+     * Método para mostrar os detalhes do Herói
+     */
     @Override
     public void mostrarDetalhes() {
         System.out.print("Herói: " + nome + " | Nível: " + nivel + " | Vida: " + vidaAtual + "/" + vidaMax + " | Força: " + forca + " | Defesa: " + defesa + " | Ouro: " + ouro + " | Experiência: " + experiencia);

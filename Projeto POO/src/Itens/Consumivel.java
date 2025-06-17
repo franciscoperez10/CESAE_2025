@@ -14,7 +14,5 @@ public abstract class Consumivel extends ItemHeroi {
         this.quantidade = quantidade;
     }
 
-    public abstract void aplicarEfeito(Entidades.Heroi heroi);
-
     public abstract void mostrarDetalhes();
 }

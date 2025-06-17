@@ -8,9 +8,25 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Rebel extends Heroi {
-
+    // Atributos específicos do Rebel
     protected int ataque;
     protected int defesa;
+
+    /**
+     * Construtor do Rebel
+     * @param nome
+     * @param vidaMax
+     * @param vidaAtual
+     * @param forca
+     * @param nivel
+     * @param defesa
+     * @param ouro
+     * @param armaPrincipal
+     * @param inventario
+     * @param habilidadeEspecial
+     * @param experiencia
+     * @param ataque
+     */
 
     public Rebel(String nome, int vidaMax, int vidaAtual, int forca, int nivel, int defesa, int ouro, ArmaPrincipal armaPrincipal, ArrayList<Consumivel> inventario, String habilidadeEspecial, int experiencia, int ataque) {
         super(nome, vidaMax, vidaAtual, forca, nivel, defesa, ouro, armaPrincipal, inventario, habilidadeEspecial, experiencia);
@@ -18,13 +34,19 @@ public class Rebel extends Heroi {
         this.defesa = defesa;
     }
 
+    /**
+     * Método de ataque ao Inimigo, pelo Rebel
+     * O Rebel ataca primeiro
+     * @param inimigo que se vai enfrentar
+     * @return true se o Rebel ganhar, caso contrário, false
+     */
     @Override
     public boolean atacar(Inimigo inimigo) {
         Scanner sc = new Scanner(System.in);
         boolean ataqueEspecialUsado = false;
 
         while (this.getVidaAtual() > 0 && inimigo.getVidaAtual() > 0) {
-            System.out.println("\n===== ESTADO DO COMBATE =====");
+            System.out.println("\n ***** Combate *****");
             System.out.println(this.nome + " (Vida: " + this.getVidaAtual() + "/" + this.getVidaMax() + ")");
             System.out.println(inimigo.getNome() + " (Vida: " + inimigo.getVidaAtual() + "/" + inimigo.getVidaMax() + ")");
             System.out.println("=============================");
@@ -102,7 +124,7 @@ public class Rebel extends Heroi {
 
             if (inimigo.getVidaAtual() <= 0) {
                 System.out.println("O inimigo foi derrotado!");
-                int xpGanho = 10; // ou outro valor
+                int xpGanho = 10;
                 this.ganharXP(xpGanho);
                 this.ouro += inimigo.getOuro();
                 System.out.println("Ganhaste " + xpGanho + " XP e " + inimigo.getOuro() + " ouro!");
@@ -114,6 +136,8 @@ public class Rebel extends Heroi {
             System.out.println(inimigo.getNome() + " ataca! Dano: " + danoInimigo);
             this.receberDano(danoInimigo);
 
+            System.out.println("Vida atual do herói: " + this.getVidaAtual() + "/" + this.getVidaMax());
+
             if (this.getVidaAtual() <= 0) {
                 System.out.println("Foste derrotado pelo inimigo!");
                 return false;
@@ -123,10 +147,14 @@ public class Rebel extends Heroi {
     }
 
 
-
+    /**
+     * Método de Defesa do Rebel
+     */
     @Override
     public void defender() {
+
         System.out.println(nome + "executa uma posição defensiva!");
+        this.defesa += 20;
     }
 
     @Override
@@ -160,7 +188,7 @@ public class Rebel extends Heroi {
         }
         Itens.Pocao pocao = (Itens.Pocao) pocoes.get(escolha - 1);
 
-        // Cura a vida, mas não ultrapassa o máximo
+
         int vidaAntes = this.vidaAtual;
         int vidaACurar = pocao.getVidaACurar();
         if (vidaAntes + vidaACurar > this.vidaMax) {
@@ -170,7 +198,7 @@ public class Rebel extends Heroi {
         } else {
             this.vidaAtual += vidaACurar;
         }
-        // Aumenta força, se aplicável
+
         this.forca += pocao.getAumentoDeForca();
         System.out.println("Usaste a poção " + pocao.getNome() + ". Vida: " + this.vidaAtual + "/" + this.vidaMax + " | Força: " + this.forca);
         this.inventario.remove(pocao);
@@ -198,6 +226,9 @@ public class Rebel extends Heroi {
         System.out.println(nome + " atira uma granada!");
     }
 
+    /**
+     * Método que imprime os Detalhes do Rebel, após cada jogada
+     */
     @Override
     public void mostrarDetalhes() {
         System.out.println("Rebel: " + nome + " | Nível: " + nivel + " | Vida: " + vidaAtual + "/" + vidaMax + " | Força: " + forca + " | Defesa: " + defesa + " | Ouro: " + ouro + " | Experiência: " + experiencia + " | Ataque: " + ataque + " | Defesa: " + defesa);

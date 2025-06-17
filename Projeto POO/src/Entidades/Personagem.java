@@ -1,5 +1,12 @@
 package Entidades;
 
+/**
+ * Classe abstrata, que serve como "base" para os Heróis e os Inimigos
+ * Super classe de Heróis e Inimigos
+ * Definie atributos comuns às personagens
+ *
+ */
+
 public abstract class Personagem {
     protected String nome;
     protected int vidaMax;
@@ -8,6 +15,15 @@ public abstract class Personagem {
     protected int nivel;
     protected int defesa;
 
+    /**
+     * Construtor para instanciar as personagens
+     * @param nome
+     * @param vidaMax
+     * @param vidaAtual
+     * @param forca
+     * @param nivel
+     * @param defesa
+     */
     public Personagem(String nome, int vidaMax, int vidaAtual, int forca, int nivel, int defesa) {
         this.nome = nome;
         this.vidaMax = vidaMax;
@@ -65,6 +81,10 @@ public abstract class Personagem {
         this.defesa = defesa;
     }
 
+    /**
+     * Método que faz com que a personagem (seja Herói ou Inimigo) receba danos
+     * @param dano
+     */
     public void receberDano(int dano) {
         vidaAtual -= dano;
         if (vidaAtual < 0) {
@@ -82,6 +102,11 @@ public abstract class Personagem {
     public boolean temVida() {
         return vidaAtual > 0;
     }
+
+    /**
+     * Método que mostra os Detalhes da personagem (seja Heroi ou Inimigo)
+     * Método que é subscrito nas respetivas subclasses
+     */
 
     public abstract void mostrarDetalhes();
 }

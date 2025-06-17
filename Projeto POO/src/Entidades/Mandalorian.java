@@ -8,10 +8,28 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Mandalorian extends Heroi {
-
+    // Atributos específicos do Mandalorian
     protected int combustivelJetPack;
     protected int durabilidadeArmadura;
     protected int slugthrowers;
+
+    /**
+     * Construtor do Mandalorian
+     * @param nome
+     * @param vidaMax
+     * @param vidaAtual
+     * @param forca
+     * @param nivel
+     * @param defesa
+     * @param ouro
+     * @param armaPrincipal
+     * @param inventario
+     * @param habilidadeEspecial
+     * @param experiencia
+     * @param combustivelJetPack
+     * @param durabilidadeArmadura
+     * @param slugthrowers
+     */
 
     public Mandalorian(String nome, int vidaMax, int vidaAtual, int forca, int nivel, int defesa, int ouro, ArmaPrincipal armaPrincipal, ArrayList<Consumivel> inventario, String habilidadeEspecial, int experiencia, int combustivelJetPack, int durabilidadeArmadura, int slugthrowers) {
         super(nome, vidaMax, vidaAtual, forca, nivel, defesa, ouro, armaPrincipal, inventario, habilidadeEspecial, experiencia);
@@ -20,13 +38,21 @@ public class Mandalorian extends Heroi {
         this.slugthrowers = slugthrowers;
     }
 
+    /**
+     * Método de ataque ao Inimigo, pelo Mandalorian
+     * O Mandalorian ataca primeiro
+     * Depois o inimigo ataca com 10% de dano extra.
+     * @param inimigo
+     * @return true se o Mandalorian ganhar, caso contrário, false
+     */
+
     @Override
     public boolean atacar(Inimigo inimigo) {
         Scanner sc = new Scanner(System.in);
         boolean ataqueEspecialUsado = false;
 
         while (this.getVidaAtual() > 0 && inimigo.getVidaAtual() > 0) {
-            System.out.println("\n===== ESTADO DO COMBATE =====");
+            System.out.println("\n ***** Combate *****");
             System.out.println(this.nome + " (Vida: " + this.getVidaAtual() + "/" + this.getVidaMax() + ")");
             System.out.println(inimigo.getNome() + " (Vida: " + inimigo.getVidaAtual() + "/" + inimigo.getVidaMax() + ")");
             System.out.println("=============================");
@@ -104,7 +130,7 @@ public class Mandalorian extends Heroi {
 
             if (inimigo.getVidaAtual() <= 0) {
                 System.out.println("O inimigo foi derrotado!");
-                int xpGanho = 10; // ou outro valor
+                int xpGanho = 10;
                 this.ganharXP(xpGanho);
                 this.ouro += inimigo.getOuro();
                 System.out.println("Ganhaste " + xpGanho + " XP e " + inimigo.getOuro() + " ouro!");
@@ -115,6 +141,7 @@ public class Mandalorian extends Heroi {
             int danoInimigo = (int) (inimigo.getForca() * 1.1);
             System.out.println(inimigo.getNome() + " ataca! Dano: " + danoInimigo);
             this.receberDano(danoInimigo);
+            System.out.println("Vida atual do herói: " + this.getVidaAtual() + "/" + this.getVidaMax());
 
             if (this.getVidaAtual() <= 0) {
                 System.out.println("Foste derrotado pelo inimigo!");
@@ -125,12 +152,18 @@ public class Mandalorian extends Heroi {
     }
 
 
-
+    /**
+     * Método que faz com que o Mandalorian reforce a sua defesa
+     */
     @Override
     public void defender() {
         System.out.println(nome + " usa a armadura para defender o ataque! A durabilidade restante é: " + durabilidadeArmadura);
-
+        this.defesa += 35;
     }
+
+    /**
+     * Método que permite usar uma poção, do inventário
+     */
 
     @Override
     public void usarPocao() {
@@ -163,7 +196,7 @@ public class Mandalorian extends Heroi {
         }
         Itens.Pocao pocao = (Itens.Pocao) pocoes.get(escolha - 1);
 
-        // Cura a vida, mas não ultrapassa o máximo
+
         int vidaAntes = this.vidaAtual;
         int vidaACurar = pocao.getVidaACurar();
         if (vidaAntes + vidaACurar > this.vidaMax) {
@@ -211,6 +244,9 @@ public class Mandalorian extends Heroi {
         System.out.println(nome + " reforça a armadura! A durabilidade atual é de: " + durabilidadeArmadura);
     }
 
+    /**
+     * Método que imprime os Detalhes do Mandalorian, após cada jogada
+     */
     @Override
     public void mostrarDetalhes() {
         System.out.println("Mandalorian: " + nome + " | Nível: " + nivel + " | Vida: " + vidaAtual + "/" + vidaMax + " | Força: " + forca + " | Defesa: " + defesa + " | Ouro: " + ouro + " | Experiência: " + experiencia + " | Combustível JetPack: " + combustivelJetPack + " | Durabilidade Armadura: " + durabilidadeArmadura + " | Slugthrowers: " + slugthrowers);

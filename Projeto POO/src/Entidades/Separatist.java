@@ -1,11 +1,25 @@
 package Entidades;
 
 public class Separatist extends Inimigo {
-
+    // Atributos específicos do Separatist
     protected int ataque;
     protected int defesa;
     protected int poderFogo;
     protected int escudo;
+
+    /**
+     * Construtor do Separatist
+     * @param nome
+     * @param vidaMax
+     * @param vidaAtual
+     * @param forca
+     * @param nivel
+     * @param defesa
+     * @param ouro
+     * @param ataque
+     * @param poderFogo
+     * @param escudo
+     */
 
     public Separatist(String nome, int vidaMax, int vidaAtual, int forca, int nivel, int defesa, int ouro, int ataque, int poderFogo, int escudo) {
         super(nome, vidaMax, vidaAtual, forca, nivel, defesa, ouro);
@@ -15,6 +29,11 @@ public class Separatist extends Inimigo {
         this.escudo = escudo;
     }
 
+    /**
+     * Método de ataque pelo Separatist, para o Herói
+     * @param heroi
+     * return true se o Separatist ganhar, caso contrário, false
+     */
     @Override
     public void atacar(Heroi heroi) {
         int dano = this.forca + this.ataque + this.poderFogo;
@@ -30,6 +49,9 @@ public class Separatist extends Inimigo {
         heroi.receberDano(danoEspecial);
     }
 
+    /**
+     * Método que imprime os Detalhes do Separatist
+     */
     @Override
     public void mostrarDetalhes() {
         System.out.println("Separatist: " + nome + " | Vida: " + vidaAtual + "/" + vidaMax + " | Força: " + forca + " | Nível: " + nivel + " | Defesa: " + defesa + " | Ouro: " + ouro + " | Ataque: " + ataque + " | Poder de Fogo: " + poderFogo + " | Escudo: " + escudo);

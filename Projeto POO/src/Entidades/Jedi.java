@@ -8,17 +8,43 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Jedi extends Heroi {
-
+    // Atributos específicos do Jedi
     protected int danoForca;
     protected int danoSabre;
     protected int pontosForca;
 
+    /**
+     * Construtor do Jedi
+     *
+     * @param nome
+     * @param vidaMax
+     * @param vidaAtual
+     * @param forca
+     * @param nivel
+     * @param defesa
+     * @param ouro
+     * @param armaPrincipal
+     * @param inventario
+     * @param habilidadeEspecial
+     * @param experiencia
+     * @param danoForca
+     * @param danoSabre
+     * @param pontosForca
+     */
     public Jedi(String nome, int vidaMax, int vidaAtual, int forca, int nivel, int defesa, int ouro, ArmaPrincipal armaPrincipal, ArrayList<Consumivel> inventario, String habilidadeEspecial, int experiencia, int danoForca, int danoSabre, int pontosForca) {
         super(nome, vidaMax, vidaAtual, forca, nivel, defesa, ouro, armaPrincipal, inventario, habilidadeEspecial, experiencia);
         this.danoForca = danoForca;
         this.danoSabre = danoSabre;
         this.pontosForca = pontosForca;
     }
+
+    /**
+     * Método de ataque ao Inimigo, pelo Jedi
+     * O inimigo ataca primeiro (80% de força)
+     *
+     * @param inimigo
+     * @return true se o Jedi ganhar, caso contrário, false
+     */
 
     @Override
     public boolean atacar(Inimigo inimigo) {
@@ -31,10 +57,12 @@ public class Jedi extends Heroi {
             System.out.println(inimigo.getNome() + " (Vida: " + inimigo.getVidaAtual() + "/" + inimigo.getVidaMax() + ")");
             System.out.println("********************");
 
-            // O inimigo ataca primeiro (regra do Jedi)
+            // O inimigo ataca primeiro, com 80% de força
             int danoInimigo = (int) (inimigo.getForca() * 0.8);
             System.out.println(inimigo.getNome() + " ataca! Dano: " + danoInimigo);
             this.receberDano(danoInimigo);
+
+            System.out.println("Vida atual do herói: " + this.getVidaAtual() + "/" + this.getVidaMax());
 
             if (this.getVidaAtual() <= 0) {
                 System.out.println("Foste derrotado pelo inimigo!");
@@ -126,19 +154,23 @@ public class Jedi extends Heroi {
         return false;
     }
 
+    /**
+     * Método de Defesa do Jedi, que usa o Poder da Força
+     */
 
     @Override
     public void defender() {
         System.out.println(nome + " usa o poder da Força para defender!");
+        this.defesa += 15;
     }
 
     @Override
     public void usarPocao() {
         Scanner sc = new Scanner(System.in);
         ArrayList<Consumivel> pocoes = new ArrayList<>();
-        for (Consumivel c : this.inventario) {
-            if (c instanceof Itens.Pocao) {
-                pocoes.add(c);
+        for (Consumivel consumiveis : this.inventario) {
+            if (consumiveis instanceof Itens.Pocao) {
+                pocoes.add(consumiveis);
             }
         }
         if (pocoes.size() == 0) {
@@ -182,29 +214,52 @@ public class Jedi extends Heroi {
 
     @Override
     public void usarHabilidadeEspecial() {
+
         System.out.println(nome + " usa " + habilidadeEspecial + "!");
     }
 
+
+    /**
+     * Método para usar um item presente no Inventário do vendedor
+     * @param item
+     */
     @Override
     public void usarItem(ItemHeroi item) {
         System.out.println(nome + " usa o item: " + item.getNome());
     }
 
-
+    /**
+     * Método para o Jedi usar o Poder da Força
+     */
     public void usarPoderForca() {
-        System.out.println(nome + " usa o poder da Força!");
 
+        System.out.println(nome + " usa o poder da Força!");
+        this.forca += 5;
     }
 
+    /**
+     * Método para o Jedi atacar com o Sabre de Luz
+     */
+
     public void usarSabreLuz() {
-        System.out.println(nome + " ataca com o sabre de luz!");
+        if (this.armaPrincipal != null) {
+            System.out.println(this.nome + " ataca com sabre de luz: " + this.armaPrincipal.getAtaque() + " de dano!");
+        } else {
+            System.out.println("Não tens sabre de luz equipado!");
+        }
+
 
     }
 
     public void bloquearTiros() {
-        System.out.println(nome + " bloqueia tiros com o sabre de luz!");
 
+        System.out.println(nome + " bloqueia tiros com o sabre de luz!");
+        this.defesa += 20;
     }
+
+    /**
+     * Método para mostrar os Detalhes do Jedi na consola
+     */
 
     public void mostrarDetalhes() {
         System.out.println("Jedi: " + nome + " | Nível: " + nivel + " | Vida: " + vidaAtual + "/" + vidaMax + " | Força: " + forca + " | Defesa: " + defesa + " | Ouro: " + ouro + " | Experiência: " + experiencia + " | Dano Força: " + danoForca + " | Dano Sabre: " + danoSabre);

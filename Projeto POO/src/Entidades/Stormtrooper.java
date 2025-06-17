@@ -3,10 +3,23 @@ package Entidades;
 import java.util.Random;
 
 public class Stormtrooper extends Inimigo {
-
+    // Atributos específicos do Stormtrooper
     protected int ataque;
     protected int defesa;
     protected int armadura;
+
+    /**
+     * Construtor do Stormtrooper
+     * @param nome
+     * @param vidaMax
+     * @param vidaAtual
+     * @param forca
+     * @param nivel
+     * @param defesa
+     * @param ouro
+     * @param ataque
+     * @param armadura
+     */
 
     public Stormtrooper(String nome, int vidaMax, int vidaAtual, int forca, int nivel, int defesa, int ouro, int ataque, int armadura) {
         super(nome, vidaMax, vidaAtual, forca, nivel, defesa, ouro);
@@ -16,6 +29,11 @@ public class Stormtrooper extends Inimigo {
     }
 
 
+    /** Método de ataque pelo Stormtrooper, para o Herói
+     *
+     * @param heroi
+     * @return true se o Stormtrooper ganhar, caso contrário, false
+     */
     @Override
     public void atacar(Heroi heroi) {
         int dano = this.forca + this.ataque;
@@ -23,9 +41,13 @@ public class Stormtrooper extends Inimigo {
         heroi.receberDano(dano);
     }
 
+    /**
+     * Método que permite o Stormtrooper use um ataque específico
+     * @param heroi
+     */
     public void dispararBlaster(Heroi heroi) {
-        Random rand = new Random();
-        int chance = rand.nextInt(100); // 0 a 99
+        Random random = new Random();
+        int chance = random.nextInt(100); // 0 a 99
         if (chance < 80) {
             int dano = this.ataque + this.forca;
             System.out.println(nome + " dispara o blaster e acerta! Dano: " + dano);
@@ -43,10 +65,13 @@ public class Stormtrooper extends Inimigo {
         heroi.receberDano(danoEspecial);
     }
 
-
+    /**
+     * Método que permite o Stormtrooper abandonar o combate
+     * @return true se conseguir fugir, false se não conseguir escapar
+     */
     public boolean fugir() {
         Random random = new Random();
-        int chance = random.nextInt(100); // 0 a 99
+        int chance = random.nextInt(100);
         if (chance < 30) {
             System.out.println(nome + " foge do combate com sucesso!");
             return true;
@@ -54,5 +79,12 @@ public class Stormtrooper extends Inimigo {
             System.out.println(nome + " tenta fugir, mas não consegue escapar!");
             return false;
         }
+    }
+
+    /**
+     * Método para mostrar os Detalhes do Stormtrooper
+     */
+    public void mostrarDetalhes() {
+        System.out.println("Stormtrooper: " + nome + " | Vida: " + vidaAtual + "/" + vidaMax + " | Força: " + forca + " | Nível: " + nivel + " | Defesa: " + defesa + " | Ouro: " + ouro + " | Ataque: " + ataque + " | Armadura: " + armadura);
     }
 }

@@ -18,7 +18,6 @@ public class ConsumivelCombate extends Consumivel {
         return ataqueInstantaneo;
     }
 
-    @Override
     public void aplicarEfeito(Heroi heroi) {
         System.out.println("Consumível de combate usado! Ataque instantâneo: " + ataqueInstantaneo);
 

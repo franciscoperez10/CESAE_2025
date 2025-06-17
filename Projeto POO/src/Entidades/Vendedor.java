@@ -69,6 +69,9 @@ public class Vendedor {
             heroi.getInventario().add((Consumivel) item);
             System.out.println("Item adicionado ao inventário!");
         }
-        System.out.println("Ouro disponível após a compra: " + heroi.getOuro());
+
+        loja.remove(item);
+        System.out.println("\nO item" + " " + item.getNome() + " já não pode ser comprado");
+        System.out.println("\nOuro disponível após a compra: " + heroi.getOuro());
     }
 }

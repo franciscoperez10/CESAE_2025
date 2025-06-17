@@ -31,7 +31,6 @@ public class Pocao extends Consumivel {
         this.vidaACurar = vidaACurar;
     }
 
-    @Override
     public void aplicarEfeito(Heroi heroi) {
         int vidaAntes = heroi.getVidaAtual();
         int vidaMax = heroi.getVidaMax();

@@ -30,11 +30,14 @@ public class Sith extends Inimigo {
     }
 
     public void usarSabreNegro(Heroi heroi) {
-        int dano = this.danoSabreNegro + this.forca;
+        int dano = this.danoSabreNegro + this.forca + 25;
         System.out.println(nome + " ataca com o Sabre de Luz Negro! Dano: " + dano);
         heroi.receberDano(dano);
     }
 
+    /**
+     * Método que imprime os Detalhes do Sith, após cada jogada
+     */
     @Override
     public void mostrarDetalhes() {
         System.out.println("Sith: " + nome + " | Vida: " + vidaAtual + "/" + vidaMax + " | Força: " + forca + " | Nível: " + nivel + " | Defesa: " + defesa + " | Ouro: " + ouro + " | Ataque: " + ataque + " | Poder da Força: " + poderForca + " | Dano Sabre Negro: " + danoSabreNegro);
