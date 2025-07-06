@@ -26,7 +26,7 @@ public class RecepcionistaView {
     /**
      * Inicia o menu principal do recepcionista
      */
-    public void recepcionistaMenu () {
+    public void recepcionistaMenu() {
         menuPrincipal();
     }
 
@@ -34,7 +34,7 @@ public class RecepcionistaView {
      * Exibe o menu principal do recepcionista e mostra as opções disponíveis
      */
     public void menuPrincipal() {
-        Scanner input = new Scanner(System.in);
+
         int opcaoRecepcionista;
 
         do {
@@ -48,6 +48,7 @@ public class RecepcionistaView {
             System.out.println("0. Sair");
             System.out.println("Escolha uma opção");
             opcaoRecepcionista = input.nextInt();
+            input.nextLine();
 
             switch (opcaoRecepcionista) {
                 case 1:
@@ -66,15 +67,11 @@ public class RecepcionistaView {
                     recepcionistaController.reservarExperiencias();
                     break;
                 case 0:
-                    System.out.println("A sair do menu de administrador.");
+                    System.out.println("A sair do menu de gestão.");
                     break;
                 default:
                     System.out.println("Opção inválida. Tente novamente.");
-
-
             }
         } while (opcaoRecepcionista != 0);
-
-
     }
 }

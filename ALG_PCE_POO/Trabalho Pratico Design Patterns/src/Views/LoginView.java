@@ -5,16 +5,27 @@ import Controllers.LoginController;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
+/**
+ * Vista responsável pela interação inicial e login dos utilizadores
+ */
 public class LoginView {
 
     private LoginController loginController;
     private final Scanner input;
 
+    /**
+     * Inicia o controlador
+     * @throws FileNotFoundException
+     */
     public LoginView() throws FileNotFoundException {
         this.loginController = new LoginController();
         this.input = new Scanner(System.in);
     }
 
+    /**
+     * Método que apresenta o menu principal do programa
+     * @throws FileNotFoundException
+     */
     public void mainMenu() throws FileNotFoundException {
 
         int opcaoLogin;
@@ -51,15 +62,18 @@ public class LoginView {
     }
 
 
+    /**
+     * Método que processa o login do Staff
+     * Separa por menu correspodente
+     * @throws FileNotFoundException
+     */
     public void loginMenu() throws FileNotFoundException {
 
-        Scanner input = new Scanner(System.in);
-
         System.out.print("\nUsername: ");
-        String username = input.next();
+        String username = this.input.next();
 
         System.out.print("Password: ");
-        String password = input.next();
+        String password = this.input.next();
 
         String accessType = this.loginController.validateLogin(username, password);
 
@@ -74,7 +88,7 @@ public class LoginView {
                 gv.guiaMenu(username);
                 break;
 
-            case "RECEP":
+            case "GESTAO":
                 RecepcionistaView rv = new RecepcionistaView(input);
                 rv.menuPrincipal();
                 break;

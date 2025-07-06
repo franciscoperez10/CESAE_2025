@@ -1,8 +1,12 @@
 package Controllers;
 
+import Models.Quarto;
+import Models.Reserva;
+import Models.Tipologia;
 import Repositories.*;
 
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 
 /**
  * Controlador responsável pela administração do sistema
@@ -20,9 +24,10 @@ public class AdminController {
 
     /**
      * Inicializa todos os repositórios necessários para as operações do administrador.
+     *
      * @throws FileNotFoundException
      */
-    public AdminController () throws FileNotFoundException {
+    public AdminController() throws FileNotFoundException {
         this.repoClientes = new RepoClientes();
         this.repoExperiências = new RepoExperiências();
         this.repoGuiaExperiencia = new RepoGuiaExperiencia();
@@ -35,6 +40,7 @@ public class AdminController {
 
     /**
      * Retorna o número total de reservas efetuadas.
+     *
      * @return o número total de reservas efetuadas
      */
     public int mostrarTotalReservas() {
@@ -44,12 +50,39 @@ public class AdminController {
 
     /**
      * Calcula o valor total das receitas do hotel.
+     *
      * @return Valor total das receitas.
      */
     public double mostrarTotalReceitas() {
-        return 0.0;
+        double totalReceitas = 0.0;
+        ArrayList<Reserva> reservas = repoReservas.getReservasArray();
+        ArrayList<Quarto> quartos = repoQuartos.getQuartosArray();
+        ArrayList<Tipologia> tipologias = repoTipologia.getTipologiasArray();
 
+        for (Reserva reserva : reservas) {
+            Quarto quarto = null;
+            for (Quarto quarto1 : quartos) {
+                if (quarto1.getNum_quarto() == reserva.getNum_quarto()) {
+                    quarto = quarto1;
+                    break;
+                }
+            }
+            if (quarto != null) {
+                Tipologia tipologia = null;
+                for (Tipologia tipologia1 : tipologias) {
+                    if (tipologia1.getIdTipologia() == quarto.getId_tipologia()) {
+                        tipologia = tipologia1;
+                        break;
+                    }
+                }
+                if (tipologia != null) {
+                    totalReceitas += tipologia.getPrecoPorSemana();
+                }
+            }
+        }
+        return totalReceitas;
     }
+
 
     /**
      * Mostra as reservas e receitas mensais.

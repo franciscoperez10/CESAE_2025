@@ -1,8 +1,13 @@
 package Views;
 
 import Controllers.ClienteController;
+import Models.Experiencia;
+import Models.Quarto;
+import Models.Tipologia;
 
 import java.io.FileNotFoundException;
+import java.sql.SQLOutput;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -14,6 +19,7 @@ public class ClienteView {
 
     /**
      * Inicia o controlador
+     *
      * @throws FileNotFoundException
      */
     public ClienteView() throws FileNotFoundException {
@@ -24,7 +30,7 @@ public class ClienteView {
      * Inicia o menu principal do cliente
      */
     public void clienteMenu() {
-     menuPrincipal();
+        menuPrincipal();
     }
 
     /**
@@ -64,6 +70,7 @@ public class ClienteView {
                     break;
                 case 0:
                     System.out.println("A sair do menu de cliente");
+                    break;
                 default:
                     System.out.println("Opção inválida. Tente novamente.");
             }
@@ -71,4 +78,6 @@ public class ClienteView {
 
 
     }
+
+
 }
