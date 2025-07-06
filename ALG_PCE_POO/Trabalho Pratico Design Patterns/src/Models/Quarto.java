@@ -1,5 +1,8 @@
 package Models;
 
+/**
+ * Representa um Quarto do Hotel
+ */
 public class Quarto {
     private int num_quarto;
     private int id_tipologia;
@@ -43,5 +46,13 @@ public class Quarto {
 
     public void setDisponivel(boolean disponivel) {
         this.disponivel = disponivel;
+    }
+
+    @Override
+    public String toString() {
+        return "Quarto Nº: " + num_quarto +
+                " | Tipologia: " + id_tipologia +
+                " | Preço/Semana: " + precoPorSemana +
+                " | Disponível: " + disponivel;
     }
 }

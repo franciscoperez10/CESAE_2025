@@ -1,5 +1,10 @@
 package Models;
 
+/**
+ * Representa uma Experiência disponível no hotel
+ * Apresenta os preços para adultos e para crianças
+ */
+
 public class Experiencia {
     private String idExperiencia;
     private String nome;
@@ -53,5 +58,14 @@ public class Experiencia {
 
     public void setPreco_crianca(double preco_crianca) {
         this.preco_crianca = preco_crianca;
+    }
+
+    @Override
+    public String toString() {
+        return "Experiência: " + nome +
+                " | ID: " + idExperiencia +
+                " | Guia: " + id_guia_experiencia +
+                " | Preço de Adulto: " + preco_adulto +
+                " | Preço de Criança: " + preco_crianca;
     }
 }

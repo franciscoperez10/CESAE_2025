@@ -1,13 +1,18 @@
 package Models;
 
+/**
+ * Representa a Venda de uma experiência
+ * Inclui o tipo de cliente e a data (mês e ano)
+ */
+
 public class Venda {
-    private int idVenda;
-    private int idExperiencia;
+    private String idVenda;
+    private String idExperiencia;
     private String tipoCliente;
     private int ano;
     private int mes;
 
-    public Venda(int idVenda, int idExperiencia, String tipoCliente, int ano, int mes) {
+    public Venda(String idVenda, String idExperiencia, String tipoCliente, int ano, int mes) {
         this.idVenda = idVenda;
         this.idExperiencia = idExperiencia;
         this.tipoCliente = tipoCliente;
@@ -15,19 +20,19 @@ public class Venda {
         this.mes = mes;
     }
 
-    public int getIdVenda() {
+    public String getIdVenda() {
         return idVenda;
     }
 
-    public void setIdVenda(int idVenda) {
+    public void setIdVenda(String idVenda) {
         this.idVenda = idVenda;
     }
 
-    public int getIdExperiencia() {
+    public String getIdExperiencia() {
         return idExperiencia;
     }
 
-    public void setIdExperiencia(int idExperiencia) {
+    public void setIdExperiencia(String idExperiencia) {
         this.idExperiencia = idExperiencia;
     }
 
@@ -53,5 +58,14 @@ public class Venda {
 
     public void setMes(int mes) {
         this.mes = mes;
+    }
+
+    @Override
+    public String toString() {
+        return "ID da Venda: " + idVenda +
+                " | Experiência: " + idExperiencia +
+                " | Tipo de Cliente: " + tipoCliente +
+                " | Ano: " + ano +
+                " | Mês: " + mes;
     }
 }

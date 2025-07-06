@@ -8,34 +8,35 @@ import java.util.Scanner;
 public class LoginView {
 
     private LoginController loginController;
+    private final Scanner input;
 
     public LoginView() throws FileNotFoundException {
         this.loginController = new LoginController();
+        this.input = new Scanner(System.in);
     }
 
     public void mainMenu() throws FileNotFoundException {
 
-        Scanner input = new Scanner(System.in);
         int opcaoLogin;
 
         do {
             System.out.println("\n\n********** Bem-vindo/a ao Programa do CESAE Resort - Hotel Temático da Programação **********\n");
             System.out.println("1. Cliente");
             System.out.println("2. Staff");
-            System.out.println("\n0. Terminar Programa");
+            System.out.println("0. Terminar Programa");
 
             System.out.print("\nOpção: ");
             opcaoLogin = input.nextInt();
 
             switch (opcaoLogin) {
                 case 1:
-                    // CLIENTE
+
                     ClienteView cv = new ClienteView();
-                    cv.clienteMenu();
+                    cv.menuPrincipal();
                     break;
 
                 case 2:
-                    // MEMBRO DA EQUIPA
+
                     this.loginMenu();
                     break;
 
@@ -65,16 +66,17 @@ public class LoginView {
         switch (accessType) {
             case "ADMIN":
                 AdminView av = new AdminView();
-                av.adminMenu();
+                av.menuPrincipal();
                 break;
 
             case "GUIA":
                 GuiaView gv = new GuiaView();
                 gv.guiaMenu(username);
+                break;
 
             case "RECEP":
-                RecepcionistaView rv = new RecepcionistaView();
-                rv.recepcionistaMenu();
+                RecepcionistaView rv = new RecepcionistaView(input);
+                rv.menuPrincipal();
                 break;
 
             case "ERROR":

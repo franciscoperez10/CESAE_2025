@@ -1,21 +1,19 @@
 package Models;
 
+/**
+ * Representa um Utilizador que tem acesso ao sistema
+ *
+ */
+
 public class Utilizador {
-    private String tipoUtilizador;
+
     private String username;
     private String password;
+    private String tipoUtilizador;
 
-    public Utilizador(String tipoUtilizador, String username, String password) {
-        this.tipoUtilizador = tipoUtilizador;
+    public Utilizador(String username, String password, String tipoUtilizador) {
         this.username = username;
         this.password = password;
-    }
-
-    public String getTipoUtilizador() {
-        return tipoUtilizador;
-    }
-
-    public void setTipoUtilizador(String tipoUtilizador) {
         this.tipoUtilizador = tipoUtilizador;
     }
 
@@ -34,4 +32,22 @@ public class Utilizador {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    public String getTipoUtilizador() {
+        return tipoUtilizador;
+    }
+
+    public void setTipoUtilizador(String tipoUtilizador) {
+        this.tipoUtilizador = tipoUtilizador;
+    }
+
+    @Override
+    public String toString() {
+        return "Utilizador: " + username +
+                " | Tipo: " + tipoUtilizador;
+    }
 }
+
+
+
+

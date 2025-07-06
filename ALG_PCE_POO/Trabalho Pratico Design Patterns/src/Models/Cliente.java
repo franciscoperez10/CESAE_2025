@@ -1,5 +1,8 @@
 package Models;
 
+/**
+ * Representa um cliente do Hotel, contendo os dados pedidos no enunciado
+ */
 public class Cliente {
     private String id;
     private String nome;
@@ -73,5 +76,16 @@ public class Cliente {
 
     public void setConsentimentoMarketing(boolean consentimentoMarketing) {
         this.consentimentoMarketing = consentimentoMarketing;
+    }
+
+    @Override
+    public String toString() {
+        return "Cliente: " + nome +
+                " | ID: " + id +
+                " | Nacionalidade: " + nacionalidade +
+                " | Email: " + email +
+                " | Telemóvel: " + telemovel +
+                " | Nascimento " + dataNascimento +
+                " | Consentimento de Marketing: " + consentimentoMarketing;
     }
 }

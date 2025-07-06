@@ -5,6 +5,9 @@ import Repositories.RepoUtilizador;
 
 import java.io.FileNotFoundException;
 
+/**
+ * Controlador responsável pela autenticação dos utilizadores do sistema
+ */
 public class LoginController {
 
     private RepoUtilizador repoUtilizador;

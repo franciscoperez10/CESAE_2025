@@ -1,5 +1,9 @@
 package Models;
 
+/**
+ * Represebta a avaliação (Rating) de uma experiência e do guia associado
+ */
+
 public class Rating {
     private String id;
     private String id_experiencia;
@@ -43,5 +47,13 @@ public class Rating {
 
     public void setRating_guia(double rating_guia) {
         this.rating_guia = rating_guia;
+    }
+
+    @Override
+    public String toString() {
+        return "Rating ID: " + id +
+                " | Experiência: " + id_experiencia +
+                " | Rating da Experiência: " + rating_experiencia +
+                " | Rating do Guia: " + rating_guia;
     }
 }

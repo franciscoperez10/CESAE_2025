@@ -1,14 +1,17 @@
 package Models;
 
+/**
+ * Representa uma Reserva de Quarto realizada por um cliente
+ */
 public class Reserva {
-    private int idReserva;
+    private String idReserva;
     private int num_quarto;
     private String idCliente;
     private int anoReserva;
     private int mesReserva;
     private int semanaReserva;
 
-    public Reserva(int idReserva, int num_quarto, String idCliente, int anoReserva, int mesReserva, int semanaReserva) {
+    public Reserva(String idReserva, int num_quarto, String idCliente, int anoReserva, int mesReserva, int semanaReserva) {
         this.idReserva = idReserva;
         this.num_quarto = num_quarto;
         this.idCliente = idCliente;
@@ -17,11 +20,11 @@ public class Reserva {
         this.semanaReserva = semanaReserva;
     }
 
-    public int getIdReserva() {
+    public String getIdReserva() {
         return idReserva;
     }
 
-    public void setIdReserva(int idReserva) {
+    public void setIdReserva(String idReserva) {
         this.idReserva = idReserva;
     }
 
@@ -63,5 +66,15 @@ public class Reserva {
 
     public void setSemanaReserva(int semanaReserva) {
         this.semanaReserva = semanaReserva;
+    }
+
+    @Override
+    public String toString() {
+        return "ID da Reserva: " + idReserva +
+                " | Quarto: " + num_quarto +
+                " | Cliente: " + idCliente +
+                " | Ano: " + anoReserva +
+                " | Mês: " + mesReserva +
+                " | Semana: " + semanaReserva;
     }
 }

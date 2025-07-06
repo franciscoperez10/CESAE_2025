@@ -1,5 +1,10 @@
 package Models;
 
+/**
+ * Representa a Tipologia de um Quarto
+ * Tem a descrição e o preço por semana
+ */
+
 public class Tipologia {
     private int idTipologia;
     private String descricao;
@@ -33,5 +38,12 @@ public class Tipologia {
 
     public void setPrecoPorSemana(double precoPorSemana) {
         this.precoPorSemana = precoPorSemana;
+    }
+
+    @Override
+    public String toString() {
+        return "Tipologia: " + descricao +
+                " | ID: " + idTipologia +
+                " | Preço por Semana: " + precoPorSemana;
     }
 }

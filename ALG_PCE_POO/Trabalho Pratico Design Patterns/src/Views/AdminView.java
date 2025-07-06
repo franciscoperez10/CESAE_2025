@@ -5,19 +5,32 @@ import Controllers.AdminController;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
+/**
+ * Vista responsável pela interação do utilizador Administrador
+ */
 public class AdminView {
 
     private AdminController adminController;
+    private Scanner input = new Scanner(System.in);
 
-    public AdminView() {
+    /**
+     * Inicia o controlador
+     * @throws FileNotFoundException
+     */
+    public AdminView() throws FileNotFoundException {
         this.adminController = new AdminController();
     }
 
+    /**
+     * Inicia o menu principal do administrador.
+     */
     public void adminMenu() {
-        Scanner input = new Scanner(System.in);
-        int opcaoAdmin;
+        menuPrincipal();
     }
 
+    /**
+     * Apresenta o menu principal do administrador e retrata as opções escolhidas.
+     */
     public void menuPrincipal() {
         Scanner input = new Scanner(System.in);
         int opcaoAdmin;
@@ -41,10 +54,12 @@ public class AdminView {
 
             switch (opcaoAdmin) {
                 case 1:
-                    adminController.mostrarTotalReservas();
+                    int total = adminController.mostrarTotalReservas();
+                    System.out.println("Total de Reservas: " + total);
                     break;
                 case 2:
-                    adminController.mostrarTotalReceitas();
+                    double receitas = adminController.mostrarTotalReceitas();
+                    System.out.println("Total de Receitas: " + receitas + " €");
                     break;
                 case 3:
                     adminController.mostrarReservasEReceitasMensais();

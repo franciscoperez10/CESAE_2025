@@ -54,5 +54,14 @@ public class GuiaExperiencia {
     public void setTelemovel(String telemovel) {
         this.telemovel = telemovel;
     }
+
+    @Override
+    public String toString() {
+        return "Guia: " + nome +
+                " | ID: " + id +
+                " | Nacionalidade " + nacionalidade +
+                " | Email " + email +
+                " | Telemóvel: " + telemovel;
+    }
 }
 
