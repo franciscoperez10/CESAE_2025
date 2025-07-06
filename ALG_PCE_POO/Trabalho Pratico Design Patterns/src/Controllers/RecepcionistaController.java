@@ -35,6 +35,7 @@ public class RecepcionistaController {
      *
      * @return Lista de quartos disponíveis.
      */
+
     public ArrayList<Quarto> mostrarListaQuartosDisponiveis() {
         ArrayList<Quarto> todosOsQuartos = repoQuartos.getQuartosArray();
         ArrayList<Quarto> quartosDisponiveis = new ArrayList<>();
