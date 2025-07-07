@@ -11,10 +11,13 @@ import java.util.ArrayList;
  * Repositório responsável por carregar e fornecer a lista de vendas de experiências.
  */
 public class RepoVendas {
+
+    // Listas de vendas de experiências carregada a partir do CSV
     private ArrayList<Venda> vendasArray;
 
     /**
      * Lê as vendas do ficheiro CSV.
+     *
      * @throws FileNotFoundException
      */
     public RepoVendas() throws FileNotFoundException {
@@ -25,6 +28,7 @@ public class RepoVendas {
 
     /**
      * Retorna a lista de vendas
+     *
      * @return Retorna a lista de vendas
      */
     public ArrayList<Venda> getVendasArray() {

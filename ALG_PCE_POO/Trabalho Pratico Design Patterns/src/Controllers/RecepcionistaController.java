@@ -15,6 +15,7 @@ import java.util.ArrayList;
  * Permite ver os quartos, reservas e fazer operações
  */
 public class RecepcionistaController {
+    // Repositórios que permitem aceder aos dados dos Quartos, Reservas e Tipologia
     private RepoQuartos repoQuartos;
     private RepoReservas repoReservas;
     private RepoTipologia repoTipologia;
@@ -42,14 +43,32 @@ public class RecepcionistaController {
         ArrayList<Reserva> reservas = repoReservas.getReservasArray();
         ArrayList<Tipologia> tipologias = repoTipologia.getTipologiasArray();
 
+        // Data definida no enunciado
         int anoAtual = 2025;
         int mesAtual = 7;
         int semanaAtual = 1;
 
+        // Percorre os quartos para verificar se estão disponíveis
         for (Quarto quarto : todosOsQuartos) {
             boolean quartoDisponivel = true;
+            // Verifica se existem reservas para o quarto, na semana anteriormente definida
+            for (Reserva reserva : reservas) {
+                if (reserva.getNum_quarto() == quarto.getNum_quarto() &&
+                        reserva.getAnoReserva() == anoAtual &&
+                        reserva.getMesReserva() == mesAtual &&
+                        reserva.getSemanaReserva() == semanaAtual) {
+                    // Se houver reservas para o quarto, então está indisponível, logo, false
+                    quartoDisponivel = false;
+                    break;
+                }
+            }
+            // Se o quarto está disponível, adiciona à lista de disponíveis
+            if (quartoDisponivel) {
+                quartosDisponiveis.add(quarto);
+            }
         }
 
+        // Retorna a lista de quartos disponíveis
         return quartosDisponiveis;
     }
 

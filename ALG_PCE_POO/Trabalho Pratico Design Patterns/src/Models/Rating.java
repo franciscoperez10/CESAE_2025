@@ -1,7 +1,7 @@
 package Models;
 
 /**
- * Represebta a avaliação (Rating) de uma experiência e do guia associado
+ * Representa a avaliação (Rating) de uma experiência e do guia associado
  */
 
 public class Rating {
@@ -49,6 +49,9 @@ public class Rating {
         this.rating_guia = rating_guia;
     }
 
+    /**
+     * Retorna os dados do Objeto Rating
+     */
     @Override
     public String toString() {
         return "Rating ID: " + id +

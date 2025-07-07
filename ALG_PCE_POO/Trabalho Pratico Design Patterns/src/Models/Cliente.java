@@ -78,6 +78,11 @@ public class Cliente {
         this.consentimentoMarketing = consentimentoMarketing;
     }
 
+    /**
+     * Retorna os dados do Objeto Cliente
+     * Sem o Override, a impressão devolvia um código hash
+     * Assim, este método (aplicado aos restantes objetos também) fornece uma descrição mais clara
+     */
     @Override
     public String toString() {
         return "Cliente: " + nome +

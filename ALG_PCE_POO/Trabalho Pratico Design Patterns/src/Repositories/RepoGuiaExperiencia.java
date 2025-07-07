@@ -10,6 +10,7 @@ import java.util.ArrayList;
  * Repositório responsável por fornecer a lista de guias de experiências
  */
 public class RepoGuiaExperiencia {
+    // Lista de Guias de Experiências carregadas a partir do CSV
     private ArrayList<GuiaExperiencia> guiaExperienciasArray;
 
     /**

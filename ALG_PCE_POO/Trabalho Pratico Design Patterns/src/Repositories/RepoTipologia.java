@@ -10,6 +10,7 @@ import java.util.ArrayList;
  * Repositório responsável por carregar e fornecer a lista de tipologias de quartos.
  */
 public class RepoTipologia {
+    // Lista de Reservas carregada através do CSV
     private ArrayList<Tipologia> tipologiasArray;
 
     /**

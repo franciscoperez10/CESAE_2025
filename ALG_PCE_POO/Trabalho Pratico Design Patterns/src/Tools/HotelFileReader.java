@@ -15,6 +15,7 @@ public class HotelFileReader {
 
     /**
      * Lê o ficheiro dos utilizadores e retorna uma lista de Utilizador
+     *
      * @param filePath Caminho para o ficheiro CSV dos utilizadores
      * @return Lista de utilizadores
      * @throws FileNotFoundException
@@ -23,8 +24,9 @@ public class HotelFileReader {
         File file = new File(filePath);
         Scanner scanner = new Scanner(file);
         ArrayList<Utilizador> utilizadoresArray = new ArrayList<>();
-        scanner.nextLine();
+        scanner.nextLine(); // Salta a linha do cabeçalho
 
+        // Lê as linhas e cria objetos utilizador
         while (scanner.hasNextLine()) {
             String linha = scanner.nextLine();
             String[] linhaSeparada = linha.split(",");
@@ -41,6 +43,7 @@ public class HotelFileReader {
 
     /**
      * Lê o ficheiro de vendas de experiências e devolve uma lista de Venda.
+     *
      * @param filePath Caminho para o ficheiro CSV das vendas
      * @return Lista de Vendas
      * @throws FileNotFoundException
@@ -51,6 +54,7 @@ public class HotelFileReader {
         ArrayList<Venda> vendasArray = new ArrayList<>();
         scanner.nextLine();
 
+        // Lê as linhas e cria objetos venda
         while (scanner.hasNextLine()) {
             String linha = scanner.nextLine();
             String[] linhaSeparada = linha.split(",");
@@ -69,6 +73,7 @@ public class HotelFileReader {
 
     /**
      * Lê o ficheiro de clientes e devolve uma lista de Cliente.
+     *
      * @param filePath Caminho para o ficheiro CSV de clientes.
      * @return Lista de Clientes
      * @throws FileNotFoundException
@@ -79,6 +84,7 @@ public class HotelFileReader {
         ArrayList<Cliente> clientesArray = new ArrayList<>();
         scanner.nextLine();
 
+        // Lê as linhas e cria objetos cliente
         while (scanner.hasNextLine()) {
             String linha = scanner.nextLine();
             String[] linhaSeparada = linha.split(",");
@@ -100,6 +106,7 @@ public class HotelFileReader {
 
     /**
      * Lê o ficheiro de experiências e devolve uma lista de Experiencia.
+     *
      * @param filePath Caminho para o ficheiro CSV de experiências.
      * @return Lista de experiências
      * @throws FileNotFoundException
@@ -110,6 +117,7 @@ public class HotelFileReader {
         ArrayList<Experiencia> experienciasArray = new ArrayList<>();
         scanner.nextLine();
 
+        // Lê as linhas e cria experiência
         while (scanner.hasNextLine()) {
             String linha = scanner.nextLine();
             String[] linhaSeparada = linha.split(",");
@@ -127,6 +135,7 @@ public class HotelFileReader {
 
     /**
      * Lê o ficheiro de guias de experiência e devolve uma lista de Guia Experiencia.
+     *
      * @param filePath Caminho para o ficheiro CSV de guias de experiência
      * @return Lista de guias de experiências
      * @throws FileNotFoundException
@@ -137,6 +146,7 @@ public class HotelFileReader {
         ArrayList<GuiaExperiencia> guiaExperienciasArray = new ArrayList<>();
         scanner.nextLine();
 
+        // Lê as linhas e cria objetos Guia de Experiência
         while (scanner.hasNextLine()) {
             String linha = scanner.nextLine();
             String[] linhaSeparada = linha.split(",");
@@ -154,6 +164,7 @@ public class HotelFileReader {
 
     /**
      * Lê o ficheiro de quartos e devolve uma lista de Quarto.
+     *
      * @param filePath Caminho para o ficheiro CSV de quartos.
      * @return Lista de quartos.
      * @throws FileNotFoundException
@@ -164,12 +175,14 @@ public class HotelFileReader {
         ArrayList<Quarto> quartosArray = new ArrayList<>();
         scanner.nextLine();
 
+        // Lê as linhas e cria objetos de quartos
         while (scanner.hasNextLine()) {
             String linha = scanner.nextLine();
             String[] linhaSeparada = linha.split(",");
             if (linhaSeparada.length >= 2) {
                 int num_quarto = Integer.parseInt(linhaSeparada[0]);
                 int id_tipologia = Integer.parseInt(linhaSeparada[1]);
+                // O preço tem como base a tipologia, não o quarto em si
                 double precoPorSemana = 0.0;
                 boolean disponivel = true;
                 Quarto quarto = new Quarto(num_quarto, id_tipologia, precoPorSemana, disponivel);
@@ -183,6 +196,7 @@ public class HotelFileReader {
 
     /**
      * Lê o ficheiro de reservas e devolve uma lista de Reserva.
+     *
      * @param filePath Caminho para o ficheiro CSV de reservas.
      * @return Lista de reservas.
      * @throws FileNotFoundException
@@ -193,6 +207,7 @@ public class HotelFileReader {
         ArrayList<Reserva> reservasArray = new ArrayList<>();
         scanner.nextLine();
 
+        // Lê as linhas e cria objetos reserva
         while (scanner.hasNextLine()) {
             String linha = scanner.nextLine();
             String[] linhaSeparada = linha.split(",");
@@ -213,6 +228,7 @@ public class HotelFileReader {
 
     /**
      * Lê o ficheiro de tipologias e devolve uma lista de Tipologia.
+     *
      * @param filePath Caminho para o ficheiro CSV de tipologias.
      * @return Lista de tipologias.
      * @throws FileNotFoundException
@@ -223,6 +239,7 @@ public class HotelFileReader {
         ArrayList<Tipologia> tipologiasArray = new ArrayList<>();
         scanner.nextLine();
 
+        // Lê as linhas e cria objetos tipologia
         while (scanner.hasNextLine()) {
             String linha = scanner.nextLine();
             String[] linhaSeparada = linha.split(",");
@@ -239,6 +256,7 @@ public class HotelFileReader {
 
     /**
      * Lê o ficheiro de ratings de experiências e devolve uma lista de Rating.
+     *
      * @param filePath Caminho para o ficheiro CSV de ratings.
      * @return Lista de ratings.
      * @throws FileNotFoundException
@@ -249,6 +267,7 @@ public class HotelFileReader {
         ArrayList<Rating> ratingsArray = new ArrayList<>();
         scanner.nextLine();
 
+        // Lê as linhas e cria objetos rating
         while (scanner.hasNextLine()) {
             String linha = scanner.nextLine();
             String[] linhaSeparada = linha.split(",");

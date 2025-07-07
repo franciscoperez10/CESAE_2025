@@ -17,6 +17,7 @@ public class GuiaView {
 
     /**
      * Inicia o construtor
+     *
      * @throws FileNotFoundException
      */
     public GuiaView() throws FileNotFoundException {
@@ -25,6 +26,7 @@ public class GuiaView {
 
     /**
      * Inicia o menu principal do guia
+     *
      * @param username
      */
     public void guiaMenu(String username) {
@@ -41,6 +43,7 @@ public class GuiaView {
 
             switch (opcaoGuia) {
                 case 1:
+                    // Método para apresentar o histórico de experiências do guia
                     guiaController.consultarHistoricoExperiencias(username);
                     break;
                 case 0:
@@ -59,11 +62,13 @@ public class GuiaView {
 
     /**
      * Mostra o histórico de experiências do guia.
+     * Disponibiliza as linhas do histórico
+     * Apresenta uma mensagem caso não existam experiências associadas
      * @param id ID do guia autenticado.
      */
     public void mostrarHistoricoExperiencias(String id) {
         ArrayList<String> linhas = guiaController.consultarHistoricoExperiencias(id);
-            System.out.println("Histórico de Experiências: ");
+        System.out.println("Histórico de Experiências: ");
         if (linhas.size() == 0) {
             System.out.println("Não existem experiências associadas a este guia.");
         } else {

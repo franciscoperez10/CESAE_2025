@@ -55,6 +55,9 @@ public class GuiaExperiencia {
         this.telemovel = telemovel;
     }
 
+    /**
+     * Retorna os dados do Objeto Guia Experiência
+     */
     @Override
     public String toString() {
         return "Guia: " + nome +

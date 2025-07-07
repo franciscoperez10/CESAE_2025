@@ -60,6 +60,9 @@ public class Experiencia {
         this.preco_crianca = preco_crianca;
     }
 
+    /**
+     * Retorna os dados do Objeto Experiência
+     */
     @Override
     public String toString() {
         return "Experiência: " + nome +

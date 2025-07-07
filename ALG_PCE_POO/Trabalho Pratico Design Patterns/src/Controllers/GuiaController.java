@@ -13,6 +13,7 @@ import java.util.ArrayList;
  * Permite consultar o histórico das experiências e estatísticas
  */
 public class GuiaController {
+    // Repositórios de acesso aos dados de experiências e vendas
     private RepoExperiências repoExperiências;
     private RepoVendas repoVendas;
 
@@ -34,19 +35,24 @@ public class GuiaController {
     public ArrayList<String> consultarHistoricoExperiencias(String idGuia) {
         ArrayList<String> resultado = new ArrayList<>();
 
+        // Percorre as experiências que estão registadas
         for (Experiencia experiencia : repoExperiências.getExperiênciasArray()) {
+            // Valida se a experiência pertence ao guia respetivo
             if (experiencia.getId_guia_experiencia().equals(idGuia)) {
+                // Começam a 0.0 porque vão acumular os valores
                 int totalAdultosInscritos = 0;
                 int totalCriancasInscritas = 0;
                 double totalArrecadado = 0.0;
 
+                // Percorre todas as vendas para esta experiência
                 for (Venda venda : repoVendas.getVendasArray()) {
-
+                    // Faz a contagem de bilhetes de adulto e soma o respetivo preço
                     if (venda.getIdExperiencia().equals(experiencia.getIdExperiencia())) {
                         if (venda.getTipoCliente().equalsIgnoreCase("adulto")) {
                             totalAdultosInscritos++;
                             totalArrecadado += experiencia.getPreco_adulto();
                         }
+                        // Faz a contagem de bilhetes de criança e soma o respetivo preço
                         if (venda.getTipoCliente().equalsIgnoreCase("crianca")) {
                             totalCriancasInscritas++;
                             totalArrecadado += experiencia.getPreco_crianca();
@@ -54,14 +60,20 @@ public class GuiaController {
                     }
                 }
 
+                // Adiciona o resultado total
                 resultado.add(
                         experiencia.getNome() + " | " + experiencia.getIdExperiencia() +
                                 " | Bilhetes de Adulto: " + totalAdultosInscritos +
                                 " | Bilhetes de Criança: " + totalCriancasInscritas +
+                                // Arredonda o total arrecadado, e mostra o valor em Euros, ou seja, formato monetário
+                                // Multiplica o total por 100, para que possa mover duas casas decimais para a esquerda
+                                // Arredonda para o Inteiro mais próximo
+                                // Divide por 100 para colocar a separação decimal corretamente
                                 " | Total de Vendas: " + Math.round(totalArrecadado * 100.0) / 100.0 + " €"
                 );
             }
         }
+        // Retorna a lista
         return resultado;
     }
 }

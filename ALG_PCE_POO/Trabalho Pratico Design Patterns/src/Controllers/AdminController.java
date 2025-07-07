@@ -13,6 +13,7 @@ import java.util.ArrayList;
  * Tem acesso a vários parâmetros, como números, valores, receitas, dados de login, entre outros.
  */
 public class AdminController {
+    // Repositórios para aceder ao sistema
     private RepoClientes repoClientes;
     private RepoExperiências repoExperiências;
     private RepoGuiaExperiencia repoGuiaExperiencia;
@@ -54,11 +55,13 @@ public class AdminController {
      * @return Valor total das receitas.
      */
     public double mostrarTotalReceitas() {
+        // Inicia a 0.0 para posteriormente somar os valores das receitas
         double totalReceitas = 0.0;
         ArrayList<Reserva> reservas = repoReservas.getReservasArray();
         ArrayList<Quarto> quartos = repoQuartos.getQuartosArray();
         ArrayList<Tipologia> tipologias = repoTipologia.getTipologiasArray();
 
+        // Percorre cada reserva, procurando o quarto e a sua tipologia correspondente
         for (Reserva reserva : reservas) {
             Quarto quarto = null;
             for (Quarto quarto1 : quartos) {
@@ -69,17 +72,20 @@ public class AdminController {
             }
             if (quarto != null) {
                 Tipologia tipologia = null;
+                // Procura pela tipologia associada ao quarto encontrado
                 for (Tipologia tipologia1 : tipologias) {
                     if (tipologia1.getIdTipologia() == quarto.getId_tipologia()) {
-                        tipologia = tipologia1;
-                        break;
+                        tipologia = tipologia1; // Guarda a tipologia
+                        break; // Termina o ciclo quando encontra a correta
                     }
                 }
                 if (tipologia != null) {
+                    // Junta o preço da tipologia ao total das receitas
                     totalReceitas += tipologia.getPrecoPorSemana();
                 }
             }
         }
+        // Após iterar sobre as reservas, retorna o valor total acumulado das receitas
         return totalReceitas;
     }
 

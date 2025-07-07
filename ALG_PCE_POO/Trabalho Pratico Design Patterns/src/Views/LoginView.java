@@ -10,11 +10,12 @@ import java.util.Scanner;
  */
 public class LoginView {
 
-    private LoginController loginController;
     private final Scanner input;
+    private LoginController loginController;
 
     /**
      * Inicia o controlador
+     *
      * @throws FileNotFoundException
      */
     public LoginView() throws FileNotFoundException {
@@ -24,6 +25,7 @@ public class LoginView {
 
     /**
      * Método que apresenta o menu principal do programa
+     *
      * @throws FileNotFoundException
      */
     public void mainMenu() throws FileNotFoundException {
@@ -41,20 +43,20 @@ public class LoginView {
 
             switch (opcaoLogin) {
                 case 1:
-
+                    // Entra no menu principal do cliente
                     ClienteView cv = new ClienteView();
                     cv.menuPrincipal();
                     break;
 
                 case 2:
-
+                    // Entra no menu de staff que, depois, encaminha para o Admin, Guia ou Recepcionista
                     this.loginMenu();
                     break;
-
+                // Mensagem que surge quando se sai do programa
                 case 0:
                     System.out.println("\nObrigado por utilizar o nosso programa... Até à próxima!");
                     break;
-
+                // Mensagem de erro, em caso de selecão de opções inválidas
                 default:
                     System.out.println("\nOpção Inválida");
             }
@@ -65,10 +67,11 @@ public class LoginView {
     /**
      * Método que processa o login do Staff
      * Separa por menu correspodente
+     *
      * @throws FileNotFoundException
      */
     public void loginMenu() throws FileNotFoundException {
-
+        // Pede os dados de acesso ao utilizador
         System.out.print("\nUsername: ");
         String username = this.input.next();
 
@@ -77,22 +80,24 @@ public class LoginView {
 
         String accessType = this.loginController.validateLogin(username, password);
 
+        // Direcciona para o tipo de utilizador
         switch (accessType) {
+            // Menu de Administrador
             case "ADMIN":
                 AdminView av = new AdminView();
                 av.menuPrincipal();
                 break;
-
+            // Menu de Guia de Experiência
             case "GUIA":
                 GuiaView gv = new GuiaView();
                 gv.guiaMenu(username);
                 break;
-
+            // Menu de Gestão
             case "GESTAO":
                 RecepcionistaView rv = new RecepcionistaView(input);
                 rv.menuPrincipal();
                 break;
-
+            // Mensagem de erro, em caso de credenciais inválidos
             case "ERROR":
                 System.out.println("Acessos inválidos");
                 break;

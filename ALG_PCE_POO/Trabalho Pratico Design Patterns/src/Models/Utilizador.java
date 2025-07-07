@@ -41,6 +41,9 @@ public class Utilizador {
         this.tipoUtilizador = tipoUtilizador;
     }
 
+    /**
+     * Retorna os dados do Objeto Utilizador
+     */
     @Override
     public String toString() {
         return "Utilizador: " + username +

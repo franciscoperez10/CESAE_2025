@@ -10,7 +10,7 @@ import java.util.ArrayList;
  * Repositório responsável por carregar e fornecer a lista de utilizadores do sistema.
  */
 public class RepoUtilizador {
-
+    // Lista de Utilizadores carregada através do CSV
     private ArrayList<Utilizador> utilizadorArray;
 
     /**

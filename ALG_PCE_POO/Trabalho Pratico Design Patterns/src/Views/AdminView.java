@@ -11,10 +11,12 @@ import java.util.Scanner;
 public class AdminView {
 
     private AdminController adminController;
+    // Scanner para ler os inputs do utilizador
     private Scanner input = new Scanner(System.in);
 
     /**
      * Inicia o controlador
+     *
      * @throws FileNotFoundException
      */
     public AdminView() throws FileNotFoundException {
@@ -54,10 +56,12 @@ public class AdminView {
 
             switch (opcaoAdmin) {
                 case 1:
+                    // Mostra o número total de reservas
                     int total = adminController.mostrarTotalReservas();
                     System.out.println("Total de Reservas: " + total);
                     break;
                 case 2:
+                    // Mostra o valor total das receitas do hotel
                     double receitas = adminController.mostrarTotalReceitas();
                     System.out.println("Total de Receitas: " + receitas + " €");
                     break;

@@ -11,6 +11,7 @@ import java.util.ArrayList;
  */
 
 public class RepoClientes {
+    // Lista de clientes carregada através do ficheiro CSV
     private ArrayList<Cliente> clientesArray;
 
     /**

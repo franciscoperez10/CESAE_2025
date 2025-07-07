@@ -74,6 +74,7 @@ public class ClienteController {
 
         for (Quarto quarto : quartos) {
             if (quarto.isDisponivel()) {
+                // Procura pela tipologia correspondente ao quarto
                 Tipologia tipologia = gerarTipologia(quarto.getId_tipologia(), tipologias);
                 if (tipologia != null) {
                     System.out.println("Num_Quarto: " + quarto.getNum_quarto() +
@@ -122,6 +123,7 @@ public class ClienteController {
         ArrayList<Experiencia> experienciasFavoritas = new ArrayList<>();
 
         double melhorRating = 0.0;
+        // Procura a melhor média do Rating
         for (Experiencia experiencia : todasExperiencias) {
             double soma = 0.0;
             int contagem = 0;
@@ -139,6 +141,7 @@ public class ClienteController {
             }
         }
 
+        // Adiciona as experiências que obtiveram média máxima
         for (Experiencia experiencia : todasExperiencias) {
             double soma = 0.0;
             int contagem = 0;

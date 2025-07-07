@@ -11,6 +11,7 @@ import java.util.ArrayList;
  * Repositório que carrega e fornece as avaliações (Ratings) das experiências
  */
 public class RepoRating {
+    // Lista de Ratings carregada através do CSV
     private ArrayList<Rating> ratingsArray;
 
     /**

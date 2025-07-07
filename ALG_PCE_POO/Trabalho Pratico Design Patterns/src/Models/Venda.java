@@ -60,6 +60,9 @@ public class Venda {
         this.mes = mes;
     }
 
+    /**
+     * Retorna os dados do Objeto Venda
+     */
     @Override
     public String toString() {
         return "ID da Venda: " + idVenda +

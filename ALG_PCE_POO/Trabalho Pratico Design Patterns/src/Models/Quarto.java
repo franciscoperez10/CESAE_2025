@@ -48,6 +48,9 @@ public class Quarto {
         this.disponivel = disponivel;
     }
 
+    /**
+     * Retorna os dados do Objeto Quarto
+     */
     @Override
     public String toString() {
         return "Quarto Nº: " + num_quarto +

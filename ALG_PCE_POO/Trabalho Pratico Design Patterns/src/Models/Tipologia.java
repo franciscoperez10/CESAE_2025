@@ -40,6 +40,9 @@ public class Tipologia {
         this.precoPorSemana = precoPorSemana;
     }
 
+    /**
+     * Retorna os dados do Objeto Tipologia
+     */
     @Override
     public String toString() {
         return "Tipologia: " + descricao +

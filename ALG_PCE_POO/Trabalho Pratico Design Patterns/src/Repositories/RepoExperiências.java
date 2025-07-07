@@ -8,6 +8,7 @@ import java.io.FileReader;
 import java.util.ArrayList;
 
 public class RepoExperiências {
+    // Lista de Experiências carregadas a partir do CSV
     private ArrayList<Experiencia> experienciasArray;
 
     /**

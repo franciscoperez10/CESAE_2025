@@ -68,6 +68,9 @@ public class Reserva {
         this.semanaReserva = semanaReserva;
     }
 
+    /**
+     * Retorna os dados do Objeto Reserva
+     */
     @Override
     public String toString() {
         return "ID da Reserva: " + idReserva +

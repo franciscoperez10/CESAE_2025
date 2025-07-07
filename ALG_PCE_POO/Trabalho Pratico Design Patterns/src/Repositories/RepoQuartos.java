@@ -11,6 +11,7 @@ import java.util.ArrayList;
  * Repositório que carrega a lista de Quartos do Hotel
  */
 public class RepoQuartos {
+    // Lista de Quartos carregada através do CSV
     private ArrayList<Quarto> quartosArray;
 
     /**
