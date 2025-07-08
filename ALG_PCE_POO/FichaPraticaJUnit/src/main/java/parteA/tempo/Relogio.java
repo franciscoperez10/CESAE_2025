@@ -20,6 +20,26 @@ public class Relogio {
     private int segundo;     // Segundos actuais (0-59)
     private int anoFabrico;  // Ano de fabrico do relógio
 
+    public String getMarca() {
+        return marca;
+    }
+
+    public int getHora() {
+        return hora;
+    }
+
+    public int getMinuto() {
+        return minuto;
+    }
+
+    public int getSegundo() {
+        return segundo;
+    }
+
+    public int getAnoFabrico() {
+        return anoFabrico;
+    }
+
     /**
      * Constrói um Relogio com os valores fornecidos.
      *
@@ -35,6 +55,8 @@ public class Relogio {
         this.minuto = minuto;
         this.segundo = segundo;
         this.anoFabrico = anoFabrico;
+
+
     }
 
     /**
