@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="cc0f9f57-8d2f-4ea5-b59f-78f319d27539" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../Trabalho Pratico Design Patterns/src/Controllers/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Trabalho Pratico Design Patterns/src/Controllers/AdminController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Trabalho Pratico Design Patterns/src/Controllers/ClienteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Trabalho Pratico Design Patterns/src/Controllers/ClienteController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Trabalho Pratico Design Patterns/src/Controllers/GuiaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Trabalho Pratico Design Patterns/src/Controllers/GuiaController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Trabalho Pratico Design Patterns/src/Controllers/RecepcionistaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Trabalho Pratico Design Patterns/src/Controllers/RecepcionistaController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Trabalho Pratico Design Patterns/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Trabalho Pratico Design Patterns/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Trabalho Pratico Design Patterns/src/Models/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Trabalho Pratico Design Patterns/src/Models/Cliente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Trabalho Pratico Design Patterns/src/Models/Experiencia.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Trabalho Pratico Design Patterns/src/Models/Experiencia.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Trabalho Pratico Design Patterns/src/Models/GuiaExperiencia.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Trabalho Pratico Design Patterns/src/Models/GuiaExperiencia.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Trabalho Pratico Design Patterns/src/Models/Quarto.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Trabalho Pratico Design Patterns/src/Models/Quarto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Trabalho Pratico Design Patterns/src/Models/Rating.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Trabalho Pratico Design Patterns/src/Models/Rating.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Trabalho Pratico Design Patterns/src/Models/Reserva.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Trabalho Pratico Design Patterns/src/Models/Reserva.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Trabalho Pratico Design Patterns/src/Models/Tipologia.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Trabalho Pratico Design Patterns/src/Models/Tipologia.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Trabalho Pratico Design Patterns/src/Models/Utilizador.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Trabalho Pratico Design Patterns/src/Models/Utilizador.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Trabalho Pratico Design Patterns/src/Models/Venda.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Trabalho Pratico Design Patterns/src/Models/Venda.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Trabalho Pratico Design Patterns/src/Tools/HotelFileReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Trabalho Pratico Design Patterns/src/Tools/HotelFileReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Trabalho Pratico Design Patterns/src/Views/AdminView.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Trabalho Pratico Design Patterns/src/Views/AdminView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Trabalho Pratico Design Patterns/src/Views/ClienteView.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Trabalho Pratico Design Patterns/src/Views/ClienteView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Trabalho Pratico Design Patterns/src/Views/GuiaView.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Trabalho Pratico Design Patterns/src/Views/GuiaView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Trabalho Pratico Design Patterns/src/Views/LoginView.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Trabalho Pratico Design Patterns/src/Views/LoginView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Trabalho Pratico Design Patterns/src/Views/RecepcionistaView.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Trabalho Pratico Design Patterns/src/Views/RecepcionistaView.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "franciscoperez10"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/franciscoperez10/Cesae_2025.git",
+    "accountId": "1e4999d2-090f-4ce9-899a-59c8d1f61ad5"
+  }
+}]]></component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 8
+}]]></component>
+  <component name="ProjectId" id="2zVK5tTLUHnq27ieibowGHLvPtu" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "G:/O meu disco/CESAE/CESAE_2025/ALG_PCE_POO/MVC"
+  }
+}]]></component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="cc0f9f57-8d2f-4ea5-b59f-78f319d27539" name="Changes" comment="" />
+      <created>1751810620851</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1751810620851</updated>
+    </task>
+    <servers />
+  </component>
+</project>
